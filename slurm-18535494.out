@@ -1,0 +1,2595 @@
+julia version 1.12.6
+Running nca_traj_trial.jl...
+[ Info: STARTING: spread at 0.5
+[ Info: CUDA: CuDevice(0) (NVIDIA L40S)
+[ Info: run 20260722_135506
+[ Info: [traj] step 0001/3000 | loss 6.752083e-02 | log10 -1.1706 | ||g|| 3.4527e+01 | lr 2.00e-03
+[ Info: [traj] step 0002/3000 | loss 3.514980e+01 | log10 1.5459 | ||g|| 1.8779e+04 | lr 2.00e-03
+Trajectory fitting:   0%|                               |  ETA: 15:16:49[K
+        loss: 35.149803[K
+   grad_norm: 18778.80411049912[K[A[A[ Info: [traj] step 0003/3000 | loss 6.662101e+03 | log10 3.8236 | ||g|| 3.4277e+06 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|                               |  ETA: 10:25:55[K
+        loss: 6662.1006[K
+   grad_norm: 3.427704253042087e6[K[A[A[ Info: [traj] step 0004/3000 | loss 3.335884e+01 | log10 1.5232 | ||g|| 1.8306e+04 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|                               |  ETA: 7:59:41[K
+        loss: 33.35884[K
+   grad_norm: 18306.107290994296[K[A[A[ Info: [traj] step 0005/3000 | loss 5.894681e+00 | log10 0.7705 | ||g|| 2.6697e+03 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|                               |  ETA: 6:32:07[K
+        loss: 5.894681[K
+   grad_norm: 2669.6725358139324[K[A[A[ Info: [traj] step 0006/3000 | loss 6.003963e-01 | log10 -0.2216 | ||g|| 1.7297e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|                               |  ETA: 5:32:50[K
+        loss: 0.6003963[K
+   grad_norm: 172.9730169540466[K[A[A[ Info: [traj] step 0007/3000 | loss 6.205937e-01 | log10 -0.2072 | ||g|| 3.9133e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 4:51:30[K
+        loss: 0.6205937[K
+   grad_norm: 391.33160202934715[K[A[A[ Info: [traj] step 0008/3000 | loss 2.706900e-01 | log10 -0.5675 | ||g|| 1.2562e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 4:19:36[K
+        loss: 0.27068996[K
+   grad_norm: 125.62314802509547[K[A[A[ Info: [traj] step 0009/3000 | loss 2.514673e-01 | log10 -0.5995 | ||g|| 5.2855e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 3:55:15[K
+        loss: 0.2514673[K
+   grad_norm: 52.85505068598945[K[A[A[ Info: [traj] step 0010/3000 | loss 6.057108e-01 | log10 -0.2177 | ||g|| 3.8044e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 3:35:42[K
+        loss: 0.6057108[K
+   grad_norm: 380.43607022896845[K[A[A[ Info: [traj] step 0011/3000 | loss 1.252214e-01 | log10 -0.9023 | ||g|| 3.3858e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 3:19:23[K
+        loss: 0.12522145[K
+   grad_norm: 33.8582708085165[K[A[A[ Info: [traj] step 0012/3000 | loss 8.855895e-02 | log10 -1.0528 | ||g|| 2.2871e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 3:06:14[K
+        loss: 0.08855895[K
+   grad_norm: 22.871100849689324[K[A[A[ Info: [traj] step 0013/3000 | loss 9.055683e-02 | log10 -1.0431 | ||g|| 4.0055e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 2:54:41[K
+        loss: 0.09055683[K
+   grad_norm: 40.055038376516684[K[A[A[ Info: [traj] step 0014/3000 | loss 2.143918e-01 | log10 -0.6688 | ||g|| 5.6922e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 2:45:13[K
+        loss: 0.21439183[K
+   grad_norm: 56.92202302435234[K[A[A[ Info: [traj] step 0015/3000 | loss 5.643002e-02 | log10 -1.2485 | ||g|| 1.8280e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   0%|▏                              |  ETA: 2:36:35[K
+        loss: 0.056430023[K
+   grad_norm: 18.2795438548744[K[A[A[ Info: [traj] step 0016/3000 | loss 2.484877e+00 | log10 0.3953 | ||g|| 1.1278e+03 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▏                              |  ETA: 2:29:17[K
+        loss: 2.4848773[K
+   grad_norm: 1127.8012202376633[K[A[A[ Info: [traj] step 0017/3000 | loss 1.452518e+00 | log10 0.1621 | ||g|| 6.7256e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▏                              |  ETA: 2:22:50[K
+        loss: 1.4525176[K
+   grad_norm: 672.5610299777068[K[A[A[ Info: [traj] step 0018/3000 | loss 7.280420e-02 | log10 -1.1378 | ||g|| 3.8893e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▏                              |  ETA: 2:16:54[K
+        loss: 0.0728042[K
+   grad_norm: 38.89295162295104[K[A[A[ Info: [traj] step 0019/3000 | loss 5.333145e-01 | log10 -0.2730 | ||g|| 1.0351e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 2:11:52[K
+        loss: 0.5333145[K
+   grad_norm: 103.50766536001701[K[A[A[ Info: [traj] step 0020/3000 | loss 2.809336e-01 | log10 -0.5514 | ||g|| 3.9956e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 2:07:07[K
+        loss: 0.28093362[K
+   grad_norm: 39.95648584824856[K[A[A[ Info: [traj] step 0021/3000 | loss 1.263115e-01 | log10 -0.8986 | ||g|| 6.1465e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 2:03:07[K
+        loss: 0.12631147[K
+   grad_norm: 61.46516239288392[K[A[A[ Info: [traj] step 0022/3000 | loss 6.949816e-02 | log10 -1.1580 | ||g|| 3.3293e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:59:10[K
+        loss: 0.06949816[K
+   grad_norm: 33.29340269607758[K[A[A[ Info: [traj] step 0023/3000 | loss 1.027708e-01 | log10 -0.9881 | ||g|| 6.4416e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:55:45[K
+        loss: 0.10277083[K
+   grad_norm: 64.41622581010184[K[A[A[ Info: [traj] step 0024/3000 | loss 3.904688e-02 | log10 -1.4084 | ||g|| 6.5206e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:52:35[K
+        loss: 0.039046876[K
+   grad_norm: 6.520631815138675[K[A[A[ Info: [traj] step 0025/3000 | loss 6.029413e-02 | log10 -1.2197 | ||g|| 3.1841e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:49:30[K
+        loss: 0.06029413[K
+   grad_norm: 31.840701908320327[K[A[A[ Info: [traj] step 0026/3000 | loss 8.036327e-02 | log10 -1.0949 | ||g|| 4.2323e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:46:52[K
+        loss: 0.08036327[K
+   grad_norm: 42.322880130542295[K[A[A[ Info: [traj] step 0027/3000 | loss 2.824629e-02 | log10 -1.5490 | ||g|| 4.0586e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:44:14[K
+        loss: 0.028246295[K
+   grad_norm: 4.0585627115204765[K[A[A[ Info: [traj] step 0028/3000 | loss 2.277954e-01 | log10 -0.6425 | ||g|| 1.3086e+02 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:42:03[K
+        loss: 0.22779536[K
+   grad_norm: 130.85858906621286[K[A[A[ Info: [traj] step 0029/3000 | loss 9.980200e-02 | log10 -1.0009 | ||g|| 6.1072e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:39:45[K
+        loss: 0.099802[K
+   grad_norm: 61.072348725734635[K[A[A[ Info: [traj] step 0030/3000 | loss 8.977918e-02 | log10 -1.0468 | ||g|| 2.8647e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▎                              |  ETA: 1:37:44[K
+        loss: 0.08977918[K
+   grad_norm: 28.647129690736136[K[A[A[ Info: [traj] step 0031/3000 | loss 8.976495e-02 | log10 -1.0469 | ||g|| 2.7809e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:35:51[K
+        loss: 0.08976495[K
+   grad_norm: 27.809238926404362[K[A[A[ Info: [traj] step 0032/3000 | loss 3.181520e-02 | log10 -1.4974 | ||g|| 5.3400e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:33:58[K
+        loss: 0.031815205[K
+   grad_norm: 5.33996909981563[K[A[A[ Info: [traj] step 0033/3000 | loss 9.775069e-02 | log10 -1.0099 | ||g|| 5.4262e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:32:21[K
+        loss: 0.09775069[K
+   grad_norm: 54.26232431917364[K[A[A[ Info: [traj] step 0034/3000 | loss 1.671398e-01 | log10 -0.7769 | ||g|| 5.5655e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:30:41[K
+        loss: 0.1671398[K
+   grad_norm: 55.65499870071271[K[A[A[ Info: [traj] step 0035/3000 | loss 4.464138e-02 | log10 -1.3503 | ||g|| 1.4581e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:29:19[K
+        loss: 0.044641383[K
+   grad_norm: 14.581211723771963[K[A[A[ Info: [traj] step 0036/3000 | loss 3.917578e-02 | log10 -1.4070 | ||g|| 1.7689e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:27:49[K
+        loss: 0.039175782[K
+   grad_norm: 17.68879541040568[K[A[A[ Info: [traj] step 0037/3000 | loss 3.792693e-02 | log10 -1.4211 | ||g|| 6.9826e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:26:30[K
+        loss: 0.037926927[K
+   grad_norm: 6.982584272352916[K[A[A[ Info: [traj] step 0038/3000 | loss 4.151774e-02 | log10 -1.3818 | ||g|| 1.0031e+01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:25:17[K
+        loss: 0.041517742[K
+   grad_norm: 10.03051422774346[K[A[A[ Info: [traj] step 0039/3000 | loss 3.406684e-02 | log10 -1.4677 | ||g|| 6.8177e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:24:01[K
+        loss: 0.034066845[K
+   grad_norm: 6.817665157741761[K[A[A[ Info: [traj] step 0040/3000 | loss 2.857410e-02 | log10 -1.5440 | ||g|| 4.4393e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:22:58[K
+        loss: 0.028574098[K
+   grad_norm: 4.439337068157537[K[A[A[ Info: [traj] step 0041/3000 | loss 2.659688e-02 | log10 -1.5752 | ||g|| 7.7188e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:21:49[K
+        loss: 0.02659688[K
+   grad_norm: 7.7188353205650735[K[A[A[ Info: [traj] step 0042/3000 | loss 2.244102e-02 | log10 -1.6490 | ||g|| 1.9625e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▍                              |  ETA: 1:20:55[K
+        loss: 0.022441018[K
+   grad_norm: 1.9625055737961281[K[A[A[ Info: [traj] step 0043/3000 | loss 1.879392e-02 | log10 -1.7260 | ||g|| 1.9889e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▌                              |  ETA: 1:19:53[K
+        loss: 0.018793922[K
+   grad_norm: 1.98887668060931[K[A[A[ Info: [traj] step 0044/3000 | loss 2.025316e-02 | log10 -1.6935 | ||g|| 7.0583e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   1%|▌                              |  ETA: 1:18:59[K
+        loss: 0.020253157[K
+   grad_norm: 7.058268200704332[K[A[A[ Info: [traj] step 0045/3000 | loss 1.836140e-02 | log10 -1.7361 | ||g|| 2.3711e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:18:09[K
+        loss: 0.0183614[K
+   grad_norm: 2.371076081446018[K[A[A[ Info: [traj] step 0046/3000 | loss 2.121827e-02 | log10 -1.6733 | ||g|| 7.9729e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:17:15[K
+        loss: 0.021218268[K
+   grad_norm: 7.972893090499024[K[A[A[ Info: [traj] step 0047/3000 | loss 2.131629e-02 | log10 -1.6713 | ||g|| 3.5045e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:16:30[K
+        loss: 0.021316288[K
+   grad_norm: 3.504492323017306[K[A[A[ Info: [traj] step 0048/3000 | loss 1.771276e-02 | log10 -1.7517 | ||g|| 3.4919e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:15:40[K
+        loss: 0.017712755[K
+   grad_norm: 3.491910088962359[K[A[A[ Info: [traj] step 0049/3000 | loss 1.825753e-02 | log10 -1.7386 | ||g|| 3.4403e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:15:00[K
+        loss: 0.018257529[K
+   grad_norm: 3.440331502123906[K[A[A[ Info: [traj] step 0050/3000 | loss 1.599013e-02 | log10 -1.7961 | ||g|| 2.2281e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:15:06[K
+        loss: 0.015990134[K
+   grad_norm: 2.228139638997291[K[A[A[ Info: [traj] step 0051/3000 | loss 1.596453e-02 | log10 -1.7968 | ||g|| 2.7873e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:14:24[K
+        loss: 0.015964534[K
+   grad_norm: 2.787340372853421[K[A[A[ Info: [traj] step 0052/3000 | loss 1.565766e-02 | log10 -1.8053 | ||g|| 1.9344e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:13:50[K
+        loss: 0.015657658[K
+   grad_norm: 1.9344147643353689[K[A[A[ Info: [traj] step 0053/3000 | loss 1.521971e-02 | log10 -1.8176 | ||g|| 2.2997e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:13:08[K
+        loss: 0.015219706[K
+   grad_norm: 2.299733822594617[K[A[A[ Info: [traj] step 0054/3000 | loss 1.463377e-02 | log10 -1.8346 | ||g|| 3.6735e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▌                              |  ETA: 1:12:31[K
+        loss: 0.014633769[K
+   grad_norm: 3.673458875550622[K[A[A[ Info: [traj] step 0055/3000 | loss 1.469961e-02 | log10 -1.8327 | ||g|| 3.9170e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:11:52[K
+        loss: 0.014699613[K
+   grad_norm: 3.91702608937272[K[A[A[ Info: [traj] step 0056/3000 | loss 1.424116e-02 | log10 -1.8465 | ||g|| 1.3842e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:11:20[K
+        loss: 0.014241157[K
+   grad_norm: 1.3842195508376882[K[A[A[ Info: [traj] step 0057/3000 | loss 1.366359e-02 | log10 -1.8644 | ||g|| 1.8500e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:10:44[K
+        loss: 0.013663587[K
+   grad_norm: 1.8500184898390346[K[A[A[ Info: [traj] step 0058/3000 | loss 1.440412e-02 | log10 -1.8415 | ||g|| 3.3321e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:10:14[K
+        loss: 0.014404121[K
+   grad_norm: 3.3321478793893253[K[A[A[ Info: [traj] step 0059/3000 | loss 1.270983e-02 | log10 -1.8959 | ||g|| 4.9624e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:09:44[K
+        loss: 0.012709832[K
+   grad_norm: 0.4962413137353935[K[A[A[ Info: [traj] step 0060/3000 | loss 1.555510e-02 | log10 -1.8081 | ||g|| 5.7143e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:09:10[K
+        loss: 0.015555101[K
+   grad_norm: 5.714296493693573[K[A[A[ Info: [traj] step 0061/3000 | loss 1.601056e-02 | log10 -1.7956 | ||g|| 3.6749e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:08:42[K
+        loss: 0.016010562[K
+   grad_norm: 3.674866581381346[K[A[A[ Info: [traj] step 0062/3000 | loss 1.729645e-02 | log10 -1.7620 | ||g|| 5.3533e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:08:10[K
+        loss: 0.017296454[K
+   grad_norm: 5.353313895284649[K[A[A[ Info: [traj] step 0063/3000 | loss 1.665767e-02 | log10 -1.7784 | ||g|| 5.5685e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:07:45[K
+        loss: 0.016657671[K
+   grad_norm: 5.568458147156922[K[A[A[ Info: [traj] step 0064/3000 | loss 1.328878e-02 | log10 -1.8765 | ||g|| 9.9727e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:07:15[K
+        loss: 0.013288783[K
+   grad_norm: 0.9972652461058366[K[A[A[ Info: [traj] step 0065/3000 | loss 1.222789e-02 | log10 -1.9126 | ||g|| 1.7401e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:06:52[K
+        loss: 0.012227892[K
+   grad_norm: 1.7400587773795473[K[A[A[ Info: [traj] step 0066/3000 | loss 1.323096e-02 | log10 -1.8784 | ||g|| 3.2160e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▋                              |  ETA: 1:06:27[K
+        loss: 0.013230965[K
+   grad_norm: 3.216036497187592[K[A[A[ Info: [traj] step 0067/3000 | loss 1.322242e-02 | log10 -1.8787 | ||g|| 1.9581e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:06:00[K
+        loss: 0.013222423[K
+   grad_norm: 1.9581274564129323[K[A[A[ Info: [traj] step 0068/3000 | loss 1.458484e-02 | log10 -1.8361 | ||g|| 4.6629e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:05:37[K
+        loss: 0.014584845[K
+   grad_norm: 4.662907823208174[K[A[A[ Info: [traj] step 0069/3000 | loss 1.427097e-02 | log10 -1.8455 | ||g|| 4.4500e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:05:11[K
+        loss: 0.014270973[K
+   grad_norm: 4.449984889182451[K[A[A[ Info: [traj] step 0070/3000 | loss 1.222289e-02 | log10 -1.9128 | ||g|| 1.4083e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:04:51[K
+        loss: 0.01222289[K
+   grad_norm: 1.4082814409471605[K[A[A[ Info: [traj] step 0071/3000 | loss 1.172685e-02 | log10 -1.9308 | ||g|| 1.3577e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:04:27[K
+        loss: 0.011726851[K
+   grad_norm: 1.3576602532108057[K[A[A[ Info: [traj] step 0072/3000 | loss 1.260897e-02 | log10 -1.8993 | ||g|| 3.7204e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:04:08[K
+        loss: 0.012608968[K
+   grad_norm: 3.720352611854151[K[A[A[ Info: [traj] step 0073/3000 | loss 1.228277e-02 | log10 -1.9107 | ||g|| 2.5506e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:03:48[K
+        loss: 0.012282766[K
+   grad_norm: 2.550581670316253[K[A[A[ Info: [traj] step 0074/3000 | loss 1.301802e-02 | log10 -1.8855 | ||g|| 4.1169e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:03:25[K
+        loss: 0.013018024[K
+   grad_norm: 4.116914384604179[K[A[A[ Info: [traj] step 0075/3000 | loss 1.325724e-02 | log10 -1.8775 | ||g|| 3.8936e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   2%|▊                              |  ETA: 1:03:07[K
+        loss: 0.013257243[K
+   grad_norm: 3.893551137090534[K[A[A[ Info: [traj] step 0076/3000 | loss 1.231123e-02 | log10 -1.9097 | ||g|| 2.3869e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▊                              |  ETA: 1:02:45[K
+        loss: 0.012311226[K
+   grad_norm: 2.38689136285741[K[A[A[ Info: [traj] step 0077/3000 | loss 1.113756e-02 | log10 -1.9532 | ||g|| 2.0475e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▊                              |  ETA: 1:02:29[K
+        loss: 0.01113756[K
+   grad_norm: 2.0474827340360906[K[A[A[ Info: [traj] step 0078/3000 | loss 1.175280e-02 | log10 -1.9299 | ||g|| 3.2976e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▊                              |  ETA: 1:02:09[K
+        loss: 0.011752805[K
+   grad_norm: 3.297587111705317[K[A[A[ Info: [traj] step 0079/3000 | loss 1.157588e-02 | log10 -1.9364 | ||g|| 3.2667e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:01:53[K
+        loss: 0.011575883[K
+   grad_norm: 3.26667268656111[K[A[A[ Info: [traj] step 0080/3000 | loss 1.002028e-02 | log10 -1.9991 | ||g|| 1.3142e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:01:37[K
+        loss: 0.01002028[K
+   grad_norm: 1.3142231980826418[K[A[A[ Info: [traj] step 0081/3000 | loss 9.415954e-03 | log10 -2.0261 | ||g|| 9.5454e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:01:18[K
+        loss: 0.009415954[K
+   grad_norm: 0.9545434816458751[K[A[A[ Info: [traj] step 0082/3000 | loss 1.074355e-02 | log10 -1.9689 | ||g|| 3.4059e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:01:02[K
+        loss: 0.01074355[K
+   grad_norm: 3.4059443365468667[K[A[A[ Info: [traj] step 0083/3000 | loss 9.815139e-03 | log10 -2.0081 | ||g|| 2.4425e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:00:44[K
+        loss: 0.009815139[K
+   grad_norm: 2.442460538054277[K[A[A[ Info: [traj] step 0084/3000 | loss 1.036415e-02 | log10 -1.9845 | ||g|| 3.2948e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:00:31[K
+        loss: 0.010364149[K
+   grad_norm: 3.2947912920239446[K[A[A[ Info: [traj] step 0085/3000 | loss 9.750979e-03 | log10 -2.0110 | ||g|| 3.1201e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:00:14[K
+        loss: 0.009750979[K
+   grad_norm: 3.1201330278959696[K[A[A[ Info: [traj] step 0086/3000 | loss 8.883202e-03 | log10 -2.0514 | ||g|| 1.5878e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 1:00:01[K
+        loss: 0.008883202[K
+   grad_norm: 1.5878117557294882[K[A[A[ Info: [traj] step 0087/3000 | loss 8.411902e-03 | log10 -2.0751 | ||g|| 1.1128e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 0:59:46[K
+        loss: 0.008411902[K
+   grad_norm: 1.1128245470834235[K[A[A[ Info: [traj] step 0088/3000 | loss 9.698676e-03 | log10 -2.0133 | ||g|| 3.5093e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 0:59:30[K
+        loss: 0.009698676[K
+   grad_norm: 3.5092888753249905[K[A[A[ Info: [traj] step 0089/3000 | loss 9.600447e-03 | log10 -2.0177 | ||g|| 3.2129e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 0:59:16[K
+        loss: 0.0096004475[K
+   grad_norm: 3.2129405477529223[K[A[A[ Info: [traj] step 0090/3000 | loss 8.069430e-03 | log10 -2.0932 | ||g|| 1.5451e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|▉                              |  ETA: 0:59:01[K
+        loss: 0.00806943[K
+   grad_norm: 1.545085095290665[K[A[A[ Info: [traj] step 0091/3000 | loss 7.681520e-03 | log10 -2.1146 | ||g|| 1.7851e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:58:49[K
+        loss: 0.00768152[K
+   grad_norm: 1.7850862016263496[K[A[A[ Info: [traj] step 0092/3000 | loss 7.807492e-03 | log10 -2.1075 | ||g|| 2.3717e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:58:34[K
+        loss: 0.0078074923[K
+   grad_norm: 2.3716794467372058[K[A[A[ Info: [traj] step 0093/3000 | loss 7.440822e-03 | log10 -2.1284 | ||g|| 1.8008e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:58:23[K
+        loss: 0.0074408217[K
+   grad_norm: 1.8008190723103155[K[A[A[ Info: [traj] step 0094/3000 | loss 7.656301e-03 | log10 -2.1160 | ||g|| 2.4757e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:58:10[K
+        loss: 0.007656301[K
+   grad_norm: 2.4757444088741125[K[A[A[ Info: [traj] step 0095/3000 | loss 7.523482e-03 | log10 -2.1236 | ||g|| 2.2847e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:57:56[K
+        loss: 0.007523482[K
+   grad_norm: 2.2847113197908056[K[A[A[ Info: [traj] step 0096/3000 | loss 7.113970e-03 | log10 -2.1479 | ||g|| 1.6722e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:57:44[K
+        loss: 0.00711397[K
+   grad_norm: 1.6722169721873867[K[A[A[ Info: [traj] step 0097/3000 | loss 6.502398e-03 | log10 -2.1869 | ||g|| 1.0775e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:57:31[K
+        loss: 0.0065023983[K
+   grad_norm: 1.0774619884356966[K[A[A[ Info: [traj] step 0098/3000 | loss 7.961203e-03 | log10 -2.0990 | ||g|| 3.3027e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:57:20[K
+        loss: 0.007961203[K
+   grad_norm: 3.3026912241959394[K[A[A[ Info: [traj] step 0099/3000 | loss 7.176702e-03 | log10 -2.1441 | ||g|| 2.5626e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:57:07[K
+        loss: 0.007176702[K
+   grad_norm: 2.562591918895996[K[A[A[ Info: [traj] step 0100/3000 | loss 6.673691e-03 | log10 -2.1756 | ||g|| 1.8936e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 0:57:22[K
+        loss: 0.006673691[K
+   grad_norm: 1.8936365393215875[K[A[A[ Info: Saved trajectory snapshot: firerate_spread/20260722_135506/outputs/training_snapshots/traj_step_00100.png  loss = 0.006674
+[ Info: [traj] step 0101/3000 | loss 7.558337e-03 | log10 -2.1216 | ||g|| 2.4673e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 1:00:23[K
+        loss: 0.0075583374[K
+   grad_norm: 2.4673461985067253[K[A[A[ Info: [traj] step 0102/3000 | loss 5.497793e-03 | log10 -2.2598 | ||g|| 1.7768e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█                              |  ETA: 1:00:09[K
+        loss: 0.005497793[K
+   grad_norm: 0.17767984390111768[K[A[A[ Info: [traj] step 0103/3000 | loss 6.154487e-03 | log10 -2.2108 | ||g|| 1.2123e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█▏                             |  ETA: 0:59:59[K
+        loss: 0.006154487[K
+   grad_norm: 1.2123019224019749[K[A[A[ Info: [traj] step 0104/3000 | loss 6.048024e-03 | log10 -2.2184 | ||g|| 1.6155e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   3%|█▏                             |  ETA: 0:59:45[K
+        loss: 0.0060480237[K
+   grad_norm: 1.6154810633933665[K[A[A[ Info: [traj] step 0105/3000 | loss 7.019567e-03 | log10 -2.1537 | ||g|| 2.0231e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:59:33[K
+        loss: 0.0070195673[K
+   grad_norm: 2.023083049080365[K[A[A[ Info: [traj] step 0106/3000 | loss 1.012777e-02 | log10 -1.9945 | ||g|| 3.1961e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:59:20[K
+        loss: 0.010127766[K
+   grad_norm: 3.1961065115650196[K[A[A[ Info: [traj] step 0107/3000 | loss 6.490658e-03 | log10 -2.1877 | ||g|| 1.3325e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:59:10[K
+        loss: 0.006490658[K
+   grad_norm: 1.3325236934574722[K[A[A[ Info: [traj] step 0108/3000 | loss 1.554524e-02 | log10 -1.8084 | ||g|| 5.8667e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:58:57[K
+        loss: 0.015545237[K
+   grad_norm: 5.866725328005194[K[A[A[ Info: [traj] step 0109/3000 | loss 1.550954e-02 | log10 -1.8094 | ||g|| 5.2343e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:58:47[K
+        loss: 0.015509543[K
+   grad_norm: 5.234276129311803[K[A[A[ Info: [traj] step 0110/3000 | loss 7.993777e-03 | log10 -2.0972 | ||g|| 2.4916e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:58:36[K
+        loss: 0.007993777[K
+   grad_norm: 2.4916499256137996[K[A[A[ Info: [traj] step 0111/3000 | loss 8.869477e-03 | log10 -2.0521 | ||g|| 2.1729e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:58:24[K
+        loss: 0.008869477[K
+   grad_norm: 2.172931723102504[K[A[A[ Info: [traj] step 0112/3000 | loss 1.138501e-02 | log10 -1.9437 | ||g|| 3.1906e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:58:13[K
+        loss: 0.011385007[K
+   grad_norm: 3.1906322117746004[K[A[A[ Info: [traj] step 0113/3000 | loss 8.429042e-03 | log10 -2.0742 | ||g|| 1.4869e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:58:01[K
+        loss: 0.008429042[K
+   grad_norm: 1.486854258334876[K[A[A[ Info: [traj] step 0114/3000 | loss 8.544813e-03 | log10 -2.0683 | ||g|| 2.8599e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▏                             |  ETA: 0:57:52[K
+        loss: 0.008544813[K
+   grad_norm: 2.859921233556445[K[A[A[ Info: [traj] step 0115/3000 | loss 9.637340e-03 | log10 -2.0160 | ||g|| 2.4851e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:57:40[K
+        loss: 0.00963734[K
+   grad_norm: 2.4850696644956383[K[A[A[ Info: [traj] step 0116/3000 | loss 6.949041e-03 | log10 -2.1581 | ||g|| 1.6979e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:57:31[K
+        loss: 0.006949041[K
+   grad_norm: 1.6979489279591875[K[A[A[ Info: [traj] step 0117/3000 | loss 7.164805e-03 | log10 -2.1448 | ||g|| 1.6628e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:57:21[K
+        loss: 0.0071648047[K
+   grad_norm: 1.6628467511010838[K[A[A[ Info: [traj] step 0118/3000 | loss 6.357347e-03 | log10 -2.1967 | ||g|| 1.0181e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:57:10[K
+        loss: 0.0063573467[K
+   grad_norm: 1.0180747567848139[K[A[A[ Info: [traj] step 0119/3000 | loss 7.275259e-03 | log10 -2.1382 | ||g|| 2.5568e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:57:01[K
+        loss: 0.0072752587[K
+   grad_norm: 2.556758806956312[K[A[A[ Info: [traj] step 0120/3000 | loss 6.948866e-03 | log10 -2.1581 | ||g|| 1.0908e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:56:51[K
+        loss: 0.006948866[K
+   grad_norm: 1.0908487205397783[K[A[A[ Info: [traj] step 0121/3000 | loss 8.274457e-03 | log10 -2.0823 | ||g|| 3.7325e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:56:43[K
+        loss: 0.008274457[K
+   grad_norm: 3.7324538358189203[K[A[A[ Info: [traj] step 0122/3000 | loss 9.152552e-03 | log10 -2.0385 | ||g|| 2.9273e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:56:32[K
+        loss: 0.009152552[K
+   grad_norm: 2.9273218723227585[K[A[A[ Info: [traj] step 0123/3000 | loss 6.952360e-03 | log10 -2.1579 | ||g|| 2.5432e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:56:24[K
+        loss: 0.0069523603[K
+   grad_norm: 2.543222540396812[K[A[A[ Info: [traj] step 0124/3000 | loss 7.676070e-03 | log10 -2.1149 | ||g|| 3.0744e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:56:16[K
+        loss: 0.0076760696[K
+   grad_norm: 3.074433736187193[K[A[A[ Info: [traj] step 0125/3000 | loss 7.270633e-03 | log10 -2.1384 | ||g|| 1.5864e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:56:05[K
+        loss: 0.0072706332[K
+   grad_norm: 1.5864386550801515[K[A[A[ Info: [traj] step 0126/3000 | loss 5.760992e-03 | log10 -2.2395 | ||g|| 2.3477e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:55:57[K
+        loss: 0.0057609924[K
+   grad_norm: 2.3477214224575267[K[A[A[ Info: [traj] step 0127/3000 | loss 6.469961e-03 | log10 -2.1891 | ||g|| 1.2935e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▎                             |  ETA: 0:55:47[K
+        loss: 0.0064699613[K
+   grad_norm: 1.2935416178021497[K[A[A[ Info: [traj] step 0128/3000 | loss 5.369896e-03 | log10 -2.2700 | ||g|| 1.6871e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:55:40[K
+        loss: 0.005369896[K
+   grad_norm: 1.6871215306414997[K[A[A[ Info: [traj] step 0129/3000 | loss 6.244925e-03 | log10 -2.2045 | ||g|| 2.0618e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:55:30[K
+        loss: 0.006244925[K
+   grad_norm: 2.0618279979568976[K[A[A[ Info: [traj] step 0130/3000 | loss 5.738336e-03 | log10 -2.2412 | ||g|| 2.0119e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:55:23[K
+        loss: 0.005738336[K
+   grad_norm: 2.011860394689005[K[A[A[ Info: [traj] step 0131/3000 | loss 5.129500e-03 | log10 -2.2899 | ||g|| 1.6401e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:55:16[K
+        loss: 0.0051295003[K
+   grad_norm: 1.6401046767489649[K[A[A[ Info: [traj] step 0132/3000 | loss 5.373033e-03 | log10 -2.2698 | ||g|| 1.0837e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:55:06[K
+        loss: 0.0053730328[K
+   grad_norm: 1.0836812768618376[K[A[A[ Info: [traj] step 0133/3000 | loss 5.353638e-03 | log10 -2.2714 | ||g|| 2.4021e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:54:59[K
+        loss: 0.005353638[K
+   grad_norm: 2.4021246015899074[K[A[A[ Info: [traj] step 0134/3000 | loss 5.417588e-03 | log10 -2.2662 | ||g|| 1.1521e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:54:51[K
+        loss: 0.005417588[K
+   grad_norm: 1.1521275054581952[K[A[A[ Info: [traj] step 0135/3000 | loss 5.102380e-03 | log10 -2.2922 | ||g|| 2.5436e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   4%|█▍                             |  ETA: 0:54:44[K
+        loss: 0.0051023797[K
+   grad_norm: 2.543551088919813[K[A[A[ Info: [traj] step 0136/3000 | loss 5.166220e-03 | log10 -2.2868 | ||g|| 1.4472e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▍                             |  ETA: 0:54:35[K
+        loss: 0.0051662195[K
+   grad_norm: 1.4471548302560595[K[A[A[ Info: [traj] step 0137/3000 | loss 5.293725e-03 | log10 -2.2762 | ||g|| 2.6614e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▍                             |  ETA: 0:54:29[K
+        loss: 0.005293725[K
+   grad_norm: 2.6614089726176746[K[A[A[ Info: [traj] step 0138/3000 | loss 4.601383e-03 | log10 -2.3371 | ||g|| 1.6554e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▍                             |  ETA: 0:54:22[K
+        loss: 0.0046013827[K
+   grad_norm: 1.655350318286221[K[A[A[ Info: [traj] step 0139/3000 | loss 5.288925e-03 | log10 -2.2766 | ||g|| 2.6549e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▍                             |  ETA: 0:54:14[K
+        loss: 0.005288925[K
+   grad_norm: 2.654890630416149[K[A[A[ Info: [traj] step 0140/3000 | loss 4.733021e-03 | log10 -2.3249 | ||g|| 2.1317e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:54:08[K
+        loss: 0.0047330214[K
+   grad_norm: 2.1317093788913013[K[A[A[ Info: [traj] step 0141/3000 | loss 4.801366e-03 | log10 -2.3186 | ||g|| 2.2439e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:54:00[K
+        loss: 0.004801366[K
+   grad_norm: 2.243866402959539[K[A[A[ Info: [traj] step 0142/3000 | loss 4.451455e-03 | log10 -2.3515 | ||g|| 1.9959e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:55[K
+        loss: 0.004451455[K
+   grad_norm: 1.995892582774163[K[A[A[ Info: [traj] step 0143/3000 | loss 4.763047e-03 | log10 -2.3221 | ||g|| 2.3796e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:47[K
+        loss: 0.0047630467[K
+   grad_norm: 2.3796054618359412[K[A[A[ Info: [traj] step 0144/3000 | loss 4.258069e-03 | log10 -2.3708 | ||g|| 2.1896e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:42[K
+        loss: 0.0042580687[K
+   grad_norm: 2.1895508681292006[K[A[A[ Info: [traj] step 0145/3000 | loss 4.477910e-03 | log10 -2.3489 | ||g|| 1.6815e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:35[K
+        loss: 0.0044779098[K
+   grad_norm: 1.6814611128561732[K[A[A[ Info: [traj] step 0146/3000 | loss 4.007414e-03 | log10 -2.3971 | ||g|| 1.5115e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:28[K
+        loss: 0.0040074135[K
+   grad_norm: 1.511467331158557[K[A[A[ Info: [traj] step 0147/3000 | loss 4.490075e-03 | log10 -2.3477 | ||g|| 2.1416e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:23[K
+        loss: 0.0044900747[K
+   grad_norm: 2.141617909146034[K[A[A[ Info: [traj] step 0148/3000 | loss 3.904492e-03 | log10 -2.4084 | ||g|| 1.7226e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:16[K
+        loss: 0.0039044924[K
+   grad_norm: 1.7225962543849067[K[A[A[ Info: [traj] step 0149/3000 | loss 4.356404e-03 | log10 -2.3609 | ||g|| 2.1185e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:11[K
+        loss: 0.004356404[K
+   grad_norm: 2.1184781817830562[K[A[A[ Info: [traj] step 0150/3000 | loss 3.956862e-03 | log10 -2.4026 | ||g|| 1.9063e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:21[K
+        loss: 0.0039568623[K
+   grad_norm: 1.9063030884280718[K[A[A[ Info: [traj] step 0151/3000 | loss 4.014851e-03 | log10 -2.3963 | ||g|| 1.8265e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▌                             |  ETA: 0:53:15[K
+        loss: 0.0040148506[K
+   grad_norm: 1.8265231425636326[K[A[A[ Info: [traj] step 0152/3000 | loss 3.765462e-03 | log10 -2.4242 | ||g|| 1.6369e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:53:12[K
+        loss: 0.0037654615[K
+   grad_norm: 1.6369124035752942[K[A[A[ Info: [traj] step 0153/3000 | loss 3.834625e-03 | log10 -2.4163 | ||g|| 1.9591e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:53:05[K
+        loss: 0.0038346252[K
+   grad_norm: 1.9591284792940227[K[A[A[ Info: [traj] step 0154/3000 | loss 3.693533e-03 | log10 -2.4326 | ||g|| 1.6492e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:59[K
+        loss: 0.0036935327[K
+   grad_norm: 1.6492073240594223[K[A[A[ Info: [traj] step 0155/3000 | loss 3.757484e-03 | log10 -2.4251 | ||g|| 1.9733e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:52[K
+        loss: 0.0037574836[K
+   grad_norm: 1.9733289556699047[K[A[A[ Info: [traj] step 0156/3000 | loss 3.632148e-03 | log10 -2.4398 | ||g|| 1.8308e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:48[K
+        loss: 0.0036321476[K
+   grad_norm: 1.8308373585781648[K[A[A[ Info: [traj] step 0157/3000 | loss 3.540999e-03 | log10 -2.4509 | ||g|| 1.6208e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:41[K
+        loss: 0.0035409995[K
+   grad_norm: 1.6207573039985097[K[A[A[ Info: [traj] step 0158/3000 | loss 3.396019e-03 | log10 -2.4690 | ||g|| 1.4404e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:36[K
+        loss: 0.0033960186[K
+   grad_norm: 1.440355782807239[K[A[A[ Info: [traj] step 0159/3000 | loss 3.626680e-03 | log10 -2.4405 | ||g|| 1.9778e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:31[K
+        loss: 0.0036266805[K
+   grad_norm: 1.97783619827945[K[A[A[ Info: [traj] step 0160/3000 | loss 3.458087e-03 | log10 -2.4612 | ||g|| 1.7329e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:24[K
+        loss: 0.003458087[K
+   grad_norm: 1.7328662630333644[K[A[A[ Info: [traj] step 0161/3000 | loss 3.274240e-03 | log10 -2.4849 | ||g|| 1.6726e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:19[K
+        loss: 0.0032742403[K
+   grad_norm: 1.6726340403763[K[A[A[ Info: [traj] step 0162/3000 | loss 3.107155e-03 | log10 -2.5076 | ||g|| 1.5114e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:12[K
+        loss: 0.0031071552[K
+   grad_norm: 1.5113756829882348[K[A[A[ Info: [traj] step 0163/3000 | loss 3.516191e-03 | log10 -2.4539 | ||g|| 1.9497e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▋                             |  ETA: 0:52:08[K
+        loss: 0.003516191[K
+   grad_norm: 1.9496905816634866[K[A[A[ Info: [traj] step 0164/3000 | loss 3.473058e-03 | log10 -2.4593 | ||g|| 1.8897e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   5%|█▊                             |  ETA: 0:52:01[K
+        loss: 0.0034730579[K
+   grad_norm: 1.8897467048879482[K[A[A[ Info: [traj] step 0165/3000 | loss 3.038467e-03 | log10 -2.5173 | ||g|| 1.1165e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:57[K
+        loss: 0.003038467[K
+   grad_norm: 1.1164621597011102[K[A[A[ Info: [traj] step 0166/3000 | loss 2.968627e-03 | log10 -2.5274 | ||g|| 1.0365e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:52[K
+        loss: 0.0029686266[K
+   grad_norm: 1.036481935948409[K[A[A[ Info: [traj] step 0167/3000 | loss 4.607347e-03 | log10 -2.3365 | ||g|| 2.2389e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:46[K
+        loss: 0.0046073473[K
+   grad_norm: 2.23894302619016[K[A[A[ Info: [traj] step 0168/3000 | loss 3.348019e-03 | log10 -2.4752 | ||g|| 1.6551e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:41[K
+        loss: 0.0033480194[K
+   grad_norm: 1.6551487320329685[K[A[A[ Info: [traj] step 0169/3000 | loss 5.503114e-03 | log10 -2.2594 | ||g|| 2.5718e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:35[K
+        loss: 0.0055031143[K
+   grad_norm: 2.5717516045189233[K[A[A[ Info: [traj] step 0170/3000 | loss 4.139940e-03 | log10 -2.3830 | ||g|| 2.7933e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:31[K
+        loss: 0.0041399403[K
+   grad_norm: 2.793282780604827[K[A[A[ Info: [traj] step 0171/3000 | loss 4.678770e-03 | log10 -2.3299 | ||g|| 1.9302e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:25[K
+        loss: 0.0046787695[K
+   grad_norm: 1.9302007419725167[K[A[A[ Info: [traj] step 0172/3000 | loss 3.645224e-03 | log10 -2.4383 | ||g|| 2.0352e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:21[K
+        loss: 0.0036452245[K
+   grad_norm: 2.035234422572181[K[A[A[ Info: [traj] step 0173/3000 | loss 5.084309e-03 | log10 -2.2938 | ||g|| 2.7146e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:16[K
+        loss: 0.0050843093[K
+   grad_norm: 2.7145559266117854[K[A[A[ Info: [traj] step 0174/3000 | loss 3.359863e-03 | log10 -2.4737 | ||g|| 9.6468e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:11[K
+        loss: 0.0033598628[K
+   grad_norm: 0.964676131585317[K[A[A[ Info: [traj] step 0175/3000 | loss 6.661496e-03 | log10 -2.1764 | ||g|| 2.6046e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▊                             |  ETA: 0:51:06[K
+        loss: 0.0066614957[K
+   grad_norm: 2.604573306679478[K[A[A[ Info: [traj] step 0176/3000 | loss 7.076119e-03 | log10 -2.1502 | ||g|| 2.0069e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:51:01[K
+        loss: 0.007076119[K
+   grad_norm: 2.0068683426276817[K[A[A[ Info: [traj] step 0177/3000 | loss 3.736369e-03 | log10 -2.4276 | ||g|| 1.4266e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:57[K
+        loss: 0.0037363686[K
+   grad_norm: 1.4265826398838388[K[A[A[ Info: [traj] step 0178/3000 | loss 6.606109e-03 | log10 -2.1801 | ||g|| 2.3470e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:51[K
+        loss: 0.0066061094[K
+   grad_norm: 2.34704278096413[K[A[A[ Info: [traj] step 0179/3000 | loss 6.140568e-03 | log10 -2.2118 | ||g|| 2.1150e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:48[K
+        loss: 0.0061405683[K
+   grad_norm: 2.114965616987936[K[A[A[ Info: [traj] step 0180/3000 | loss 3.623131e-03 | log10 -2.4409 | ||g|| 1.5227e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:44[K
+        loss: 0.0036231312[K
+   grad_norm: 1.5227303034120403[K[A[A[ Info: [traj] step 0181/3000 | loss 5.299831e-03 | log10 -2.2757 | ||g|| 2.0078e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:38[K
+        loss: 0.0052998313[K
+   grad_norm: 2.0078024953970783[K[A[A[ Info: [traj] step 0182/3000 | loss 4.669483e-03 | log10 -2.3307 | ||g|| 2.2102e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:34[K
+        loss: 0.004669483[K
+   grad_norm: 2.2102346918317792[K[A[A[ Info: [traj] step 0183/3000 | loss 3.387622e-03 | log10 -2.4701 | ||g|| 8.5555e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:29[K
+        loss: 0.003387622[K
+   grad_norm: 0.8555480679450728[K[A[A[ Info: [traj] step 0184/3000 | loss 3.789350e-03 | log10 -2.4214 | ||g|| 2.3033e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:25[K
+        loss: 0.0037893497[K
+   grad_norm: 2.3032981253837326[K[A[A[ Info: [traj] step 0185/3000 | loss 3.501787e-03 | log10 -2.4557 | ||g|| 1.6933e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:20[K
+        loss: 0.0035017866[K
+   grad_norm: 1.6933343300492196[K[A[A[ Info: [traj] step 0186/3000 | loss 3.490646e-03 | log10 -2.4571 | ||g|| 1.9321e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:17[K
+        loss: 0.003490646[K
+   grad_norm: 1.9321145815506542[K[A[A[ Info: [traj] step 0187/3000 | loss 3.375354e-03 | log10 -2.4717 | ||g|| 1.8387e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|█▉                             |  ETA: 0:50:13[K
+        loss: 0.0033753538[K
+   grad_norm: 1.838747098114188[K[A[A[ Info: [traj] step 0188/3000 | loss 3.117221e-03 | log10 -2.5062 | ||g|| 1.3022e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:50:08[K
+        loss: 0.0031172207[K
+   grad_norm: 1.302242933042844[K[A[A[ Info: [traj] step 0189/3000 | loss 2.873447e-03 | log10 -2.5416 | ||g|| 1.3125e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:50:04[K
+        loss: 0.0028734473[K
+   grad_norm: 1.3125246152098657[K[A[A[ Info: [traj] step 0190/3000 | loss 3.264954e-03 | log10 -2.4861 | ||g|| 1.7526e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:49:59[K
+        loss: 0.0032649543[K
+   grad_norm: 1.7526165224824388[K[A[A[ Info: [traj] step 0191/3000 | loss 2.993790e-03 | log10 -2.5238 | ||g|| 1.4303e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:49:56[K
+        loss: 0.0029937895[K
+   grad_norm: 1.43025650369846[K[A[A[ Info: [traj] step 0192/3000 | loss 3.193139e-03 | log10 -2.4958 | ||g|| 1.8959e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:49:51[K
+        loss: 0.0031931393[K
+   grad_norm: 1.8959194123778262[K[A[A[ Info: [traj] step 0193/3000 | loss 2.967686e-03 | log10 -2.5276 | ||g|| 1.5807e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:49:47[K
+        loss: 0.002967686[K
+   grad_norm: 1.5806535074762549[K[A[A[ Info: [traj] step 0194/3000 | loss 3.113995e-03 | log10 -2.5067 | ||g|| 1.8116e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:49:44[K
+        loss: 0.0031139953[K
+   grad_norm: 1.8116199518223226[K[A[A[ Info: [traj] step 0195/3000 | loss 3.106854e-03 | log10 -2.5077 | ||g|| 1.7548e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   6%|██                             |  ETA: 0:49:39[K
+        loss: 0.0031068542[K
+   grad_norm: 1.7547644363911228[K[A[A[ Info: [traj] step 0196/3000 | loss 2.760243e-03 | log10 -2.5591 | ||g|| 1.3539e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██                             |  ETA: 0:49:35[K
+        loss: 0.0027602431[K
+   grad_norm: 1.3539014549999393[K[A[A[ Info: [traj] step 0197/3000 | loss 2.609471e-03 | log10 -2.5834 | ||g|| 1.0108e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██                             |  ETA: 0:49:30[K
+        loss: 0.0026094713[K
+   grad_norm: 1.0107715536429804[K[A[A[ Info: [traj] step 0198/3000 | loss 3.144463e-03 | log10 -2.5025 | ||g|| 2.2279e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██                             |  ETA: 0:49:27[K
+        loss: 0.0031444628[K
+   grad_norm: 2.2278801547840223[K[A[A[ Info: [traj] step 0199/3000 | loss 3.118705e-03 | log10 -2.5060 | ||g|| 2.1196e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██                             |  ETA: 0:49:22[K
+        loss: 0.0031187055[K
+   grad_norm: 2.119627446107641[K[A[A[ Info: [traj] step 0200/3000 | loss 2.471376e-03 | log10 -2.6071 | ||g|| 1.0966e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:31[K
+        loss: 0.0024713762[K
+   grad_norm: 1.0966387877819017[K[A[A[ Info: Saved trajectory snapshot: firerate_spread/20260722_135506/outputs/training_snapshots/traj_step_00200.png  loss = 0.002471
+[ Info: [traj] step 0201/3000 | loss 2.940344e-03 | log10 -2.5316 | ||g|| 1.5258e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:32[K
+        loss: 0.0029403444[K
+   grad_norm: 1.5257898342934348[K[A[A[ Info: [traj] step 0202/3000 | loss 3.582503e-03 | log10 -2.4458 | ||g|| 2.0386e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:29[K
+        loss: 0.0035825032[K
+   grad_norm: 2.0386212259326957[K[A[A[ Info: [traj] step 0203/3000 | loss 2.533095e-03 | log10 -2.5963 | ||g|| 1.3119e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:24[K
+        loss: 0.0025330954[K
+   grad_norm: 1.3118816933840376[K[A[A[ Info: [traj] step 0204/3000 | loss 3.453847e-03 | log10 -2.4617 | ||g|| 1.9504e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:21[K
+        loss: 0.0034538466[K
+   grad_norm: 1.9504049755985646[K[A[A[ Info: [traj] step 0205/3000 | loss 3.213807e-03 | log10 -2.4930 | ||g|| 1.9899e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:17[K
+        loss: 0.0032138075[K
+   grad_norm: 1.9899160597364578[K[A[A[ Info: [traj] step 0206/3000 | loss 2.620277e-03 | log10 -2.5817 | ||g|| 7.2962e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:12[K
+        loss: 0.0026202775[K
+   grad_norm: 0.7296181807134211[K[A[A[ Info: [traj] step 0207/3000 | loss 5.548200e-03 | log10 -2.2558 | ||g|| 2.3454e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:09[K
+        loss: 0.0055481996[K
+   grad_norm: 2.345403015010595[K[A[A[ Info: [traj] step 0208/3000 | loss 3.704919e-03 | log10 -2.4312 | ||g|| 1.1173e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:05[K
+        loss: 0.0037049185[K
+   grad_norm: 1.1172940233794357[K[A[A[ Info: [traj] step 0209/3000 | loss 6.641841e-03 | log10 -2.1777 | ||g|| 1.8079e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:49:02[K
+        loss: 0.006641841[K
+   grad_norm: 1.8078974753000416[K[A[A[ Info: [traj] step 0210/3000 | loss 6.171341e-03 | log10 -2.2096 | ||g|| 1.2833e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:48:58[K
+        loss: 0.006171341[K
+   grad_norm: 1.2832772734128428[K[A[A[ Info: [traj] step 0211/3000 | loss 4.245319e-03 | log10 -2.3721 | ||g|| 1.1254e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▏                            |  ETA: 0:48:54[K
+        loss: 0.004245319[K
+   grad_norm: 1.1253813455037707[K[A[A[ Info: [traj] step 0212/3000 | loss 5.911846e-03 | log10 -2.2283 | ||g|| 2.0739e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:51[K
+        loss: 0.0059118457[K
+   grad_norm: 2.0739179669277545[K[A[A[ Info: [traj] step 0213/3000 | loss 4.066107e-03 | log10 -2.3908 | ||g|| 1.4965e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:47[K
+        loss: 0.004066107[K
+   grad_norm: 1.496465016693759[K[A[A[ Info: [traj] step 0214/3000 | loss 5.099424e-03 | log10 -2.2925 | ||g|| 1.5453e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:44[K
+        loss: 0.005099424[K
+   grad_norm: 1.545255256541587[K[A[A[ Info: [traj] step 0215/3000 | loss 5.020716e-03 | log10 -2.2992 | ||g|| 1.8136e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:39[K
+        loss: 0.0050207158[K
+   grad_norm: 1.8136400353154203[K[A[A[ Info: [traj] step 0216/3000 | loss 4.161340e-03 | log10 -2.3808 | ||g|| 1.2185e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:37[K
+        loss: 0.00416134[K
+   grad_norm: 1.2185328485738698[K[A[A[ Info: [traj] step 0217/3000 | loss 3.097884e-03 | log10 -2.5089 | ||g|| 8.5673e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:32[K
+        loss: 0.0030978837[K
+   grad_norm: 0.8567303485596526[K[A[A[ Info: [traj] step 0218/3000 | loss 3.954431e-03 | log10 -2.4029 | ||g|| 1.5391e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:29[K
+        loss: 0.0039544306[K
+   grad_norm: 1.5391042660662095[K[A[A[ Info: [traj] step 0219/3000 | loss 3.432266e-03 | log10 -2.4644 | ||g|| 8.1833e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:26[K
+        loss: 0.003432266[K
+   grad_norm: 0.8183269988066549[K[A[A[ Info: [traj] step 0220/3000 | loss 4.974321e-03 | log10 -2.3033 | ||g|| 2.6965e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:21[K
+        loss: 0.0049743215[K
+   grad_norm: 2.69650961563535[K[A[A[ Info: [traj] step 0221/3000 | loss 5.844193e-03 | log10 -2.2333 | ||g|| 2.6500e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:19[K
+        loss: 0.005844193[K
+   grad_norm: 2.6500460987469894[K[A[A[ Info: [traj] step 0222/3000 | loss 3.072562e-03 | log10 -2.5125 | ||g|| 7.2860e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:15[K
+        loss: 0.0030725617[K
+   grad_norm: 0.728604851580109[K[A[A[ Info: [traj] step 0223/3000 | loss 4.972279e-03 | log10 -2.3034 | ||g|| 1.5546e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▎                            |  ETA: 0:48:12[K
+        loss: 0.004972279[K
+   grad_norm: 1.5546363275486286[K[A[A[ Info: [traj] step 0224/3000 | loss 4.047892e-03 | log10 -2.3928 | ||g|| 9.4077e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   7%|██▍                            |  ETA: 0:48:08[K
+        loss: 0.0040478916[K
+   grad_norm: 0.9407732715999545[K[A[A[ Info: [traj] step 0225/3000 | loss 6.008958e-03 | log10 -2.2212 | ||g|| 2.5243e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:48:05[K
+        loss: 0.0060089575[K
+   grad_norm: 2.5243029786511797[K[A[A[ Info: [traj] step 0226/3000 | loss 6.907579e-03 | log10 -2.1607 | ||g|| 2.4893e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:48:02[K
+        loss: 0.0069075795[K
+   grad_norm: 2.489294061023471[K[A[A[ Info: [traj] step 0227/3000 | loss 3.367339e-03 | log10 -2.4727 | ||g|| 5.6920e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:58[K
+        loss: 0.0033673388[K
+   grad_norm: 0.5692018318194147[K[A[A[ Info: [traj] step 0228/3000 | loss 5.424704e-03 | log10 -2.2656 | ||g|| 1.5980e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:55[K
+        loss: 0.005424704[K
+   grad_norm: 1.5980154785886094[K[A[A[ Info: [traj] step 0229/3000 | loss 5.454121e-03 | log10 -2.2633 | ||g|| 1.3933e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:51[K
+        loss: 0.0054541207[K
+   grad_norm: 1.393304124184403[K[A[A[ Info: [traj] step 0230/3000 | loss 3.437166e-03 | log10 -2.4638 | ||g|| 1.1998e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:49[K
+        loss: 0.0034371656[K
+   grad_norm: 1.1998353199756648[K[A[A[ Info: [traj] step 0231/3000 | loss 4.829631e-03 | log10 -2.3161 | ||g|| 1.5454e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:45[K
+        loss: 0.004829631[K
+   grad_norm: 1.5454098222675359[K[A[A[ Info: [traj] step 0232/3000 | loss 3.630613e-03 | log10 -2.4400 | ||g|| 1.5927e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:42[K
+        loss: 0.0036306125[K
+   grad_norm: 1.5927332854767906[K[A[A[ Info: [traj] step 0233/3000 | loss 3.652630e-03 | log10 -2.4374 | ||g|| 9.0643e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:39[K
+        loss: 0.0036526297[K
+   grad_norm: 0.9064349647062988[K[A[A[ Info: [traj] step 0234/3000 | loss 3.270123e-03 | log10 -2.4854 | ||g|| 6.5412e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:35[K
+        loss: 0.0032701232[K
+   grad_norm: 0.6541165967426597[K[A[A[ Info: [traj] step 0235/3000 | loss 4.018290e-03 | log10 -2.3960 | ||g|| 1.5227e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▍                            |  ETA: 0:47:32[K
+        loss: 0.0040182895[K
+   grad_norm: 1.5226904115623316[K[A[A[ Info: [traj] step 0236/3000 | loss 4.074066e-03 | log10 -2.3900 | ||g|| 1.0786e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:28[K
+        loss: 0.0040740664[K
+   grad_norm: 1.0785510185530676[K[A[A[ Info: [traj] step 0237/3000 | loss 3.618874e-03 | log10 -2.4414 | ||g|| 1.2336e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:26[K
+        loss: 0.0036188737[K
+   grad_norm: 1.2336044742055556[K[A[A[ Info: [traj] step 0238/3000 | loss 3.839390e-03 | log10 -2.4157 | ||g|| 9.9464e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:22[K
+        loss: 0.0038393904[K
+   grad_norm: 0.9946408339582635[K[A[A[ Info: [traj] step 0239/3000 | loss 2.880430e-03 | log10 -2.5405 | ||g|| 7.0935e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:19[K
+        loss: 0.0028804303[K
+   grad_norm: 0.7093466179299568[K[A[A[ Info: [traj] step 0240/3000 | loss 2.726787e-03 | log10 -2.5643 | ||g|| 6.9953e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:16[K
+        loss: 0.0027267872[K
+   grad_norm: 0.6995255281274848[K[A[A[ Info: [traj] step 0241/3000 | loss 3.736199e-03 | log10 -2.4276 | ||g|| 1.5779e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:13[K
+        loss: 0.0037361986[K
+   grad_norm: 1.5779380067127524[K[A[A[ Info: [traj] step 0242/3000 | loss 3.289248e-03 | log10 -2.4829 | ||g|| 9.9791e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:10[K
+        loss: 0.0032892483[K
+   grad_norm: 0.9979056018063536[K[A[A[ Info: [traj] step 0243/3000 | loss 4.179833e-03 | log10 -2.3788 | ||g|| 1.9384e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:06[K
+        loss: 0.0041798325[K
+   grad_norm: 1.9383849017442645[K[A[A[ Info: [traj] step 0244/3000 | loss 4.203201e-03 | log10 -2.3764 | ||g|| 1.2949e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:04[K
+        loss: 0.0042032013[K
+   grad_norm: 1.294862018200676[K[A[A[ Info: [traj] step 0245/3000 | loss 3.264651e-03 | log10 -2.4862 | ||g|| 1.5452e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:47:00[K
+        loss: 0.0032646514[K
+   grad_norm: 1.545161969504059[K[A[A[ Info: [traj] step 0246/3000 | loss 3.881844e-03 | log10 -2.4110 | ||g|| 1.1289e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:46:57[K
+        loss: 0.0038818442[K
+   grad_norm: 1.1289488073336251[K[A[A[ Info: [traj] step 0247/3000 | loss 2.544679e-03 | log10 -2.5944 | ||g|| 6.8957e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▌                            |  ETA: 0:46:54[K
+        loss: 0.0025446792[K
+   grad_norm: 0.6895703307069448[K[A[A[ Info: [traj] step 0248/3000 | loss 3.997833e-03 | log10 -2.3982 | ||g|| 1.9203e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:51[K
+        loss: 0.003997833[K
+   grad_norm: 1.920296458887571[K[A[A[ Info: [traj] step 0249/3000 | loss 3.426165e-03 | log10 -2.4652 | ||g|| 1.2362e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:49[K
+        loss: 0.0034261649[K
+   grad_norm: 1.2361614423777585[K[A[A[ Info: [traj] step 0250/3000 | loss 3.316120e-03 | log10 -2.4794 | ||g|| 2.0461e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:55[K
+        loss: 0.0033161205[K
+   grad_norm: 2.0461143911907707[K[A[A[ Info: [traj] step 0251/3000 | loss 3.966605e-03 | log10 -2.4016 | ||g|| 1.5116e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:52[K
+        loss: 0.003966605[K
+   grad_norm: 1.511564509441889[K[A[A[ Info: [traj] step 0252/3000 | loss 3.213865e-03 | log10 -2.4930 | ||g|| 2.0979e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:51[K
+        loss: 0.0032138652[K
+   grad_norm: 2.097887104445489[K[A[A[ Info: [traj] step 0253/3000 | loss 3.612895e-03 | log10 -2.4421 | ||g|| 1.4701e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:47[K
+        loss: 0.003612895[K
+   grad_norm: 1.4700726240112028[K[A[A[ Info: [traj] step 0254/3000 | loss 3.574342e-03 | log10 -2.4468 | ||g|| 1.9227e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:44[K
+        loss: 0.0035743422[K
+   grad_norm: 1.922690921518814[K[A[A[ Info: [traj] step 0255/3000 | loss 2.543396e-03 | log10 -2.5946 | ||g|| 1.1191e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   8%|██▋                            |  ETA: 0:46:41[K
+        loss: 0.0025433959[K
+   grad_norm: 1.1190824201547378[K[A[A[ Info: [traj] step 0256/3000 | loss 3.465352e-03 | log10 -2.4603 | ||g|| 2.2698e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▋                            |  ETA: 0:46:38[K
+        loss: 0.003465352[K
+   grad_norm: 2.269792220344925[K[A[A[ Info: [traj] step 0257/3000 | loss 2.754950e-03 | log10 -2.5599 | ||g|| 1.7509e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▋                            |  ETA: 0:46:35[K
+        loss: 0.0027549497[K
+   grad_norm: 1.750926098709034[K[A[A[ Info: [traj] step 0258/3000 | loss 3.046097e-03 | log10 -2.5163 | ||g|| 1.8183e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▋                            |  ETA: 0:46:32[K
+        loss: 0.003046097[K
+   grad_norm: 1.8183365183562321[K[A[A[ Info: [traj] step 0259/3000 | loss 2.925354e-03 | log10 -2.5338 | ||g|| 1.8669e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▋                            |  ETA: 0:46:30[K
+        loss: 0.0029253536[K
+   grad_norm: 1.8668851864927942[K[A[A[ Info: [traj] step 0260/3000 | loss 2.330021e-03 | log10 -2.6326 | ||g|| 9.1334e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▋                            |  ETA: 0:46:26[K
+        loss: 0.0023300215[K
+   grad_norm: 0.913339827018963[K[A[A[ Info: [traj] step 0261/3000 | loss 2.171438e-03 | log10 -2.6633 | ||g|| 7.1540e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:24[K
+        loss: 0.0021714382[K
+   grad_norm: 0.7154002800427943[K[A[A[ Info: [traj] step 0262/3000 | loss 3.373338e-03 | log10 -2.4719 | ||g|| 2.1520e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:20[K
+        loss: 0.003373338[K
+   grad_norm: 2.15197710731[K[A[A[ Info: [traj] step 0263/3000 | loss 2.947210e-03 | log10 -2.5306 | ||g|| 2.0205e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:18[K
+        loss: 0.0029472096[K
+   grad_norm: 2.0204554768241625[K[A[A[ Info: [traj] step 0264/3000 | loss 2.412856e-03 | log10 -2.6175 | ||g|| 8.5826e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:15[K
+        loss: 0.002412856[K
+   grad_norm: 0.858256958843615[K[A[A[ Info: [traj] step 0265/3000 | loss 2.190097e-03 | log10 -2.6595 | ||g|| 1.1415e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:12[K
+        loss: 0.0021900968[K
+   grad_norm: 1.1414606916785146[K[A[A[ Info: [traj] step 0266/3000 | loss 2.698292e-03 | log10 -2.5689 | ||g|| 1.4453e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:10[K
+        loss: 0.002698292[K
+   grad_norm: 1.4452632650940238[K[A[A[ Info: [traj] step 0267/3000 | loss 2.266598e-03 | log10 -2.6446 | ||g|| 1.2886e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:06[K
+        loss: 0.0022665982[K
+   grad_norm: 1.288572781674696[K[A[A[ Info: [traj] step 0268/3000 | loss 2.440298e-03 | log10 -2.6126 | ||g|| 1.6248e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:04[K
+        loss: 0.002440298[K
+   grad_norm: 1.6248044892440567[K[A[A[ Info: [traj] step 0269/3000 | loss 2.240112e-03 | log10 -2.6497 | ||g|| 1.5175e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:46:01[K
+        loss: 0.002240112[K
+   grad_norm: 1.5175077327257027[K[A[A[ Info: [traj] step 0270/3000 | loss 2.298123e-03 | log10 -2.6386 | ||g|| 1.5205e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:45:58[K
+        loss: 0.0022981225[K
+   grad_norm: 1.520502876637236[K[A[A[ Info: [traj] step 0271/3000 | loss 2.197414e-03 | log10 -2.6581 | ||g|| 1.4088e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:45:55[K
+        loss: 0.0021974142[K
+   grad_norm: 1.4088309906784955[K[A[A[ Info: [traj] step 0272/3000 | loss 2.142125e-03 | log10 -2.6692 | ||g|| 1.4628e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▊                            |  ETA: 0:45:53[K
+        loss: 0.002142125[K
+   grad_norm: 1.4628236046721215[K[A[A[ Info: [traj] step 0273/3000 | loss 2.071886e-03 | log10 -2.6836 | ||g|| 1.1840e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:50[K
+        loss: 0.0020718863[K
+   grad_norm: 1.1840234428815024[K[A[A[ Info: [traj] step 0274/3000 | loss 2.357926e-03 | log10 -2.6275 | ||g|| 1.6655e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:46[K
+        loss: 0.0023579265[K
+   grad_norm: 1.665475960583514[K[A[A[ Info: [traj] step 0275/3000 | loss 2.191062e-03 | log10 -2.6593 | ||g|| 1.5778e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:44[K
+        loss: 0.002191062[K
+   grad_norm: 1.5777562154692897[K[A[A[ Info: [traj] step 0276/3000 | loss 2.101174e-03 | log10 -2.6775 | ||g|| 1.2357e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:41[K
+        loss: 0.0021011739[K
+   grad_norm: 1.2356976073714752[K[A[A[ Info: [traj] step 0277/3000 | loss 2.085766e-03 | log10 -2.6807 | ||g|| 1.4466e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:38[K
+        loss: 0.0020857658[K
+   grad_norm: 1.446563088216892[K[A[A[ Info: [traj] step 0278/3000 | loss 2.049857e-03 | log10 -2.6883 | ||g|| 1.5380e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:35[K
+        loss: 0.002049857[K
+   grad_norm: 1.5379722844007062[K[A[A[ Info: [traj] step 0279/3000 | loss 1.951671e-03 | log10 -2.7096 | ||g|| 1.0799e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:33[K
+        loss: 0.0019516709[K
+   grad_norm: 1.0798656616058013[K[A[A[ Info: [traj] step 0280/3000 | loss 2.146738e-03 | log10 -2.6682 | ||g|| 1.3552e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:30[K
+        loss: 0.0021467377[K
+   grad_norm: 1.3551577860944992[K[A[A[ Info: [traj] step 0281/3000 | loss 1.967650e-03 | log10 -2.7061 | ||g|| 1.5132e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:27[K
+        loss: 0.0019676504[K
+   grad_norm: 1.5131862943396877[K[A[A[ Info: [traj] step 0282/3000 | loss 1.942130e-03 | log10 -2.7117 | ||g|| 1.4245e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:24[K
+        loss: 0.0019421296[K
+   grad_norm: 1.4245054863498061[K[A[A[ Info: [traj] step 0283/3000 | loss 1.913816e-03 | log10 -2.7181 | ||g|| 9.8261e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:21[K
+        loss: 0.0019138164[K
+   grad_norm: 0.9826113752674749[K[A[A[ Info: [traj] step 0284/3000 | loss 2.433027e-03 | log10 -2.6139 | ||g|| 1.3192e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:   9%|██▉                            |  ETA: 0:45:19[K
+        loss: 0.002433027[K
+   grad_norm: 1.3191819467168784[K[A[A[ Info: [traj] step 0285/3000 | loss 2.010485e-03 | log10 -2.6967 | ||g|| 1.7244e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:16[K
+        loss: 0.002010485[K
+   grad_norm: 1.7243645558086296[K[A[A[ Info: [traj] step 0286/3000 | loss 1.759444e-03 | log10 -2.7546 | ||g|| 7.1358e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:14[K
+        loss: 0.0017594438[K
+   grad_norm: 0.7135757899235055[K[A[A[ Info: [traj] step 0287/3000 | loss 3.065514e-03 | log10 -2.5135 | ||g|| 1.7246e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:11[K
+        loss: 0.003065514[K
+   grad_norm: 1.724590150969395[K[A[A[ Info: [traj] step 0288/3000 | loss 1.832114e-03 | log10 -2.7370 | ||g|| 8.3064e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:08[K
+        loss: 0.0018321138[K
+   grad_norm: 0.8306390343019167[K[A[A[ Info: [traj] step 0289/3000 | loss 4.496116e-03 | log10 -2.3472 | ||g|| 1.7674e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:06[K
+        loss: 0.0044961157[K
+   grad_norm: 1.7673814951418845[K[A[A[ Info: [traj] step 0290/3000 | loss 3.994228e-03 | log10 -2.3986 | ||g|| 1.5703e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:02[K
+        loss: 0.003994228[K
+   grad_norm: 1.5702961620325264[K[A[A[ Info: [traj] step 0291/3000 | loss 2.753958e-03 | log10 -2.5600 | ||g|| 1.9843e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:45:00[K
+        loss: 0.0027539579[K
+   grad_norm: 1.9842902377080296[K[A[A[ Info: [traj] step 0292/3000 | loss 3.583719e-03 | log10 -2.4457 | ||g|| 1.0994e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:44:57[K
+        loss: 0.0035837188[K
+   grad_norm: 1.0993662009950471[K[A[A[ Info: [traj] step 0293/3000 | loss 2.494166e-03 | log10 -2.6031 | ||g|| 2.1981e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:44:55[K
+        loss: 0.0024941664[K
+   grad_norm: 2.1981114156104895[K[A[A[ Info: [traj] step 0294/3000 | loss 2.834265e-03 | log10 -2.5476 | ||g|| 1.3440e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:44:53[K
+        loss: 0.002834265[K
+   grad_norm: 1.3440207193612546[K[A[A[ Info: [traj] step 0295/3000 | loss 2.375233e-03 | log10 -2.6243 | ||g|| 1.7951e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:44:50[K
+        loss: 0.0023752325[K
+   grad_norm: 1.7950549888557104[K[A[A[ Info: [traj] step 0296/3000 | loss 2.693890e-03 | log10 -2.5696 | ||g|| 1.7545e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███                            |  ETA: 0:44:47[K
+        loss: 0.0026938904[K
+   grad_norm: 1.7545237942750869[K[A[A[ Info: [traj] step 0297/3000 | loss 2.213155e-03 | log10 -2.6550 | ||g|| 1.1365e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:44[K
+        loss: 0.0022131547[K
+   grad_norm: 1.136539051640169[K[A[A[ Info: [traj] step 0298/3000 | loss 2.830430e-03 | log10 -2.5481 | ||g|| 1.4396e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:42[K
+        loss: 0.0028304302[K
+   grad_norm: 1.4395961473218153[K[A[A[ Info: [traj] step 0299/3000 | loss 2.345324e-03 | log10 -2.6298 | ||g|| 9.7944e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:39[K
+        loss: 0.0023453245[K
+   grad_norm: 0.9794411191988315[K[A[A[ Info: [traj] step 0300/3000 | loss 3.142833e-03 | log10 -2.5027 | ||g|| 1.3185e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:45[K
+        loss: 0.0031428325[K
+   grad_norm: 1.3184525985560303[K[A[A[ Info: Saved trajectory snapshot: firerate_spread/20260722_135506/outputs/training_snapshots/traj_step_00300.png  loss = 0.003143
+[ Info: [traj] step 0301/3000 | loss 3.227625e-03 | log10 -2.4911 | ||g|| 1.2206e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:46[K
+        loss: 0.0032276246[K
+   grad_norm: 1.2205833290902446[K[A[A[ Info: [traj] step 0302/3000 | loss 2.137218e-03 | log10 -2.6702 | ||g|| 1.2129e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:44[K
+        loss: 0.002137218[K
+   grad_norm: 1.2128902909212493[K[A[A[ Info: [traj] step 0303/3000 | loss 2.369978e-03 | log10 -2.6253 | ||g|| 1.0576e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:41[K
+        loss: 0.0023699782[K
+   grad_norm: 1.0576011187840737[K[A[A[ Info: [traj] step 0304/3000 | loss 2.150863e-03 | log10 -2.6674 | ||g|| 1.2623e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:38[K
+        loss: 0.002150863[K
+   grad_norm: 1.2623345544000824[K[A[A[ Info: [traj] step 0305/3000 | loss 2.014213e-03 | log10 -2.6959 | ||g|| 1.0462e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:36[K
+        loss: 0.0020142125[K
+   grad_norm: 1.0461691248739926[K[A[A[ Info: [traj] step 0306/3000 | loss 2.023790e-03 | log10 -2.6938 | ||g|| 9.1808e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:33[K
+        loss: 0.0020237905[K
+   grad_norm: 0.9180842069890763[K[A[A[ Info: [traj] step 0307/3000 | loss 2.039943e-03 | log10 -2.6904 | ||g|| 1.5888e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:31[K
+        loss: 0.0020399434[K
+   grad_norm: 1.5888356065625286[K[A[A[ Info: [traj] step 0308/3000 | loss 1.822906e-03 | log10 -2.7392 | ||g|| 8.4926e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▏                           |  ETA: 0:44:28[K
+        loss: 0.001822906[K
+   grad_norm: 0.8492623216668878[K[A[A[ Info: [traj] step 0309/3000 | loss 2.737727e-03 | log10 -2.5626 | ||g|| 2.5587e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:26[K
+        loss: 0.0027377268[K
+   grad_norm: 2.5587299117256976[K[A[A[ Info: [traj] step 0310/3000 | loss 2.850138e-03 | log10 -2.5451 | ||g|| 2.7511e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:23[K
+        loss: 0.0028501383[K
+   grad_norm: 2.7511321691630295[K[A[A[ Info: [traj] step 0311/3000 | loss 1.616442e-03 | log10 -2.7914 | ||g|| 4.9671e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:21[K
+        loss: 0.0016164419[K
+   grad_norm: 0.49671329470257286[K[A[A[ Info: [traj] step 0312/3000 | loss 2.988343e-03 | log10 -2.5246 | ||g|| 2.7101e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:19[K
+        loss: 0.0029883427[K
+   grad_norm: 2.7101260022201976[K[A[A[ Info: [traj] step 0313/3000 | loss 3.565064e-03 | log10 -2.4479 | ||g|| 3.0605e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:16[K
+        loss: 0.0035650644[K
+   grad_norm: 3.0604993483073977[K[A[A[ Info: [traj] step 0314/3000 | loss 2.127325e-03 | log10 -2.6722 | ||g|| 1.1857e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:14[K
+        loss: 0.0021273252[K
+   grad_norm: 1.1856973763762686[K[A[A[ Info: [traj] step 0315/3000 | loss 2.760883e-03 | log10 -2.5590 | ||g|| 2.7830e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  10%|███▎                           |  ETA: 0:44:11[K
+        loss: 0.002760883[K
+   grad_norm: 2.7829523137357075[K[A[A[ Info: [traj] step 0316/3000 | loss 3.418598e-03 | log10 -2.4662 | ||g|| 2.9094e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▎                           |  ETA: 0:44:09[K
+        loss: 0.0034185983[K
+   grad_norm: 2.9094365096630415[K[A[A[ Info: [traj] step 0317/3000 | loss 2.758876e-03 | log10 -2.5593 | ||g|| 1.2247e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▎                           |  ETA: 0:44:06[K
+        loss: 0.0027588762[K
+   grad_norm: 1.2247065513530557[K[A[A[ Info: [traj] step 0318/3000 | loss 2.615211e-03 | log10 -2.5825 | ||g|| 2.5044e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▎                           |  ETA: 0:44:04[K
+        loss: 0.002615211[K
+   grad_norm: 2.5043594307407013[K[A[A[ Info: [traj] step 0319/3000 | loss 2.151764e-03 | log10 -2.6672 | ||g|| 1.6752e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▎                           |  ETA: 0:44:02[K
+        loss: 0.0021517642[K
+   grad_norm: 1.6751702289514343[K[A[A[ Info: [traj] step 0320/3000 | loss 2.574329e-03 | log10 -2.5893 | ||g|| 1.9919e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▎                           |  ETA: 0:43:59[K
+        loss: 0.002574329[K
+   grad_norm: 1.9919362324383727[K[A[A[ Info: [traj] step 0321/3000 | loss 2.996178e-03 | log10 -2.5234 | ||g|| 2.2768e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:57[K
+        loss: 0.0029961779[K
+   grad_norm: 2.2768421367371805[K[A[A[ Info: [traj] step 0322/3000 | loss 1.886438e-03 | log10 -2.7244 | ||g|| 8.2342e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:54[K
+        loss: 0.001886438[K
+   grad_norm: 0.8234195942854283[K[A[A[ Info: [traj] step 0323/3000 | loss 2.659624e-03 | log10 -2.5752 | ||g|| 1.1000e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:53[K
+        loss: 0.0026596244[K
+   grad_norm: 1.0999672246395156[K[A[A[ Info: [traj] step 0324/3000 | loss 2.144273e-03 | log10 -2.6687 | ||g|| 8.9382e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:50[K
+        loss: 0.0021442734[K
+   grad_norm: 0.8938240218864448[K[A[A[ Info: [traj] step 0325/3000 | loss 2.699794e-03 | log10 -2.5687 | ||g|| 1.1246e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:48[K
+        loss: 0.002699794[K
+   grad_norm: 1.1246121277719698[K[A[A[ Info: [traj] step 0326/3000 | loss 1.618298e-03 | log10 -2.7909 | ||g|| 6.0938e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:46[K
+        loss: 0.001618298[K
+   grad_norm: 0.6093817094303248[K[A[A[ Info: [traj] step 0327/3000 | loss 3.558728e-03 | log10 -2.4487 | ||g|| 2.1294e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:43[K
+        loss: 0.0035587281[K
+   grad_norm: 2.1293598093275485[K[A[A[ Info: [traj] step 0328/3000 | loss 3.081017e-03 | log10 -2.5113 | ||g|| 2.2378e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:41[K
+        loss: 0.003081017[K
+   grad_norm: 2.237752748526885[K[A[A[ Info: [traj] step 0329/3000 | loss 2.252555e-03 | log10 -2.6473 | ||g|| 7.7800e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:39[K
+        loss: 0.0022525555[K
+   grad_norm: 0.7780038806480827[K[A[A[ Info: [traj] step 0330/3000 | loss 2.329478e-03 | log10 -2.6327 | ||g|| 2.3497e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:37[K
+        loss: 0.0023294783[K
+   grad_norm: 2.349668920642964[K[A[A[ Info: [traj] step 0331/3000 | loss 1.929360e-03 | log10 -2.7146 | ||g|| 1.1014e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:34[K
+        loss: 0.0019293597[K
+   grad_norm: 1.101366351378996[K[A[A[ Info: [traj] step 0332/3000 | loss 3.136566e-03 | log10 -2.5035 | ||g|| 3.2260e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▍                           |  ETA: 0:43:32[K
+        loss: 0.0031365664[K
+   grad_norm: 3.2260098017388716[K[A[A[ Info: [traj] step 0333/3000 | loss 3.477660e-03 | log10 -2.4587 | ||g|| 3.3515e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:30[K
+        loss: 0.0034776598[K
+   grad_norm: 3.3514680265870354[K[A[A[ Info: [traj] step 0334/3000 | loss 1.944652e-03 | log10 -2.7112 | ||g|| 5.4661e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:27[K
+        loss: 0.0019446518[K
+   grad_norm: 0.5466120565848255[K[A[A[ Info: [traj] step 0335/3000 | loss 3.286442e-03 | log10 -2.4833 | ||g|| 2.8316e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:26[K
+        loss: 0.0032864423[K
+   grad_norm: 2.831645493002312[K[A[A[ Info: [traj] step 0336/3000 | loss 3.530392e-03 | log10 -2.4522 | ||g|| 2.8311e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:23[K
+        loss: 0.0035303917[K
+   grad_norm: 2.8310608340955943[K[A[A[ Info: [traj] step 0337/3000 | loss 2.001634e-03 | log10 -2.6986 | ||g|| 4.1721e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:21[K
+        loss: 0.0020016336[K
+   grad_norm: 0.4172112285558844[K[A[A[ Info: [traj] step 0338/3000 | loss 4.817277e-03 | log10 -2.3172 | ||g|| 1.7951e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:19[K
+        loss: 0.0048172767[K
+   grad_norm: 1.7950910863891367[K[A[A[ Info: [traj] step 0339/3000 | loss 4.862831e-03 | log10 -2.3131 | ||g|| 1.6211e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:16[K
+        loss: 0.004862831[K
+   grad_norm: 1.6210790467458447[K[A[A[ Info: [traj] step 0340/3000 | loss 2.583532e-03 | log10 -2.5878 | ||g|| 5.9532e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:14[K
+        loss: 0.0025835321[K
+   grad_norm: 0.5953183673352823[K[A[A[ Info: [traj] step 0341/3000 | loss 3.488557e-03 | log10 -2.4574 | ||g|| 9.7208e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:12[K
+        loss: 0.0034885574[K
+   grad_norm: 0.9720848039928032[K[A[A[ Info: [traj] step 0342/3000 | loss 2.831880e-03 | log10 -2.5479 | ||g|| 9.6154e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:10[K
+        loss: 0.0028318795[K
+   grad_norm: 0.9615397788812452[K[A[A[ Info: [traj] step 0343/3000 | loss 2.950367e-03 | log10 -2.5301 | ||g|| 1.1927e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:08[K
+        loss: 0.0029503668[K
+   grad_norm: 1.1927230405012739[K[A[A[ Info: [traj] step 0344/3000 | loss 2.557662e-03 | log10 -2.5922 | ||g|| 7.8213e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  11%|███▌                           |  ETA: 0:43:06[K
+        loss: 0.0025576623[K
+   grad_norm: 0.7821322948536721[K[A[A[ Info: [traj] step 0345/3000 | loss 3.174096e-03 | log10 -2.4984 | ||g|| 1.3517e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:43:03[K
+        loss: 0.0031740963[K
+   grad_norm: 1.3516858599810322[K[A[A[ Info: [traj] step 0346/3000 | loss 3.264223e-03 | log10 -2.4862 | ||g|| 1.2132e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:43:02[K
+        loss: 0.003264223[K
+   grad_norm: 1.2131936554190823[K[A[A[ Info: [traj] step 0347/3000 | loss 1.772921e-03 | log10 -2.7513 | ||g|| 4.9272e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:43:00[K
+        loss: 0.0017729213[K
+   grad_norm: 0.49272218041167026[K[A[A[ Info: [traj] step 0348/3000 | loss 2.726371e-03 | log10 -2.5644 | ||g|| 1.8475e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:57[K
+        loss: 0.002726371[K
+   grad_norm: 1.8475148221638875[K[A[A[ Info: [traj] step 0349/3000 | loss 2.864539e-03 | log10 -2.5429 | ||g|| 1.4481e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:56[K
+        loss: 0.0028645387[K
+   grad_norm: 1.4481138116420391[K[A[A[ Info: [traj] step 0350/3000 | loss 2.756480e-03 | log10 -2.5596 | ||g|| 2.2819e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:43:00[K
+        loss: 0.0027564797[K
+   grad_norm: 2.2818569652882656[K[A[A[ Info: [traj] step 0351/3000 | loss 2.617199e-03 | log10 -2.5822 | ||g|| 2.6755e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:59[K
+        loss: 0.0026171994[K
+   grad_norm: 2.675514029022162[K[A[A[ Info: [traj] step 0352/3000 | loss 1.753319e-03 | log10 -2.7561 | ||g|| 3.7357e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:57[K
+        loss: 0.0017533188[K
+   grad_norm: 0.3735743973121621[K[A[A[ Info: [traj] step 0353/3000 | loss 1.915361e-03 | log10 -2.7177 | ||g|| 1.6336e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:55[K
+        loss: 0.0019153608[K
+   grad_norm: 1.6336391061517082[K[A[A[ Info: [traj] step 0354/3000 | loss 1.609924e-03 | log10 -2.7932 | ||g|| 2.0003e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:53[K
+        loss: 0.0016099242[K
+   grad_norm: 0.20003344616785898[K[A[A[ Info: [traj] step 0355/3000 | loss 3.280105e-03 | log10 -2.4841 | ||g|| 2.9525e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:51[K
+        loss: 0.0032801046[K
+   grad_norm: 2.952541261939063[K[A[A[ Info: [traj] step 0356/3000 | loss 3.960820e-03 | log10 -2.4022 | ||g|| 2.6577e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▋                           |  ETA: 0:42:49[K
+        loss: 0.0039608204[K
+   grad_norm: 2.657702720658689[K[A[A[ Info: [traj] step 0357/3000 | loss 3.295849e-03 | log10 -2.4820 | ||g|| 8.4636e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:47[K
+        loss: 0.0032958488[K
+   grad_norm: 0.8463558227617326[K[A[A[ Info: [traj] step 0358/3000 | loss 2.209520e-03 | log10 -2.6557 | ||g|| 9.7003e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:46[K
+        loss: 0.0022095204[K
+   grad_norm: 0.9700309390533937[K[A[A[ Info: [traj] step 0359/3000 | loss 2.527619e-03 | log10 -2.5973 | ||g|| 1.9557e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:44[K
+        loss: 0.0025276188[K
+   grad_norm: 1.955675714674609[K[A[A[ Info: [traj] step 0360/3000 | loss 3.334358e-03 | log10 -2.4770 | ||g|| 1.2376e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:41[K
+        loss: 0.0033343583[K
+   grad_norm: 1.2375555071024649[K[A[A[ Info: [traj] step 0361/3000 | loss 3.689787e-03 | log10 -2.4330 | ||g|| 2.1541e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:40[K
+        loss: 0.0036897871[K
+   grad_norm: 2.1541420694368894[K[A[A[ Info: [traj] step 0362/3000 | loss 2.919821e-03 | log10 -2.5346 | ||g|| 2.1309e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:37[K
+        loss: 0.0029198206[K
+   grad_norm: 2.1309051043559077[K[A[A[ Info: [traj] step 0363/3000 | loss 2.040939e-03 | log10 -2.6902 | ||g|| 9.1550e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:36[K
+        loss: 0.002040939[K
+   grad_norm: 0.9154961965739153[K[A[A[ Info: [traj] step 0364/3000 | loss 2.027751e-03 | log10 -2.6930 | ||g|| 8.8584e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:34[K
+        loss: 0.0020277512[K
+   grad_norm: 0.885836749456455[K[A[A[ Info: [traj] step 0365/3000 | loss 2.194334e-03 | log10 -2.6587 | ||g|| 1.0533e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:32[K
+        loss: 0.0021943336[K
+   grad_norm: 1.0533005025674333[K[A[A[ Info: [traj] step 0366/3000 | loss 2.167425e-03 | log10 -2.6641 | ||g|| 7.0058e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:30[K
+        loss: 0.0021674254[K
+   grad_norm: 0.700581556471861[K[A[A[ Info: [traj] step 0367/3000 | loss 1.706450e-03 | log10 -2.7679 | ||g|| 5.9146e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:28[K
+        loss: 0.0017064499[K
+   grad_norm: 0.5914590201443971[K[A[A[ Info: [traj] step 0368/3000 | loss 2.043406e-03 | log10 -2.6896 | ||g|| 1.0937e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▊                           |  ETA: 0:42:27[K
+        loss: 0.0020434058[K
+   grad_norm: 1.0937406089601613[K[A[A[ Info: [traj] step 0369/3000 | loss 1.893945e-03 | log10 -2.7226 | ||g|| 8.9694e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:24[K
+        loss: 0.0018939447[K
+   grad_norm: 0.8969435208280264[K[A[A[ Info: [traj] step 0370/3000 | loss 1.674733e-03 | log10 -2.7761 | ||g|| 4.1912e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:23[K
+        loss: 0.0016747329[K
+   grad_norm: 0.4191227652103628[K[A[A[ Info: [traj] step 0371/3000 | loss 2.338612e-03 | log10 -2.6310 | ||g|| 1.2376e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:21[K
+        loss: 0.0023386125[K
+   grad_norm: 1.237634694909407[K[A[A[ Info: [traj] step 0372/3000 | loss 1.876737e-03 | log10 -2.7266 | ||g|| 9.5262e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:19[K
+        loss: 0.0018767373[K
+   grad_norm: 0.9526161384167762[K[A[A[ Info: [traj] step 0373/3000 | loss 2.508464e-03 | log10 -2.6006 | ||g|| 7.8848e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:17[K
+        loss: 0.0025084636[K
+   grad_norm: 0.7884786698440865[K[A[A[ Info: [traj] step 0374/3000 | loss 2.052258e-03 | log10 -2.6878 | ||g|| 1.6669e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:15[K
+        loss: 0.0020522582[K
+   grad_norm: 1.6669061185441953[K[A[A[ Info: [traj] step 0375/3000 | loss 1.836417e-03 | log10 -2.7360 | ||g|| 5.7139e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  12%|███▉                           |  ETA: 0:42:13[K
+        loss: 0.0018364169[K
+   grad_norm: 0.5713909081185387[K[A[A[ Info: [traj] step 0376/3000 | loss 3.289134e-03 | log10 -2.4829 | ||g|| 2.3229e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|███▉                           |  ETA: 0:42:11[K
+        loss: 0.003289134[K
+   grad_norm: 2.3228700822105672[K[A[A[ Info: [traj] step 0377/3000 | loss 3.540399e-03 | log10 -2.4509 | ||g|| 1.6696e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|███▉                           |  ETA: 0:42:10[K
+        loss: 0.003540399[K
+   grad_norm: 1.669574820958518[K[A[A[ Info: [traj] step 0378/3000 | loss 2.557551e-03 | log10 -2.5922 | ||g|| 1.6106e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|███▉                           |  ETA: 0:42:07[K
+        loss: 0.0025575515[K
+   grad_norm: 1.6105961395656176[K[A[A[ Info: [traj] step 0379/3000 | loss 2.967542e-03 | log10 -2.5276 | ||g|| 1.7585e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|███▉                           |  ETA: 0:42:06[K
+        loss: 0.0029675423[K
+   grad_norm: 1.7584586890099543[K[A[A[ Info: [traj] step 0380/3000 | loss 2.415443e-03 | log10 -2.6170 | ||g|| 1.0792e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|███▉                           |  ETA: 0:42:04[K
+        loss: 0.0024154433[K
+   grad_norm: 1.0791758079451739[K[A[A[ Info: [traj] step 0381/3000 | loss 2.322278e-03 | log10 -2.6341 | ||g|| 1.2724e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|███▉                           |  ETA: 0:42:02[K
+        loss: 0.0023222785[K
+   grad_norm: 1.2723771074386427[K[A[A[ Info: [traj] step 0382/3000 | loss 2.534862e-03 | log10 -2.5960 | ||g|| 1.2626e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:42:00[K
+        loss: 0.002534862[K
+   grad_norm: 1.2625764271560243[K[A[A[ Info: [traj] step 0383/3000 | loss 1.856105e-03 | log10 -2.7314 | ||g|| 1.0662e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:58[K
+        loss: 0.0018561047[K
+   grad_norm: 1.0661905187603133[K[A[A[ Info: [traj] step 0384/3000 | loss 2.083887e-03 | log10 -2.6811 | ||g|| 1.5495e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:57[K
+        loss: 0.0020838869[K
+   grad_norm: 1.5494735958982029[K[A[A[ Info: [traj] step 0385/3000 | loss 1.950437e-03 | log10 -2.7099 | ||g|| 1.5096e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:55[K
+        loss: 0.0019504372[K
+   grad_norm: 1.5096025744730697[K[A[A[ Info: [traj] step 0386/3000 | loss 1.933568e-03 | log10 -2.7136 | ||g|| 1.1794e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:53[K
+        loss: 0.0019335684[K
+   grad_norm: 1.1793526858103347[K[A[A[ Info: [traj] step 0387/3000 | loss 1.720061e-03 | log10 -2.7645 | ||g|| 1.0992e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:52[K
+        loss: 0.0017200613[K
+   grad_norm: 1.0992155358339255[K[A[A[ Info: [traj] step 0388/3000 | loss 1.906813e-03 | log10 -2.7197 | ||g|| 1.4619e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:50[K
+        loss: 0.0019068125[K
+   grad_norm: 1.461875666043999[K[A[A[ Info: [traj] step 0389/3000 | loss 1.775532e-03 | log10 -2.7507 | ||g|| 1.3754e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:48[K
+        loss: 0.0017755318[K
+   grad_norm: 1.3754469507821625[K[A[A[ Info: [traj] step 0390/3000 | loss 1.709066e-03 | log10 -2.7672 | ||g|| 1.1548e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:46[K
+        loss: 0.0017090663[K
+   grad_norm: 1.1548360911022268[K[A[A[ Info: [traj] step 0391/3000 | loss 1.635263e-03 | log10 -2.7864 | ||g|| 1.0809e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:44[K
+        loss: 0.0016352634[K
+   grad_norm: 1.0808887593543444[K[A[A[ Info: [traj] step 0392/3000 | loss 1.919124e-03 | log10 -2.7169 | ||g|| 1.2847e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:42[K
+        loss: 0.0019191239[K
+   grad_norm: 1.2847198504522241[K[A[A[ Info: [traj] step 0393/3000 | loss 1.549307e-03 | log10 -2.8099 | ||g|| 1.2412e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████                           |  ETA: 0:41:41[K
+        loss: 0.0015493066[K
+   grad_norm: 1.2411724761840786[K[A[A[ Info: [traj] step 0394/3000 | loss 1.573976e-03 | log10 -2.8030 | ||g|| 1.3138e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:39[K
+        loss: 0.0015739755[K
+   grad_norm: 1.3138098758025025[K[A[A[ Info: [traj] step 0395/3000 | loss 1.578872e-03 | log10 -2.8017 | ||g|| 1.0995e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:37[K
+        loss: 0.0015788717[K
+   grad_norm: 1.0995206298124591[K[A[A[ Info: [traj] step 0396/3000 | loss 1.618659e-03 | log10 -2.7908 | ||g|| 1.1409e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:36[K
+        loss: 0.0016186585[K
+   grad_norm: 1.140902793948791[K[A[A[ Info: [traj] step 0397/3000 | loss 1.485125e-03 | log10 -2.8282 | ||g|| 1.1643e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:33[K
+        loss: 0.0014851247[K
+   grad_norm: 1.164252425187353[K[A[A[ Info: [traj] step 0398/3000 | loss 1.612255e-03 | log10 -2.7926 | ||g|| 1.1835e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:32[K
+        loss: 0.0016122553[K
+   grad_norm: 1.1835224326157692[K[A[A[ Info: [traj] step 0399/3000 | loss 1.691309e-03 | log10 -2.7718 | ||g|| 1.5163e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:30[K
+        loss: 0.001691309[K
+   grad_norm: 1.5163214563565761[K[A[A[ Info: [traj] step 0400/3000 | loss 1.429372e-03 | log10 -2.8449 | ||g|| 1.1132e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:34[K
+        loss: 0.0014293718[K
+   grad_norm: 1.1131846744482574[K[A[A[ Info: Saved trajectory snapshot: firerate_spread/20260722_135506/outputs/training_snapshots/traj_step_00400.png  loss = 0.001429
+[ Info: [traj] step 0401/3000 | loss 1.381606e-03 | log10 -2.8596 | ||g|| 6.8436e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:34[K
+        loss: 0.0013816061[K
+   grad_norm: 0.6843553609592142[K[A[A[ Info: [traj] step 0402/3000 | loss 1.691582e-03 | log10 -2.7717 | ||g|| 1.2647e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:33[K
+        loss: 0.0016915824[K
+   grad_norm: 1.2647478456199903[K[A[A[ Info: [traj] step 0403/3000 | loss 1.452401e-03 | log10 -2.8379 | ||g|| 1.1121e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:31[K
+        loss: 0.0014524006[K
+   grad_norm: 1.1120687852925286[K[A[A[ Info: [traj] step 0404/3000 | loss 1.675785e-03 | log10 -2.7758 | ||g|| 1.1825e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  13%|████▏                          |  ETA: 0:41:29[K
+        loss: 0.0016757853[K
+   grad_norm: 1.182514460107345[K[A[A[ Info: [traj] step 0405/3000 | loss 1.511953e-03 | log10 -2.8205 | ||g|| 1.4357e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▏                          |  ETA: 0:41:27[K
+        loss: 0.001511953[K
+   grad_norm: 1.4356786264396508[K[A[A[ Info: [traj] step 0406/3000 | loss 1.294061e-03 | log10 -2.8880 | ||g|| 7.0746e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:25[K
+        loss: 0.0012940613[K
+   grad_norm: 0.7074625532862275[K[A[A[ Info: [traj] step 0407/3000 | loss 1.330384e-03 | log10 -2.8760 | ||g|| 9.9206e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:24[K
+        loss: 0.0013303838[K
+   grad_norm: 0.9920563670291056[K[A[A[ Info: [traj] step 0408/3000 | loss 1.624303e-03 | log10 -2.7893 | ||g|| 1.5077e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:22[K
+        loss: 0.0016243032[K
+   grad_norm: 1.5077060525237922[K[A[A[ Info: [traj] step 0409/3000 | loss 1.410731e-03 | log10 -2.8506 | ||g|| 9.3160e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:20[K
+        loss: 0.0014107311[K
+   grad_norm: 0.9315963764579694[K[A[A[ Info: [traj] step 0410/3000 | loss 2.191406e-03 | log10 -2.6593 | ||g|| 2.2031e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:18[K
+        loss: 0.0021914055[K
+   grad_norm: 2.20308487743487[K[A[A[ Info: [traj] step 0411/3000 | loss 2.000441e-03 | log10 -2.6989 | ||g|| 2.2219e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:17[K
+        loss: 0.0020004413[K
+   grad_norm: 2.221947036999334[K[A[A[ Info: [traj] step 0412/3000 | loss 1.984286e-03 | log10 -2.7024 | ||g|| 8.3601e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:15[K
+        loss: 0.0019842861[K
+   grad_norm: 0.836014451908475[K[A[A[ Info: [traj] step 0413/3000 | loss 1.576051e-03 | log10 -2.8024 | ||g|| 1.0883e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:13[K
+        loss: 0.0015760508[K
+   grad_norm: 1.08834118249695[K[A[A[ Info: [traj] step 0414/3000 | loss 1.390832e-03 | log10 -2.8567 | ||g|| 5.4180e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:11[K
+        loss: 0.0013908318[K
+   grad_norm: 0.5417994800159284[K[A[A[ Info: [traj] step 0415/3000 | loss 3.150020e-03 | log10 -2.5017 | ||g|| 1.0790e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:09[K
+        loss: 0.0031500205[K
+   grad_norm: 1.079044375967647[K[A[A[ Info: [traj] step 0416/3000 | loss 2.562241e-03 | log10 -2.5914 | ||g|| 1.0511e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:08[K
+        loss: 0.0025622412[K
+   grad_norm: 1.0511014274992847[K[A[A[ Info: [traj] step 0417/3000 | loss 1.872111e-03 | log10 -2.7277 | ||g|| 8.2358e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▎                          |  ETA: 0:41:06[K
+        loss: 0.0018721115[K
+   grad_norm: 0.8235768825386331[K[A[A[ Info: [traj] step 0418/3000 | loss 2.076019e-03 | log10 -2.6828 | ||g|| 1.2897e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:41:04[K
+        loss: 0.0020760193[K
+   grad_norm: 1.2897234678017935[K[A[A[ Info: [traj] step 0419/3000 | loss 1.462787e-03 | log10 -2.8348 | ||g|| 1.0543e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:41:03[K
+        loss: 0.0014627868[K
+   grad_norm: 1.0543136217696334[K[A[A[ Info: [traj] step 0420/3000 | loss 2.024021e-03 | log10 -2.6938 | ||g|| 1.6292e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:41:01[K
+        loss: 0.0020240215[K
+   grad_norm: 1.6291907029139612[K[A[A[ Info: [traj] step 0421/3000 | loss 1.719203e-03 | log10 -2.7647 | ||g|| 1.7664e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:59[K
+        loss: 0.0017192032[K
+   grad_norm: 1.7664116847590976[K[A[A[ Info: [traj] step 0422/3000 | loss 1.347046e-03 | log10 -2.8706 | ||g|| 6.4806e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:57[K
+        loss: 0.0013470459[K
+   grad_norm: 0.6480572848020971[K[A[A[ Info: [traj] step 0423/3000 | loss 1.253986e-03 | log10 -2.9017 | ||g|| 7.2261e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:56[K
+        loss: 0.0012539856[K
+   grad_norm: 0.7226090321819686[K[A[A[ Info: [traj] step 0424/3000 | loss 1.819751e-03 | log10 -2.7400 | ||g|| 1.8065e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:54[K
+        loss: 0.0018197515[K
+   grad_norm: 1.806528705556035[K[A[A[ Info: [traj] step 0425/3000 | loss 1.471383e-03 | log10 -2.8323 | ||g|| 1.4513e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:52[K
+        loss: 0.0014713827[K
+   grad_norm: 1.451349208781507[K[A[A[ Info: [traj] step 0426/3000 | loss 1.477434e-03 | log10 -2.8305 | ||g|| 1.2911e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:51[K
+        loss: 0.0014774336[K
+   grad_norm: 1.291089027063932[K[A[A[ Info: [traj] step 0427/3000 | loss 1.552848e-03 | log10 -2.8089 | ||g|| 1.1822e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:49[K
+        loss: 0.0015528479[K
+   grad_norm: 1.1822226919242012[K[A[A[ Info: [traj] step 0428/3000 | loss 1.297681e-03 | log10 -2.8868 | ||g|| 9.5354e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:47[K
+        loss: 0.0012976815[K
+   grad_norm: 0.9535385679385566[K[A[A[ Info: [traj] step 0429/3000 | loss 1.448341e-03 | log10 -2.8391 | ||g|| 6.2153e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▍                          |  ETA: 0:40:45[K
+        loss: 0.0014483406[K
+   grad_norm: 0.6215313377850712[K[A[A[ Info: [traj] step 0430/3000 | loss 1.397967e-03 | log10 -2.8545 | ||g|| 7.1441e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▌                          |  ETA: 0:40:44[K
+        loss: 0.0013979669[K
+   grad_norm: 0.7144064046560501[K[A[A[ Info: [traj] step 0431/3000 | loss 1.133086e-03 | log10 -2.9457 | ||g|| 2.4831e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▌                          |  ETA: 0:40:42[K
+        loss: 0.0011330864[K
+   grad_norm: 0.24830631776496526[K[A[A[ Info: [traj] step 0432/3000 | loss 2.922600e-03 | log10 -2.5342 | ||g|| 2.0557e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▌                          |  ETA: 0:40:40[K
+        loss: 0.0029226004[K
+   grad_norm: 2.0557108320509623[K[A[A[ Info: [traj] step 0433/3000 | loss 3.599561e-03 | log10 -2.4438 | ||g|| 2.1509e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▌                          |  ETA: 0:40:39[K
+        loss: 0.0035995606[K
+   grad_norm: 2.15089881865481[K[A[A[ Info: [traj] step 0434/3000 | loss 2.291905e-03 | log10 -2.6398 | ||g|| 3.6561e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▌                          |  ETA: 0:40:37[K
+        loss: 0.0022919052[K
+   grad_norm: 0.36560836750901354[K[A[A[ Info: [traj] step 0435/3000 | loss 2.623658e-03 | log10 -2.5811 | ||g|| 2.1740e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  14%|████▌                          |  ETA: 0:40:35[K
+        loss: 0.002623658[K
+   grad_norm: 2.174039648086854[K[A[A[ Info: [traj] step 0436/3000 | loss 3.498955e-03 | log10 -2.4561 | ||g|| 2.4465e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▌                          |  ETA: 0:40:33[K
+        loss: 0.0034989554[K
+   grad_norm: 2.4465198012048512[K[A[A[ Info: [traj] step 0437/3000 | loss 2.828632e-03 | log10 -2.5484 | ||g|| 6.0812e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▌                          |  ETA: 0:40:32[K
+        loss: 0.0028286325[K
+   grad_norm: 0.6081174550724984[K[A[A[ Info: [traj] step 0438/3000 | loss 4.028135e-03 | log10 -2.3949 | ||g|| 2.8543e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▌                          |  ETA: 0:40:30[K
+        loss: 0.0040281354[K
+   grad_norm: 2.8543284226693957[K[A[A[ Info: [traj] step 0439/3000 | loss 4.315801e-03 | log10 -2.3649 | ||g|| 3.2091e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▌                          |  ETA: 0:40:28[K
+        loss: 0.0043158014[K
+   grad_norm: 3.2090537849022773[K[A[A[ Info: [traj] step 0440/3000 | loss 2.606937e-03 | log10 -2.5839 | ||g|| 1.0436e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▌                          |  ETA: 0:40:27[K
+        loss: 0.0026069372[K
+   grad_norm: 1.0435603907329662[K[A[A[ Info: [traj] step 0441/3000 | loss 2.906709e-03 | log10 -2.5366 | ||g|| 1.9912e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▌                          |  ETA: 0:40:25[K
+        loss: 0.0029067085[K
+   grad_norm: 1.9912019054669312[K[A[A[ Info: [traj] step 0442/3000 | loss 3.528252e-03 | log10 -2.4524 | ||g|| 2.1271e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:23[K
+        loss: 0.0035282522[K
+   grad_norm: 2.1271039985741713[K[A[A[ Info: [traj] step 0443/3000 | loss 2.211719e-03 | log10 -2.6553 | ||g|| 5.8514e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:21[K
+        loss: 0.002211719[K
+   grad_norm: 0.5851350075180798[K[A[A[ Info: [traj] step 0444/3000 | loss 3.906455e-03 | log10 -2.4082 | ||g|| 1.7408e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:20[K
+        loss: 0.003906455[K
+   grad_norm: 1.74082543188998[K[A[A[ Info: [traj] step 0445/3000 | loss 4.038483e-03 | log10 -2.3938 | ||g|| 1.3077e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:18[K
+        loss: 0.004038483[K
+   grad_norm: 1.3076606997647344[K[A[A[ Info: [traj] step 0446/3000 | loss 2.330276e-03 | log10 -2.6326 | ||g|| 9.1009e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:17[K
+        loss: 0.0023302764[K
+   grad_norm: 0.9100885505026546[K[A[A[ Info: [traj] step 0447/3000 | loss 2.478656e-03 | log10 -2.6058 | ||g|| 1.1542e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:15[K
+        loss: 0.0024786557[K
+   grad_norm: 1.1542339437651379[K[A[A[ Info: [traj] step 0448/3000 | loss 1.607803e-03 | log10 -2.7938 | ||g|| 4.0679e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:14[K
+        loss: 0.0016078033[K
+   grad_norm: 0.40678737046738006[K[A[A[ Info: [traj] step 0449/3000 | loss 4.005899e-03 | log10 -2.3973 | ||g|| 1.3149e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:12[K
+        loss: 0.0040058987[K
+   grad_norm: 1.314929982808853[K[A[A[ Info: [traj] step 0450/3000 | loss 4.231560e-03 | log10 -2.3735 | ||g|| 1.1565e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:16[K
+        loss: 0.0042315596[K
+   grad_norm: 1.1565243020671134[K[A[A[ Info: [traj] step 0451/3000 | loss 1.910837e-03 | log10 -2.7188 | ||g|| 1.0794e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:14[K
+        loss: 0.0019108374[K
+   grad_norm: 1.0794078847790578[K[A[A[ Info: [traj] step 0452/3000 | loss 3.853225e-03 | log10 -2.4142 | ||g|| 1.1560e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:13[K
+        loss: 0.0038532247[K
+   grad_norm: 1.155958808531311[K[A[A[ Info: [traj] step 0453/3000 | loss 3.736543e-03 | log10 -2.4275 | ||g|| 1.8541e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▋                          |  ETA: 0:40:11[K
+        loss: 0.003736543[K
+   grad_norm: 1.8541102777445693[K[A[A[ Info: [traj] step 0454/3000 | loss 2.150574e-03 | log10 -2.6674 | ||g|| 1.5216e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:10[K
+        loss: 0.0021505735[K
+   grad_norm: 1.5216098489014787[K[A[A[ Info: [traj] step 0455/3000 | loss 2.787138e-03 | log10 -2.5548 | ||g|| 1.8670e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:08[K
+        loss: 0.0027871379[K
+   grad_norm: 1.866961070331893[K[A[A[ Info: [traj] step 0456/3000 | loss 2.896133e-03 | log10 -2.5382 | ||g|| 2.4532e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:07[K
+        loss: 0.0028961333[K
+   grad_norm: 2.4531829823715143[K[A[A[ Info: [traj] step 0457/3000 | loss 1.678086e-03 | log10 -2.7752 | ||g|| 5.9330e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:05[K
+        loss: 0.0016780861[K
+   grad_norm: 0.5932990953237033[K[A[A[ Info: [traj] step 0458/3000 | loss 3.325006e-03 | log10 -2.4782 | ||g|| 2.8983e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:04[K
+        loss: 0.0033250065[K
+   grad_norm: 2.8983491932552528[K[A[A[ Info: [traj] step 0459/3000 | loss 4.566652e-03 | log10 -2.3404 | ||g|| 3.5007e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:02[K
+        loss: 0.004566652[K
+   grad_norm: 3.500728375087821[K[A[A[ Info: [traj] step 0460/3000 | loss 2.929189e-03 | log10 -2.5333 | ||g|| 1.8434e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:40:00[K
+        loss: 0.0029291892[K
+   grad_norm: 1.843407887822981[K[A[A[ Info: [traj] step 0461/3000 | loss 2.169604e-03 | log10 -2.6636 | ||g|| 1.9352e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:39:59[K
+        loss: 0.002169604[K
+   grad_norm: 1.9351645787975833[K[A[A[ Info: [traj] step 0462/3000 | loss 3.056695e-03 | log10 -2.5147 | ||g|| 2.5815e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:39:57[K
+        loss: 0.0030566955[K
+   grad_norm: 2.5815256479063464[K[A[A[ Info: [traj] step 0463/3000 | loss 2.563616e-03 | log10 -2.5911 | ||g|| 1.0719e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:39:56[K
+        loss: 0.0025636165[K
+   grad_norm: 1.0719156915706383[K[A[A[ Info: [traj] step 0464/3000 | loss 2.165217e-03 | log10 -2.6645 | ||g|| 1.5620e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  15%|████▊                          |  ETA: 0:39:54[K
+        loss: 0.002165217[K
+   grad_norm: 1.5620441721550815[K[A[A[ Info: [traj] step 0465/3000 | loss 3.087943e-03 | log10 -2.5103 | ||g|| 1.4337e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▊                          |  ETA: 0:39:53[K
+        loss: 0.0030879434[K
+   grad_norm: 1.433717297024426[K[A[A[ Info: [traj] step 0466/3000 | loss 1.760396e-03 | log10 -2.7544 | ||g|| 8.0568e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:52[K
+        loss: 0.0017603956[K
+   grad_norm: 0.8056770542398256[K[A[A[ Info: [traj] step 0467/3000 | loss 2.979877e-03 | log10 -2.5258 | ||g|| 8.9349e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:50[K
+        loss: 0.0029798767[K
+   grad_norm: 0.8934890878230052[K[A[A[ Info: [traj] step 0468/3000 | loss 2.993889e-03 | log10 -2.5238 | ||g|| 8.8831e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:49[K
+        loss: 0.0029938892[K
+   grad_norm: 0.8883126740700249[K[A[A[ Info: [traj] step 0469/3000 | loss 1.693586e-03 | log10 -2.7712 | ||g|| 9.1245e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:47[K
+        loss: 0.0016935862[K
+   grad_norm: 0.9124544994703491[K[A[A[ Info: [traj] step 0470/3000 | loss 2.646829e-03 | log10 -2.5773 | ||g|| 1.2900e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:46[K
+        loss: 0.0026468292[K
+   grad_norm: 1.2899688131070035[K[A[A[ Info: [traj] step 0471/3000 | loss 1.882187e-03 | log10 -2.7253 | ||g|| 1.4770e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:44[K
+        loss: 0.0018821865[K
+   grad_norm: 1.4769805024876528[K[A[A[ Info: [traj] step 0472/3000 | loss 2.013498e-03 | log10 -2.6960 | ||g|| 1.0724e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:43[K
+        loss: 0.0020134985[K
+   grad_norm: 1.0724015874255473[K[A[A[ Info: [traj] step 0473/3000 | loss 2.075810e-03 | log10 -2.6828 | ||g|| 9.5026e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:41[K
+        loss: 0.0020758095[K
+   grad_norm: 0.95026324675228[K[A[A[ Info: [traj] step 0474/3000 | loss 1.512049e-03 | log10 -2.8204 | ||g|| 9.8403e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:39[K
+        loss: 0.0015120485[K
+   grad_norm: 0.9840285537380208[K[A[A[ Info: [traj] step 0475/3000 | loss 1.697077e-03 | log10 -2.7703 | ||g|| 6.2206e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:38[K
+        loss: 0.0016970767[K
+   grad_norm: 0.6220629716448582[K[A[A[ Info: [traj] step 0476/3000 | loss 1.661836e-03 | log10 -2.7794 | ||g|| 4.8149e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:36[K
+        loss: 0.0016618364[K
+   grad_norm: 0.4814915063662395[K[A[A[ Info: [traj] step 0477/3000 | loss 1.418043e-03 | log10 -2.8483 | ||g|| 1.2168e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|████▉                          |  ETA: 0:39:35[K
+        loss: 0.0014180429[K
+   grad_norm: 1.2167800077325506[K[A[A[ Info: [traj] step 0478/3000 | loss 1.519411e-03 | log10 -2.8183 | ||g|| 5.5902e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:33[K
+        loss: 0.0015194113[K
+   grad_norm: 0.5590218810210223[K[A[A[ Info: [traj] step 0479/3000 | loss 1.849761e-03 | log10 -2.7329 | ||g|| 1.6468e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:32[K
+        loss: 0.0018497612[K
+   grad_norm: 1.6468351954339033[K[A[A[ Info: [traj] step 0480/3000 | loss 1.322383e-03 | log10 -2.8786 | ||g|| 3.5387e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:30[K
+        loss: 0.0013223834[K
+   grad_norm: 0.35387487975449217[K[A[A[ Info: [traj] step 0481/3000 | loss 2.799387e-03 | log10 -2.5529 | ||g|| 2.1674e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:29[K
+        loss: 0.0027993869[K
+   grad_norm: 2.167417239457435[K[A[A[ Info: [traj] step 0482/3000 | loss 3.102390e-03 | log10 -2.5083 | ||g|| 1.4097e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:27[K
+        loss: 0.0031023903[K
+   grad_norm: 1.4096793562495222[K[A[A[ Info: [traj] step 0483/3000 | loss 2.025906e-03 | log10 -2.6934 | ||g|| 1.8414e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:26[K
+        loss: 0.0020259065[K
+   grad_norm: 1.8413724810344758[K[A[A[ Info: [traj] step 0484/3000 | loss 3.042888e-03 | log10 -2.5167 | ||g|| 2.0449e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:24[K
+        loss: 0.0030428881[K
+   grad_norm: 2.0449278581685593[K[A[A[ Info: [traj] step 0485/3000 | loss 3.129578e-03 | log10 -2.5045 | ||g|| 1.0152e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:23[K
+        loss: 0.0031295784[K
+   grad_norm: 1.0151846879193835[K[A[A[ Info: [traj] step 0486/3000 | loss 1.955505e-03 | log10 -2.7087 | ||g|| 2.2225e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:21[K
+        loss: 0.0019555045[K
+   grad_norm: 2.2224608762141878[K[A[A[ Info: [traj] step 0487/3000 | loss 2.605320e-03 | log10 -2.5841 | ||g|| 1.1037e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:20[K
+        loss: 0.0026053202[K
+   grad_norm: 1.1036722882431516[K[A[A[ Info: [traj] step 0488/3000 | loss 2.678323e-03 | log10 -2.5721 | ||g|| 2.2502e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:18[K
+        loss: 0.0026783233[K
+   grad_norm: 2.2502160042825907[K[A[A[ Info: [traj] step 0489/3000 | loss 2.302792e-03 | log10 -2.6377 | ||g|| 2.5602e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████                          |  ETA: 0:39:17[K
+        loss: 0.0023027924[K
+   grad_norm: 2.560155190909534[K[A[A[ Info: [traj] step 0490/3000 | loss 1.716051e-03 | log10 -2.7655 | ||g|| 6.3887e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████▏                         |  ETA: 0:39:15[K
+        loss: 0.0017160515[K
+   grad_norm: 0.6388671211325788[K[A[A[ Info: [traj] step 0491/3000 | loss 2.684904e-03 | log10 -2.5711 | ||g|| 3.2030e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████▏                         |  ETA: 0:39:14[K
+        loss: 0.0026849043[K
+   grad_norm: 3.203022221134535[K[A[A[ Info: [traj] step 0492/3000 | loss 3.629066e-03 | log10 -2.4402 | ||g|| 3.8888e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████▏                         |  ETA: 0:39:12[K
+        loss: 0.003629066[K
+   grad_norm: 3.8888185207088712[K[A[A[ Info: [traj] step 0493/3000 | loss 2.013277e-03 | log10 -2.6961 | ||g|| 1.8380e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████▏                         |  ETA: 0:39:11[K
+        loss: 0.002013277[K
+   grad_norm: 1.8379940203190082[K[A[A[ Info: [traj] step 0494/3000 | loss 2.157990e-03 | log10 -2.6660 | ||g|| 2.1354e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████▏                         |  ETA: 0:39:10[K
+        loss: 0.00215799[K
+   grad_norm: 2.1353705488303665[K[A[A[ Info: [traj] step 0495/3000 | loss 3.135350e-03 | log10 -2.5037 | ||g|| 3.1441e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  16%|█████▏                         |  ETA: 0:39:08[K
+        loss: 0.00313535[K
+   grad_norm: 3.1440727394167056[K[A[A[ Info: [traj] step 0496/3000 | loss 1.874915e-03 | log10 -2.7270 | ||g|| 1.8003e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:07[K
+        loss: 0.0018749153[K
+   grad_norm: 1.8002564135322[K[A[A[ Info: [traj] step 0497/3000 | loss 1.852444e-03 | log10 -2.7323 | ||g|| 1.7132e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:05[K
+        loss: 0.0018524444[K
+   grad_norm: 1.7131645440730692[K[A[A[ Info: [traj] step 0498/3000 | loss 2.639383e-03 | log10 -2.5785 | ||g|| 2.5993e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:04[K
+        loss: 0.0026393826[K
+   grad_norm: 2.5993489639450273[K[A[A[ Info: [traj] step 0499/3000 | loss 1.298463e-03 | log10 -2.8866 | ||g|| 9.7784e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:02[K
+        loss: 0.0012984629[K
+   grad_norm: 0.977843256942061[K[A[A[ Info: [traj] step 0500/3000 | loss 2.602469e-03 | log10 -2.5846 | ||g|| 2.4208e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:05[K
+        loss: 0.0026024687[K
+   grad_norm: 2.420764954964665[K[A[A[ Info: Saved trajectory snapshot: firerate_spread/20260722_135506/outputs/training_snapshots/traj_step_00500.png  loss = 0.002602
+[ Info: [traj] step 0501/3000 | loss 4.152948e-03 | log10 -2.3816 | ||g|| 3.2076e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:06[K
+        loss: 0.0041529476[K
+   grad_norm: 3.2076376157838764[K[A[A[ Info: [traj] step 0502/3000 | loss 2.407612e-03 | log10 -2.6184 | ||g|| 1.8969e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▏                         |  ETA: 0:39:05[K
+        loss: 0.0024076123[K
+   grad_norm: 1.8968539975317507[K[A[A[ Info: [traj] step 0503/3000 | loss 1.662059e-03 | log10 -2.7794 | ||g|| 1.3967e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:39:03[K
+        loss: 0.0016620591[K
+   grad_norm: 1.396690985330033[K[A[A[ Info: [traj] step 0504/3000 | loss 2.179630e-03 | log10 -2.6616 | ||g|| 2.2666e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:39:01[K
+        loss: 0.0021796299[K
+   grad_norm: 2.2666224519357723[K[A[A[ Info: [traj] step 0505/3000 | loss 1.554009e-03 | log10 -2.8085 | ||g|| 8.6206e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:39:00[K
+        loss: 0.0015540093[K
+   grad_norm: 0.862061075043562[K[A[A[ Info: [traj] step 0506/3000 | loss 2.468451e-03 | log10 -2.6076 | ||g|| 2.1228e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:58[K
+        loss: 0.0024684512[K
+   grad_norm: 2.1227836974612244[K[A[A[ Info: [traj] step 0507/3000 | loss 3.072119e-03 | log10 -2.5126 | ||g|| 2.8104e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:57[K
+        loss: 0.0030721189[K
+   grad_norm: 2.8104083314901076[K[A[A[ Info: [traj] step 0508/3000 | loss 1.815405e-03 | log10 -2.7410 | ||g|| 1.4777e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:56[K
+        loss: 0.0018154045[K
+   grad_norm: 1.477684941594348[K[A[A[ Info: [traj] step 0509/3000 | loss 1.953584e-03 | log10 -2.7092 | ||g|| 1.8236e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:54[K
+        loss: 0.0019535837[K
+   grad_norm: 1.8236301263132864[K[A[A[ Info: [traj] step 0510/3000 | loss 2.976966e-03 | log10 -2.5262 | ||g|| 2.7908e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:53[K
+        loss: 0.0029769656[K
+   grad_norm: 2.7908477676947303[K[A[A[ Info: [traj] step 0511/3000 | loss 1.643231e-03 | log10 -2.7843 | ||g|| 1.5027e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:51[K
+        loss: 0.0016432311[K
+   grad_norm: 1.5026605337491095[K[A[A[ Info: [traj] step 0512/3000 | loss 1.667714e-03 | log10 -2.7779 | ||g|| 1.4568e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:50[K
+        loss: 0.0016677144[K
+   grad_norm: 1.456770091520748[K[A[A[ Info: [traj] step 0513/3000 | loss 2.504929e-03 | log10 -2.6012 | ||g|| 2.1119e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:48[K
+        loss: 0.0025049287[K
+   grad_norm: 2.1119343442993865[K[A[A[ Info: [traj] step 0514/3000 | loss 1.543473e-03 | log10 -2.8115 | ||g|| 8.4453e-01 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▎                         |  ETA: 0:38:47[K
+        loss: 0.0015434732[K
+   grad_norm: 0.844531244943505[K[A[A[ Info: [traj] step 0515/3000 | loss 2.701901e-03 | log10 -2.5683 | ||g|| 1.6677e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▍                         |  ETA: 0:38:46[K
+        loss: 0.0027019007[K
+   grad_norm: 1.6677197804123423[K[A[A[ Info: [traj] step 0516/3000 | loss 3.703322e-03 | log10 -2.4314 | ||g|| 2.3738e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▍                         |  ETA: 0:38:45[K
+        loss: 0.0037033218[K
+   grad_norm: 2.3738247786705093[K[A[A[ Info: [traj] step 0517/3000 | loss 1.876747e-03 | log10 -2.7266 | ||g|| 1.3130e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▍                         |  ETA: 0:38:43[K
+        loss: 0.0018767465[K
+   grad_norm: 1.3129706748610137[K[A[A[ Info: [traj] step 0518/3000 | loss 2.016310e-03 | log10 -2.6954 | ||g|| 1.1049e+00 | lr 2.00e-03
+
+
+[K[A[K[ATrajectory fitting:  17%|█████▍                         |  ETA: 0:38:42[K
+        loss: 0.0020163103[K
+   grad_norm: 1.1049282134649692[K[A[A

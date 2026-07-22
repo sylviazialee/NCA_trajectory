@@ -1,0 +1,79 @@
+include(joinpath(@__DIR__, "..", "src", "NeuralCellularAutomata.jl"))
+using .NeuralCellularAutomata
+include(joinpath(@__DIR__, "target_prep.jl"))
+using CUDA, FileIO, ImageIO
+using Dates
+
+image_set = ARGS[1]
+fr = parse(Float32, ARGS[2])
+run_id = run_timestamp()
+#image_set = "slider"
+data_dir = "firerate_$(image_set)"
+
+
+@info("STARTING: $(image_set) at $(fr)")
+
+# 1. load your RGBA frames at each observation time as Float32 (W,H,4)
+#    (your own loading logic here)
+frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
+          load_target_rgba("$(image_set)/snapshot_01.png"),
+          load_target_rgba("$(image_set)/snapshot_02.png"),
+          load_target_rgba("$(image_set)/snapshot_03.png"),
+          load_target_rgba("$(image_set)/snapshot_04.png"), 
+          load_target_rgba("$(image_set)/snapshot_05.png"),
+          load_target_rgba("$(image_set)/snapshot_06.png"),
+          load_target_rgba("$(image_set)/snapshot_07.png"),
+          load_target_rgba("$(image_set)/snapshot_08.png"),
+          load_target_rgba("$(image_set)/snapshot_09.png"), 
+          load_target_rgba("$(image_set)/snapshot_10.png"),
+          load_target_rgba("$(image_set)/snapshot_11.png"),
+          load_target_rgba("$(image_set)/snapshot_12.png"),
+          load_target_rgba("$(image_set)/snapshot_13.png"), 
+          load_target_rgba("$(image_set)/snapshot_14.png"),
+          load_target_rgba("$(image_set)/snapshot_15.png"),
+          load_target_rgba("$(image_set)/snapshot_16.png"),
+          load_target_rgba("$(image_set)/snapshot_17.png"), 
+          load_target_rgba("$(image_set)/snapshot_18.png"),
+          load_target_rgba("$(image_set)/snapshot_19.png")]   # Vector of CuArray{Float32,3}
+
+# 2. map physical times -> CA step indices (your choice of time scale)
+obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
+
+
+hp = TrajectoryHParams(
+    channel_n  = 16,
+    obs_steps  = obs_steps,
+    batch_size = 4,
+    train_steps = 3000,
+    fire_rate = fr,
+    visible_channels = 3
+)
+
+# 3. build x0: RGBA from frame[1], hidden channels = 0
+W, H = size(frames[1], 1), size(frames[1], 2)
+x0_single = CUDA.zeros(Float32, W, H, hp.channel_n)
+x0_single[:, :, 1:4] .= frames[1]            # seed RGBA from data
+x0 = repeat(reshape(x0_single, W, H, hp.channel_n, 1), 1, 1, 1, hp.batch_size)
+
+# 4. targets = frames at obs_steps (step 0 is your initial, still supervise it)
+targets = frames   # Vector of CuArray{Float32,3}
+
+model, loss_info = main_trajectory(x0, targets; hp=hp, run_id = run_id, data_dir = data_dir)
+
+loss_log = loss_info[1]
+final_loss = loss_info[2]
+after_loss = loss_info[3]
+
+output_dir = joinpath(data_dir, run_id)
+mkpath(output_dir)
+println(run_id) # show in slurm what id is ig
+open(joinpath(output_dir, "read.txt"), "w") do io
+    #CHANGE THIS PER TRIAL
+    train_pic = image_set
+    println(io, Dates.now())
+    println(io, "TRAIN: " * train_pic)
+    println(io, "TRAINING FIRE RATE = $(hp.fire_rate)")
+    println(io, "FINAL LOSS = $final_loss")
+    println(io, "TRAJ LOSS = $(loss_log[end])")
+    println(io, "AFTER LOSS = $after_loss")
+end
