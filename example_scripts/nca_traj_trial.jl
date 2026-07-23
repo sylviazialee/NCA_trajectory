@@ -6,9 +6,9 @@ using Dates
 
 image_set = ARGS[1]
 fr = 0.5
-channel_num = parse(Int64, ARGS[2])
+channel_num = 16
+combo_string = ARGS[2]
 run_id = run_timestamp()
-#image_set = "slider"
 data_dir = "$(image_set)_ch_$(channel_num)"
 
 
