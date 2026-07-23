@@ -5,13 +5,14 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = parse(Float32, ARGS[2])
+fr = 0.5
+channel_num = parse(Int64, ARGS[2])
 run_id = run_timestamp()
 #image_set = "slider"
-data_dir = "firerate_$(image_set)"
+data_dir = "$(image_set)_ch_$(channel_num)"
 
 
-@info("STARTING: $(image_set) at $(fr)")
+@info("STARTING: $(image_set) with $(channel_num) channels")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
@@ -41,7 +42,7 @@ obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → st
 
 
 hp = TrajectoryHParams(
-    channel_n  = 16,
+    channel_n  = channel_num,
     obs_steps  = obs_steps,
     batch_size = 4,
     train_steps = 3000,
@@ -58,11 +59,10 @@ x0 = repeat(reshape(x0_single, W, H, hp.channel_n, 1), 1, 1, 1, hp.batch_size)
 # 4. targets = frames at obs_steps (step 0 is your initial, still supervise it)
 targets = frames   # Vector of CuArray{Float32,3}
 
-model, loss_info = main_trajectory(x0, targets; hp=hp, run_id = run_id, data_dir = data_dir)
+model, loss_info, re_loss_info = main_trajectory(x0, targets; hp=hp, run_id = run_id, data_dir = data_dir)
 
-loss_log = loss_info[1]
-final_loss = loss_info[2]
-after_loss = loss_info[3]
+loss_log, final_loss, after_loss = loss_info
+re_traj, re_fin, re_after = sqrt.(re_loss_info)
 
 output_dir = joinpath(data_dir, run_id)
 mkpath(output_dir)
@@ -71,9 +71,12 @@ open(joinpath(output_dir, "read.txt"), "w") do io
     #CHANGE THIS PER TRIAL
     train_pic = image_set
     println(io, Dates.now())
-    println(io, "TRAIN: " * train_pic)
+    println(io, "TRAIN NO ALIVE: " * train_pic)
     println(io, "TRAINING FIRE RATE = $(hp.fire_rate)")
-    println(io, "FINAL LOSS = $final_loss")
     println(io, "TRAJ LOSS = $(loss_log[end])")
+    println(io, "FINAL LOSS = $final_loss")
     println(io, "AFTER LOSS = $after_loss")
+    println(io, "RE TRAJ LOSS = $re_traj")
+    println(io, "RE FINAL LOSS = $re_fin")
+    println(io, "RE AFTER LOSS = $re_after")
 end

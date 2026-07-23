@@ -102,20 +102,20 @@ function main_trajectory(
     end
 
     # loss taken at final checkpoint only
-    loss_fin = loss_fn(last_pred, last_target)
-    
+    loss_fin = loss_fn(last_pred, last_target; vc = vc)
+
     # set initial of rollout of Kth through 2Kth steps to last_pred
     after_pred = last_pred
     #captured = Vector{typeof(x0)}(undef, check_num)
     after_loss_log = Float32[]
-    
+
     check_index = floor(Int, K/check_num)
     step_counter = 1
     for t in 1:K
         after_pred = step(model, after_pred, kernel; fire_rate = hp.fire_rate)
-        push!(after_loss_log, loss_fn(after_pred, targets[end]))
+        push!(after_loss_log, loss_fn(after_pred, targets[end]; vc = vc))
     end
-    
+
     loss_after = mean(after_loss_log)
     #loss_after = loss_alg2(copy(captured), targets) this was SO wrong this should be a vector of target[end] only
     @info "final loss: $loss_fin"
@@ -127,43 +127,17 @@ function main_trajectory(
     @info "trajectory run finished, final TRAJECTORY loss $(loss_log[end])"
     #println("LOSS LOG AT FIRE RATE $(video_fire_rate)")
     println(loss_log)
-    return model, loss_log, loss_fin, loss_after
-end
+    #return model, loss_log, loss_fin, loss_after
 
-function main_step(
-    x0::CuArray{Float32,4},
-    targets::Vector{<:CuArray{Float32,3}};
-    hp::TrajectoryHParams = TrajectoryHParams(),
-    weights::Vector{Float32} = ones(Float32, length(targets)),
-    run_id::String = run_timestamp(),
-    data_dir::String = "data",
-    snapshot_every::Int = 500,
-    video_rollout_steps::Int = 2 * maximum(diff(hp.obs_steps)), #shorten rollout
-    video_fps::Int = 30,
-    video_fire_rate::Float32 = 1.0f0,
-    image_scale::Int = 8,
-)
-    report_backend!()
+    loss_traj = loss_log[end]
 
-    run_dir = joinpath(data_dir, run_id)
-    output_dir = joinpath(run_dir, "outputs")
-    checkpoint_dir = joinpath(run_dir, "checkpoints")
-    mkpath(run_dir)
+    re_loss_after = loss_after/norm_one(last_target; vc = vc)
+    re_loss_fin = loss_fin/norm_one(last_target; vc = vc)
+    re_loss_traj = loss_traj/norm_vec(targets; vc = vc)
 
-    model, loss_log = train_step!(
-        hp, x0, targets, weights;
-        checkpoint_dir,
-        output_dir,
-        run_id,
-        snapshot_every,
-        video_rollout_steps,
-        video_fps,
-        video_fire_rate,
-        image_scale,
-    )
-    @info "trajectory run finished, final STEP loss $(loss_log[end])"
-    println(loss_log)
-    return model, loss_log
+    loss_info = [loss_log, loss_fin, loss_after]
+    re_loss_info = [re_loss_traj, re_loss_fin, re_loss_after]
+    return model, loss_info, re_loss_info
 end
 
 function main_subseq(
@@ -215,32 +189,26 @@ function main_subseq(
     end
 
     # loss taken at final checkpoint only
-    loss_fin = loss_fn(last_pred, last_target)
-    
+    loss_fin = loss_fn(last_pred, last_target; vc = vc)
+
     # set initial of rollout of Kth through 2Kth steps to last_pred
     after_pred = last_pred
     #captured = Vector{typeof(x0)}(undef, check_num)
     after_loss_log = Float32[]
-    
+
     check_index = floor(Int, K/check_num)
     step_counter = 1
     for t in 1:K
         after_pred = step(model, after_pred, kernel; fire_rate = hp.fire_rate)
-        push!(after_loss_log, loss_fn(after_pred, targets[end]))
-        #=
-        if t % check_index == 0
-            captured[step_counter] = after_pred
-            step_counter += 1
-        end
-        =# 
+        push!(after_loss_log, loss_fn(after_pred, targets[end]; vc = vc))
     end
-    
+
     loss_after = mean(after_loss_log)
     loss_traj = loss_log[end]
 
-    re_loss_after = loss_after/norm_one(last_target; vc = 3)
-    re_loss_fin = loss_fin/norm_one(last_target; vc = 3)
-    re_loss_traj = loss_traj/norm_vec(targets; vc = 3)
+    re_loss_after = loss_after/norm_one(last_target; vc = vc)
+    re_loss_fin = loss_fin/norm_one(last_target; vc = vc)
+    re_loss_traj = loss_traj/norm_vec(targets; vc = vc)
     
     @info "final loss: $loss_fin"
     @info "after loss: $loss_after"

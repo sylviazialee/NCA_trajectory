@@ -45,12 +45,8 @@ function build_perception_kernel(
     return kernel |> cu
 end
 
-function perceive(x::CuArray{Float32,4}, kernel::CuArray{Float32,4}, channel_n::Int)
-    # replicate padding
-    x_rep = NNlib.pad_repeat(x, 1; dims=(1, 2))
-    x_cir = NNlib.pad_circular(x, 1; dims=(1, 2))
-    return NNlib.conv(x_cir, kernel; pad=0, groups=channel_n)
-    #return NNlib.conv(x, kernel; pad=1, groups=channel_n) # vanilla zero padding
+function perceive(x::CuArray{Float32,4}, kernel::CuArray{Float32,4}, channel_n::Int; pad_choice::String = "zero")
+    return NNlib.conv(x, kernel; pad=1, groups=channel_n) # vanilla zero padding
 end
 
 struct CAModel

@@ -258,148 +258,7 @@ function train_trajectory!(
             
 
             #return trajectory_loss(copy(captured), targets, weights; vc = hp.visible_channels), copy(captured)
-            return loss_alg2(copy(captured), targets) # return total trajectory loss across all checkpoints
-        end
-
-        g = grads[1]
-        grad_norm = sqrt(sum(Float64(norm(gi))^2 for gi in values(g) if gi !== nothing))
-        for gi in values(g)
-            gi === nothing && continue
-            gi ./= (norm(gi) + 1f-8)
-        end
-
-        Flux.update!(opt_state, model, g)
-        if step_i % 50 == 0
-            GC.gc(false)
-            CUDA.reclaim()
-        end
-
-        loss_scalar = Float32(loss_val)
-        push!(loss_log, loss_scalar)
-
-        if !isfinite(loss_scalar)
-            @warn "[traj] step $step_i: loss is $loss_scalar — model has diverged (state contains NaN/Inf)"
-        end
-
-        @info @sprintf(
-            "[traj] step %04d/%d | loss %.6e | log10 %.4f | ||g|| %.4e | lr %.2e",
-            step_i, hp.train_steps, loss_scalar, log10(loss_scalar), grad_norm, current_lr,
-        )
-        next!(progress; showvalues = [(:loss, loss_scalar), (:grad_norm, grad_norm)])
-
-        if snapshot_every > 0 && step_i % snapshot_every == 0
-            fn = joinpath(checkpoint_dir, "traj_$(lpad(step_i,5,'0')).jld2")
-            save_model(model, hp, fn)
-            save_trajectory_snapshot(
-                model, x0, kernel, targets, hp.obs_steps, step_i, loss_scalar, snapshot_dir;
-                fire_rate = hp.fire_rate, vc = hp.visible_channels,
-            )
-        end
-    end
-
-    save_model(model, hp, joinpath(checkpoint_dir, "traj_final.jld2"))
-    save_loss_plots(loss_log, output_dir; run_id)
-    # x0 is a batched (W,H,C,N) tensor of real seed frames, not a single-pixel
-    # `make_seed` grid, so take one sample from the batch as the rollout start.
-    save_rollout_video(
-        model,
-        x0[:, :, :, 1],
-        kernel;
-        n_steps = video_rollout_steps,
-        frame_dir = joinpath(output_dir, "final_FULL_rollout_frames"),
-        out_path = joinpath(output_dir, "final_FULL_rollout_2x.mp4"),
-        fps = video_fps,
-        fire_rate = video_fire_rate,
-        scale = image_scale,
-    )
-    
-    return model, loss_log
-end
-
-
-###########################
-#currently not working
-function train_step!(
-    hp::TrajectoryHParams,
-    x0::CuArray{Float32,4},             
-    targets::Vector{<:CuArray{Float32,3}},
-    weights::Vector{Float32} = ones(Float32, length(targets));
-    checkpoint_dir::String = "checkpoints",
-    output_dir::String     = "outputs",
-    run_id::String         = run_timestamp(),
-    snapshot_every::Int    = 100,
-    video_rollout_steps::Int = 2 * maximum(hp.obs_steps),
-    video_fps::Int         = 30,
-    video_fire_rate::Float32 = 1.0f0,
-    image_scale::Int       = 8,
-)
-    mkpath(checkpoint_dir); mkpath(output_dir)
-    snapshot_dir = joinpath(output_dir, "training_snapshots")
-    mkpath(snapshot_dir)
-    @assert length(targets) == length(hp.obs_steps)
-
-    model  = CAModel(hp)
-    kernel = build_perception_kernel(hp.channel_n; filters = hp.filters)
-    opt_state = Flux.setup(AdamW(hp.lr, (0.9f0, 0.999f0), 1f-3), model)
-
-    K = maximum(hp.obs_steps)    # total steps to roll out each iteration
-    n_obs = length(hp.obs_steps)
-    obs_positions = Dict(t => i for (i, t) in enumerate(hp.obs_steps))  # step -> slot in captured
-    
-    W, H, N = (size(x0, 1), size(x0, 2), size(x0, 4))
-    update_mask_buf = CUDA.zeros(Float32, W, H, 1, N, K)
-    
-    deterministic_mask_buf = CUDA.zeros(Float32, W, H, 1, N, 1)
-    deterministic_mask = @view(fill_update_masks!(deterministic_mask_buf, 1, 1f0)[:, :, :, :, 1])
-    
-
-    vc = hp.visible_channels
-
-    # reshape target images into 4d to set to x
-    ys = Vector{CuArray{Float32,4}}(undef, length(targets)) 
-    for t in 1:length(targets)
-        xt = targets[t]
-        x4d = CUDA.zeros(Float32, size(xt, 1), size(xt, 2), hp.channel_n, N)
-        x4d[:, :, 1:vc,:] .= repeat(reshape(xt, size(xt)..., 1), 1, 1, 1, N)
-        ys[t] = x4d
-    end
-    loss_log = Float32[]
-    train_start = time()
-
-    progress = Progress(hp.train_steps; desc = "Trajectory fitting: ")
-    for step_i in 1:hp.train_steps
-        current_lr = scheduled_learning_rate(
-            step_i, hp.train_steps, hp.lr, hp.lr_decay_step, hp.lr_decay_factor,
-        )
-        Flux.adjust!(opt_state, current_lr)
-        #
-        update_masks = fill_update_masks!(update_mask_buf, K, hp.fire_rate)
-        loss_val, grads = Flux.withgradient(model) do m
-            x = ys[1] # initial x is first target image
-            
-            captured = Zygote.Buffer(Vector{typeof(x0)}(undef, n_obs)) #keep track of every checkpoint
-            
-            # step 0/seed state
-            if haskey(obs_positions, 0)
-                captured[obs_positions[0]] = x
-            end
-
-            total_loss = 0f0 #keep track of total loss
-            for t in 1:K
-                # continue rollout on previous step until reach checkpoint index
-                x = step(m, x, kernel; fire_rate = hp.fire_rate, update_mask = @view(update_masks[:, :, :, :, t]))
-                
-                # take snapshots
-                if haskey(obs_positions, t) #if at step t in overall model corresponding to checkpoint i
-                    i = obs_positions[t] # i is step number in targets corresponding to step t in overall model
-                    captured[i] = x #put in current state x into captured at i
-                    loss = loss_fn(captured[i], targets[i]) # find loss at this checkpoint only
-                    x = ys[i] # reset x to the target image to continue next rollout
-                    total_loss += loss
-                end
-            end
-            
-            return total_loss/(n_obs - 1) # average loss
+            return loss_alg2(copy(captured), targets; vc = hp.visible_channels) # return total trajectory loss across all checkpoints
         end
 
         g = grads[1]
@@ -527,7 +386,7 @@ function train_subseq!(
             
 
             #return trajectory_loss(copy(captured), targets, weights; vc = hp.visible_channels), copy(captured)
-            return loss_alg2(copy(captured), targets) # return total trajectory loss across all checkpoints
+            return loss_alg2(copy(captured), targets; vc = hp.visible_channels) # return total trajectory loss across all checkpoints
         end
 
         g = grads[1]

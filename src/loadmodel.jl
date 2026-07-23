@@ -68,7 +68,7 @@ for t in 1:n_steps
     end
 end
 
-loss = loss_alg2(copy(captured), test_frames)
+loss = loss_alg2(copy(captured), test_frames; vc = hp.visible_channels)
 
 # 4. view the result
 run_id = run_timestamp()
