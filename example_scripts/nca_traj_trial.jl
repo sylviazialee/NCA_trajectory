@@ -9,7 +9,7 @@ fr = 0.5
 channel_num = 16
 combo_string = ARGS[2]
 run_id = run_timestamp()
-data_dir = "$(image_set)_ch_$(channel_num)"
+data_dir = "$(image_set)_combo_$(combo_string)"
 
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
@@ -40,6 +40,20 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
 # 2. map physical times -> CA step indices (your choice of time scale)
 obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
+filter_index = [:id, :sobel_x, :sobel_y, :laplacian]
+
+@assert length(filter_index)===length(combo_string)
+
+subset_filter = Symbol[]
+for i in 1:length(combo_string)
+    if combo_string[i] == '1'
+        push!(subset_filter, filter_index[i])
+    else
+        combo_string[i] != '0' && error("bad combo string")
+    end
+end
+
+isempty(subset_filter) && error("empty filter set")
 
 hp = TrajectoryHParams(
     channel_n  = channel_num,
@@ -47,7 +61,8 @@ hp = TrajectoryHParams(
     batch_size = 4,
     train_steps = 3000,
     fire_rate = fr,
-    visible_channels = 3
+    visible_channels = 3,
+    filters = subset_filter,
 )
 
 # 3. build x0: RGBA from frame[1], hidden channels = 0
@@ -72,7 +87,7 @@ open(joinpath(output_dir, "read.txt"), "w") do io
     train_pic = image_set
     println(io, Dates.now())
     println(io, "TRAIN NO ALIVE: " * train_pic)
-    println(io, "TRAINING FIRE RATE = $(hp.fire_rate)")
+    println(io, "COMBO STRING (id, sx, sy, lap) = $(combo_string)")
     println(io, "TRAJ LOSS = $(loss_log[end])")
     println(io, "FINAL LOSS = $final_loss")
     println(io, "AFTER LOSS = $after_loss")
