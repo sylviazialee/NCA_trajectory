@@ -17,12 +17,12 @@ target_thumbs = Array{Float32,3}[]
 for m in 1:hp.n_targets
     t = load_target_rgba(joinpath(run_dir, "target_$(m).jld2"); target_size=hp.target_size)
     push!(target_thumbs, NCA.to_rgb(Array(t)))
-    padded = CUDA.zeros(Float32, W, W, 4)
+    padded = CUDA.zeros(Float32, W, W, 3)
     padded[p+1:p+hp.target_size, p+1:p+hp.target_size, :] .= t
     push!(targets, padded)
 end
 
-target_stack = cat([reshape(targets[m], W, W, 4, 1) for m in 1:hp.n_targets]...; dims=4)
+target_stack = cat([reshape(targets[m], W, W, 3, 1) for m in 1:hp.n_targets]...; dims=4)
 
 mu, _ = encode_targets(model, target_stack)
 

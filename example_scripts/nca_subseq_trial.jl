@@ -69,7 +69,7 @@ current_frames = subframes[1]
 # make seed BASED OFF OF CURRENT SUBFRAMES, W and H do not need to be re-defined
 W, H = size(current_frames[1], 1), size(current_frames[1], 2)
 x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
-x0_single[:, :, 1:4] .= current_frames[1]            # seed RGBA from data
+x0_single[:, :, 1:3] .= current_frames[1]            # seed RGBA from data
 x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
 
 models[1], loss_info[1], re_loss_info[1] = main_subseq(x0, subframes[1]; hp = hps[1], run_id = run_id, data_dir = data_dir)

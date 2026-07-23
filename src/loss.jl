@@ -34,23 +34,6 @@ function trajectory_loss(
     return total
 end
 
-#my func
-#=
-function loss_ex(x::CuArray{Float32,4}, target::CuArray{Float32,3}; vc::Int = 3)
-    vis  = x[:, :, 1:vc, :] # top 4 visible channel layers
-    tgt  = reshape(target[:, :, 1:vc], size(target, 1), size(target, 2), vc, 1) # reshape target to compare
-
-    #add the sum of the differences between alive/dead states of predicted vs target (what to do if target does not have specific number for this tho?)
-    vis_al = vis[:, :, 4, :]
-    tgt_al = tgt[:, :, 4, 1] 
-    #take only the alpha (aliveness) values in target and predicted
-    
-    loss_al = mean((vis_al .- tgt_al) .^ 2)
-    loss_og = mean((vis .- tgt) .^ 2) # sum of squares of differences (magnitude squared loss func)
-    c = 0.0005f0
-    return c * loss_al + loss_og
-end
-=#
 function per_sample_loss(x::CuArray{Float32,4}, target::CuArray{Float32,3}; vc::Int = 3)
     vis  = x[:, :, 1:vc, :]
     tgt  = reshape(target[:, :, 1:vc], size(target, 1), size(target, 2), vc, 1)

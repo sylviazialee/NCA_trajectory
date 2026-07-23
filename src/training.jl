@@ -22,7 +22,7 @@ function train!(
     target_padded = CUDA.zeros(Float32,
         hp.target_size + 2p,
         hp.target_size + 2p,
-        4,
+        3,
     )
     target_padded[p+1:p+hp.target_size, p+1:p+hp.target_size, :] .= target
 

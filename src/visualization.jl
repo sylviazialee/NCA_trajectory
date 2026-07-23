@@ -421,3 +421,45 @@ function run_ca(
     return Array(x)
 end
 
+function save_hidden_video(
+    model::CAModel,
+    seed::CuArray{Float32,3},
+    kernel::CuArray{Float32,4};
+    n_steps::Int,
+    frame_dir::String,
+    out_path::String,
+    fps::Int = 30,
+    fire_rate::Float32 = 1f0,
+    scale::Int = 8,
+    vc::Int = model.visible_channels,
+    pad_choice::String = "zer",
+)
+    rm(frame_dir; force=true, recursive=true)
+    mkpath(frame_dir)
+
+    x = reshape(seed, size(seed)..., 1)
+    hidden_channels = (vc+1):size(x, 3)
+    progress = Progress(n_steps + 1; desc = "Writing final hidden channel display: ")
+
+    for i in 0:n_steps
+        for channel_num in hidden_channels
+            hidden = to_hidden(Array(x)[:, :, :, 1], channel_num)
+            frame_path = joinpath(frame_dir, @sprintf("hidden_channel_%d_%05d.ppm", channel_num, i))
+            write_hidden_ppm(frame_path, hidden; scale)
+        end
+        next!(progress; showvalues = [(:frame, i), (:total_frames, n_steps + 1)])
+
+        if i < n_steps
+            x = step(model, x, kernel; fire_rate, pad_choice)
+        end
+    end
+
+    ffmpeg = FFMPEG_jll.ffmpeg()
+    base, ext = splitext(out_path)
+    for channel_num in hidden_channels
+        channel_out_path = "$(base)_ch$(channel_num)$(ext)"
+        run(`$ffmpeg -y -framerate $fps -i $(joinpath(frame_dir, "hidden_channel_$(channel_num)_%05d.ppm")) -pix_fmt yuv420p $channel_out_path`)
+    end
+    @info "Saved final hidden channel video(s) for channels $(hidden_channels) with base path $out_path"
+    return out_path
+end

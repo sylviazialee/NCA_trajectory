@@ -96,3 +96,18 @@ save_rollout_video(
     fire_rate = 1.0f0,
     scale = 8,
 )
+
+save_hidden_video(
+    model,
+    x0[:, :, :, 1],
+    kernel;
+    n_steps = n_steps,
+    frame_dir = joinpath(output_dir, "$(image_set)_test_frames"),
+    out_path = joinpath(output_dir, "$(train_set)_to_$(image_set).mp4"),
+    fps = 30,
+    fire_rate = 1.0f0,
+    scale = 8,
+    vc = hp.visible_channels,
+    pad_choice,
+)
+@info("Hidden vids acquired")

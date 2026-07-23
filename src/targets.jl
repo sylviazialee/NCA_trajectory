@@ -6,7 +6,7 @@ _to_rgba(px::ColorTypes.AbstractGray) = (g = Float32(gray(px)); ColorTypes.RGBA(
 
 function image_to_nca_target(img, W::Int, H::Int)
     src_h, src_w = size(img)
-    target = zeros(Float32, W, H, 4)
+    target = zeros(Float32, W, H, 3)
 
     @inbounds for y in 1:H, x in 1:W
         y0 = floor(Int, (y - 1) * src_h / H) + 1
@@ -14,22 +14,19 @@ function image_to_nca_target(img, W::Int, H::Int)
         x0 = floor(Int, (x - 1) * src_w / W) + 1
         x1 = max(x0, floor(Int, x * src_w / W))
 
-        rsum = gsum = bsum = asum = 0f0
+        rsum = gsum = bsum = 0f0
         count = 0
         for sy in y0:y1, sx in x0:x1
             px = _to_rgba(img[sy, sx])
-            a = Float32(alpha(px))
-            rsum += Float32(red(px)) * a
-            gsum += Float32(green(px)) * a
-            bsum += Float32(blue(px)) * a
-            asum += a
+            rsum += Float32(red(px))
+            gsum += Float32(green(px))
+            bsum += Float32(blue(px))
             count += 1
         end
         invc = 1f0 / Float32(count)
         target[x, y, 1] = rsum * invc
         target[x, y, 2] = gsum * invc
         target[x, y, 3] = bsum * invc
-        target[x, y, 4] = asum * invc
     end
     target
 end
@@ -48,7 +45,6 @@ function image_to_nca_target_mono2(img, W::Int, H::Int)
     r = @view t[:, :, 1]
     g = @view t[:, :, 2]
     b = @view t[:, :, 3]
-    a = @view t[:, :, 4]
     inva = @. ifelse(a > 1f-6, 1f0 / a, 0f0)
     lin_r = @. clamp(r * inva, 0f0, 1f0)
     lin_g = @. clamp(g * inva, 0f0, 1f0)
@@ -87,7 +83,7 @@ function make_seed(
     channel_n::Int;
     cx::Int = W ÷ 2 + 1,
     cy::Int = H ÷ 2 + 1,
-    visible_channels::Int = min(4, channel_n),
+    visible_channels::Int = 3,
 )
     (1 <= cx <= W && 1 <= cy <= H) || error("seed ($cx,$cy) outside grid $(W)x$(H)")
     seed = CUDA.zeros(Float32, W, H, channel_n)

@@ -53,7 +53,7 @@ hp = TrajectoryHParams(
 # 3. build x0: RGBA from frame[1], hidden channels = 0
 W, H = size(frames[1], 1), size(frames[1], 2)
 x0_single = CUDA.zeros(Float32, W, H, hp.channel_n)
-x0_single[:, :, 1:4] .= frames[1]            # seed RGBA from data
+x0_single[:, :, 1:3] .= frames[1]            # seed RGBA from data
 x0 = repeat(reshape(x0_single, W, H, hp.channel_n, 1), 1, 1, 1, hp.batch_size)
 
 # 4. targets = frames at obs_steps (step 0 is your initial, still supervise it)
