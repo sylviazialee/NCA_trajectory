@@ -13,10 +13,16 @@ function build_perception_kernel(
     filters::Vector{Symbol} = [:id, :sobel_x, :sobel_y],
     angle::Float32 = 0f0,
 )
+    c, s  = cos(angle), sin(angle)
     ident_3 = Float32[0 0 0; 0 1 0; 0 0 0]
     sx_3    = Float32[-1 0 1; -2 0 2; -1 0 1] ./ 8f0
-    sy_3    = permutedims(sx)
-    c, s  = cos(angle), sin(angle)
+    sy_3    = permutedims(sx_3)
+    ident_5 = Float32[0 0 0 0 0; 0 0 0 0 0; 0 0 1 0 0; 0 0 0 0 0; 0 0 0 0 0]
+    sx_5    = Float32[-1 -2 0 2 1; -4 -8 0 8 4; -6 -12 0 12 6; -4 -8 0 8 4; -1 -2 0 2 1] ./ 96f0
+    sy_5    = permutedims(sx_5)
+    ident_7 = Float32[0 0 0 0 0 0 0; 0 0 0 0 0 0 0; 0 0 0 0 0 0 0; 0 0 0 1 0 0 0; 0 0 0 0 0 0 0; 0 0 0 0 0 0 0; 0 0 0 0 0 0 0]
+    sx_7    = Float32[-1 -4 -5 0 5 4 1; -6 -24 -30 0 30 24 6; -15 -60 -75 0 75 60 15; -20 -80 -100 0 100 80 20; -15 -60 -75 0 75 60 15; -6 -24 -30 0 30 24 6; -1 -4 -5 0 5 4 1]./1280f0
+    sy_7    = permutedims(sx_7)
 
     all_filters = Dict{Symbol, Matrix{Float32}}(
         :id_3        => ident_3,
@@ -25,14 +31,14 @@ function build_perception_kernel(
         :avg_3       => fill(1f0 / 9f0, 3, 3),
         :laplacian_3 => Float32[0 1 0; 1 -4 1; 0 1 0],
         :id_5        => ident,
-        :sobel_x_5   => c .* sx .- s .* sy,
-        :sobel_y_5   => s .* sx .+ c .* sy,
-        :avg_5       => fill(1f0 / 9f0, 3, 3),
+        :sobel_x_5   => c .* sx_5 .- s .* sy_5,
+        :sobel_y_5   => s .* sx_5 .+ c .* sy_5,
+        :avg_5       => fill(1f0 / 25f0, 5, 5),
         :laplacian_5 => Float32[0 1 0; 1 -4 1; 0 1 0],
         :id_7        => ident,
-        :sobel_x_7   => c .* sx .- s .* sy,
-        :sobel_y_7   => s .* sx .+ c .* sy,
-        :avg_7       => fill(1f0 / 9f0, 3, 3),
+        :sobel_x_7   => c .* sx_7 .- s .* sy_7,
+        :sobel_y_7   => s .* sx_7 .+ c .* sy_7,
+        :avg_7       => fill(1f0 / 49f0, 7, 7),
         :laplacian_7 => Float32[0 1 0; 1 -4 1; 0 1 0],
     )
 
