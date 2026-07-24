@@ -6,10 +6,11 @@ using Dates
 
 image_set = ARGS[1]
 fr = 0.5
-channel_num = parse(Int64, ARGS[2])
+channel_num = 16
+ker_dim = parse(Int64, ARGS[2])
 run_id = run_timestamp()
 #image_set = "slider"
-data_dir = "$(image_set)_ch_$(channel_num)"
+data_dir = "$(image_set)_ker_$(ker_dim)"
 
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
@@ -40,6 +41,18 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
 # 2. map physical times -> CA step indices (your choice of time scale)
 obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
+if ker_dim == 3
+    filters = [:id_3, :sobel_x_3, :sobel_y_3]
+    pad = 1
+elseif ker_dim == 5
+    filters = [:id_5, :sobel_x_5, :sobel_y_5]
+    pad = 2
+elseif ker_dim == 7
+    filters = [:id_7, :sobel_x_7, :sobel_y_7]
+    pad = 3
+else
+    error("invalid ker_dim")
+end
 
 hp = TrajectoryHParams(
     channel_n  = channel_num,
@@ -47,7 +60,9 @@ hp = TrajectoryHParams(
     batch_size = 4,
     train_steps = 3000,
     fire_rate = fr,
-    visible_channels = 3
+    visible_channels = 3,
+    filters = filters,
+    pad = pad,
 )
 
 # 3. build x0: RGBA from frame[1], hidden channels = 0

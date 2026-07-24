@@ -20,7 +20,7 @@ hp = HParams(
     fire_rate = 0.5f0,
     damage_n = 0,
     use_pattern_pool = true,
-    filters = [:id, :sobel_x, :sobel_y, :laplacian], # subset of: :id, :sobel_x, :sobel_y, :avg, :laplacian
+    filters = [:id_3, :sobel_x_3, :sobel_y_3, :laplacian_3], # subset of: :id_3/5/7, :sobel_x_3/5/7, :sobel_y_3/5/7, :avg_3/5/7, :laplacian_3/5/7
     # vc=4 RGBA (default Grow). vc=2 gray + alpha (living mask on ch2; use `make_png_target_mono2!`).
     # vc=1 = single supervised channel, no life mask (not recommended for masks-on-white).
     visible_channels = 3,

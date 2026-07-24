@@ -1,16 +1,19 @@
 """
-Build the fixed 3x3 perception kernel as a grouped convolution.
+Build the perception kernel as a grouped convolution.
 
-Returns a CuArray of shape (3, 3, 1, n_filters*channel_n) for use with
-`NNlib.conv(...; groups=channel_n)`. Each input channel is independently
+Returns a CuArray of shape (k, k, 1, n_filters*channel_n) for use with
+`NNlib.conv(...; groups=channel_n)`, where k is the spatial size shared by
+all selected filters (3, 5, or 7). Each input channel is independently
 convolved with the selected filters; using groups avoids the O(C²) cost of
 a full dense conv (the old kernel was mostly zeros).
-`filters` is a subset of [:id, :sobel_x, :sobel_y, :avg, :laplacian].
+`filters` is a subset of the `_3`/`_5`/`_7`-suffixed keys (e.g. :id_3,
+:sobel_x_5, :laplacian_7) and must all share the same suffix, since a single
+grouped conv can only use one kernel size at a time.
 Sobel filters are optionally rotated by `angle` (radians).
 """
 function build_perception_kernel(
     channel_n::Int;
-    filters::Vector{Symbol} = [:id, :sobel_x, :sobel_y],
+    filters::Vector{Symbol} = [:id_3, :sobel_x_3, :sobel_y_3],
     angle::Float32 = 0f0,
 )
     c, s  = cos(angle), sin(angle)
@@ -30,16 +33,16 @@ function build_perception_kernel(
         :sobel_y_3   => s .* sx_3 .+ c .* sy_3,
         :avg_3       => fill(1f0 / 9f0, 3, 3),
         :laplacian_3 => Float32[0 1 0; 1 -4 1; 0 1 0],
-        :id_5        => ident,
+        :id_5        => ident_5,
         :sobel_x_5   => c .* sx_5 .- s .* sy_5,
         :sobel_y_5   => s .* sx_5 .+ c .* sy_5,
         :avg_5       => fill(1f0 / 25f0, 5, 5),
-        :laplacian_5 => Float32[0 1 0; 1 -4 1; 0 1 0],
-        :id_7        => ident,
+        :laplacian_5 => Float32[2 4 4 4 2; 4 0 -8 0 4; 4 -8 -24 -8 4; 4 0 -8 0 4; 2 4 4 4 2],
+        :id_7        => ident_7,
         :sobel_x_7   => c .* sx_7 .- s .* sy_7,
         :sobel_y_7   => s .* sx_7 .+ c .* sy_7,
         :avg_7       => fill(1f0 / 49f0, 7, 7),
-        :laplacian_7 => Float32[0 1 0; 1 -4 1; 0 1 0],
+        :laplacian_7 => Float32[2 8 14 16 14 8 2; 8 24 24 16 24 24 8; 14 24 -30 -80 -30 24 14; 16 16 -80 -160 -80 16 16; 14 24 -30 -80 -30 24 14; 8 24 24 16 24 24 8; 2 8 14 16 14 8 2],
     )
 
     for f in filters
@@ -48,11 +51,15 @@ function build_perception_kernel(
 
     selected = [all_filters[f] for f in filters]
     n_f      = length(selected)
-    fstack   = cat(selected...; dims = 3)  # (3, 3, n_f)
+    ksizes   = unique(size.(selected))
+    length(ksizes) == 1 ||
+        error("mismatched kernel size $(ksizes) for $filters")
+    k = ksizes[1][1]
+    fstack = cat(selected...; dims = 3)  # (k, k, n_f)
 
-    # Grouped kernel: (3, 3, 1, n_f * channel_n)
+    # Grouped kernel: (k, k, 1, n_f * channel_n)
     # Each group of n_f output channels handles one input channel with the same filter stack.
-    kernel = zeros(Float32, 3, 3, 1, n_f * channel_n)
+    kernel = zeros(Float32, k, k, 1, n_f * channel_n)
     for ch in 1:channel_n
         out_base = n_f * (ch - 1)
         kernel[:, :, 1, out_base+1:out_base+n_f] .= fstack
@@ -61,8 +68,8 @@ function build_perception_kernel(
     return kernel |> cu
 end
 
-function perceive(x::CuArray{Float32,4}, kernel::CuArray{Float32,4}, channel_n::Int; pad_choice::String = "zero")
-    return NNlib.conv(x, kernel; pad=1, groups=channel_n) # vanilla zero padding
+function perceive(x::CuArray{Float32,4}, kernel::CuArray{Float32,4}, channel_n::Int; pad::Int = 1)
+    return NNlib.conv(x, kernel; pad=pad, groups=channel_n) # vanilla zero padding
 end
 
 struct CAModel
@@ -73,6 +80,7 @@ struct CAModel
     channel_n::Int
     fire_rate::Float32
     visible_channels::Int
+    pad::Int
 end
 
 Flux.@layer CAModel
@@ -90,7 +98,7 @@ function CAModel(hp::HParams)
     dense1_b = CUDA.zeros(Float32, H)
     dense2_w = CUDA.zeros(Float32, 1, 1, H, C)
     dense2_b = CUDA.zeros(Float32, C)
-    return CAModel(dense1_w, dense1_b, dense2_w, dense2_b, C, hp.fire_rate, hp.visible_channels)
+    return CAModel(dense1_w, dense1_b, dense2_w, dense2_b, C, hp.fire_rate, hp.visible_channels, 1)
 end
 
 function CAModel(hp::TrajectoryHParams)
@@ -99,7 +107,7 @@ function CAModel(hp::TrajectoryHParams)
     dense1_b = CUDA.zeros(Float32, H)
     dense2_w = CUDA.zeros(Float32, 1, 1, H, C)
     dense2_b = CUDA.zeros(Float32, C)
-    return CAModel(dense1_w, dense1_b, dense2_w, dense2_b, C, hp.fire_rate, hp.visible_channels)
+    return CAModel(dense1_w, dense1_b, dense2_w, dense2_b, C, hp.fire_rate, hp.visible_channels, hp.pad)
 end
 
 function step(
@@ -110,7 +118,7 @@ function step(
     step_size::Float32 = 1f0,
     update_mask = nothing,
 )
-    y = perceive(x, kernel, model.channel_n)
+    y = perceive(x, kernel, model.channel_n; pad = model.pad)
 
     dx = NNlib.conv(y, model.dense1_w) .+ reshape(model.dense1_b, 1, 1, :, 1)
     dx = relu.(dx)

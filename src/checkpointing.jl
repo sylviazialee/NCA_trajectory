@@ -7,6 +7,7 @@ function save_model(model::CAModel, hp::Union{HParams,TrajectoryHParams}, path::
         channel_n = model.channel_n,
         fire_rate = model.fire_rate,
         visible_channels = model.visible_channels,
+        pad = model.pad,
         hparams  = hp,
     )
 end
@@ -22,6 +23,7 @@ function load_model(path::String)
         d["channel_n"],
         d["fire_rate"],
         get(d, "visible_channels", 4),
+        get(d, "pad", 1),
     )
     return model, hp
 end

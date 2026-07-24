@@ -16,8 +16,8 @@ Base.@kwdef struct HParams
     lr_decay_factor::Float32 = 0.1f0
     damage_n::Int = 0
     use_pattern_pool::Bool = false
-    # subset of: :id, :sobel_x, :sobel_y, :avg, :laplacian
-    filters::Vector{Symbol} = [:id, :sobel_x, :sobel_y]
+    # subset of: :id_3/5/7, :sobel_x_3/5/7, :sobel_y_3/5/7, :avg_3/5/7, :laplacian_3/5/7
+    filters::Vector{Symbol} = [:id_3, :sobel_x_3, :sobel_y_3]
     # 1 = intensity only, 2 = gray+alpha (life on ch2), 4 = RGBA (life on ch4)
     visible_channels::Int = 3
 
@@ -47,10 +47,13 @@ Base.@kwdef struct TrajectoryHParams
     lr_decay_step::Int = 2000
     lr_decay_factor::Float32 = 0.1f0
     target_padding::Int = 0
-    # subset of: :id, :sobel_x, :sobel_y, :avg, :laplacian
-    filters::Vector{Symbol} = [:id, :sobel_x, :sobel_y]
+    # subset of: :id_3/5/7, :sobel_x_3/5/7, :sobel_y_3/5/7, :avg_3/5/7, :laplacian_3/5/7
+    filters::Vector{Symbol} = [:id_3, :sobel_x_3, :sobel_y_3]
     # 1 = intensity only, 2 = gray+alpha (life on ch2), 4 = RGBA (life on ch4)
     visible_channels::Int = 3
+    # spatial padding for the perception conv; 1 keeps output size for a 3x3 kernel
+    # (use 2 for 5x5 filters, 3 for 7x7 filters)
+    pad::Int = 1
 end
 
 function scheduled_learning_rate(
