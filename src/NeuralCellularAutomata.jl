@@ -37,6 +37,6 @@ include("main.jl")
 export HParams, CAModel, train!, main, run_ca, load_model, save_model
 export image_to_nca_target, image_to_nca_target_mono2, load_target_rgba, run_timestamp
 export TrajectoryHParams, train_trajectory!, train_subseq!, trajectory_loss, loss_alg2, loss_fn, main_trajectory, main_subseq
-export plot_multi, save_loss_plots, save_rollout_video
+export plot_multi, save_loss_plots, save_rollout_video, save_hidden_video
 export norm_one, norm_vec
 end

@@ -130,6 +130,15 @@ function write_rgb_ppm(path::String, rgb::AbstractArray{<:Real,3}; scale::Int = 
     return path
 end
 
+function to_hidden(x::AbstractArray{Float32,3}, channel_num::Int)
+    g = clamp.(x[:, :, channel_num:channel_num], 0f0, 1f0)
+    return repeat(g, 1, 1, 3)
+end
+
+function write_hidden_ppm(path::String, hidden::AbstractArray{<:Real,3}; scale::Int = 8)
+    return write_rgb_ppm(path, hidden; scale)
+end
+
 function side_by_side_rgb(left::AbstractArray{<:Real,3}, right::AbstractArray{<:Real,3}; gap::Int = 4)
     @assert size(left) == size(right) "Images must have matching dimensions"
     W, H, _ = size(left)

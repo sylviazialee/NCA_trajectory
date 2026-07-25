@@ -108,6 +108,6 @@ save_hidden_video(
     fire_rate = 1.0f0,
     scale = 8,
     vc = hp.visible_channels,
-    pad_choice,
+    pad_choice = "zer",
 )
 @info("Hidden vids acquired")
