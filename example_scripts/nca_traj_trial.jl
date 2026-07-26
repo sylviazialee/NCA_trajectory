@@ -5,11 +5,10 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = 0.5
-channel_num = parse(Int64, ARGS[2])
+fr = parse(Float32, ARGS[2])
+channel_num = 16
 run_id = run_timestamp()
-#image_set = "slider"
-data_dir = "$(image_set)_ch_$(channel_num)"
+data_dir = "$(image_set)_fr_$(fr)"
 
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
@@ -38,7 +37,7 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_19.png")]   # Vector of CuArray{Float32,3}
 
 # 2. map physical times -> CA step indices (your choice of time scale)
-obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
+obs_steps = 20 .* (0:(length(frames)-1))  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 
 hp = TrajectoryHParams(
