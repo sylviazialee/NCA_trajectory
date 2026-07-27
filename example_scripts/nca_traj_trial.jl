@@ -9,8 +9,8 @@ using Dates
 @show channel_num = 2
 @show run_id = run_timestamp()
 @show delta = parse(Int64, ARGS[2])
-@show data_dir = isempty(arg2) ? image_set : "$(image_set)_delta$(delta)"
-
+@show data_dir = "$(image_set)_delta$(delta)"
+@show train_steps = 5000
 @info("using jld2 files")
 @info("STARTING: $(image_set) with $(delta)")
 
@@ -19,7 +19,8 @@ using Dates
 frame_paths = ["$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).jld2" for i in 0:5]
 println("first frame path: ", frame_paths[1])
 @show isfile(frame_paths[1])
-frames = [load_jld(p) for p in frame_paths]   # Vector of CuArray{Float32,3}
+frames = [load_jld(p) for p in frame_paths]
+frames = [clamp.(f, 0f0, 1f0) for f in frames]  # Vector of CuArray{Float32,3}
 @show length(frames)
 @show size(frames[1])
 
@@ -32,7 +33,7 @@ hp = TrajectoryHParams(
     channel_n  = channel_num,
     obs_steps  = obs_steps,
     batch_size = 4,
-    train_steps = 3000,
+    train_steps = train_steps,
     fire_rate = fr,
     visible_channels = 1,
 )
@@ -66,7 +67,8 @@ open(joinpath(output_dir, "read.txt"), "w") do io
     println(io, "channel_num = $channel_num")
     println(io, "run_id = $run_id")
     println(io, "delta = $delta")
-    println(io, "datad_dir = $data_dir")
+    println(io, "train_steps = $train_steps")
+    println(io, "data_dir = $data_dir")
     println(io, "TRAJ LOSS = $(loss_log[end])")
     println(io, "FINAL LOSS = $final_loss")
     println(io, "AFTER LOSS = $after_loss")

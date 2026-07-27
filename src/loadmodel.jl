@@ -46,7 +46,7 @@ obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → st
 frame_0 = load_target_rgba("$(image_set)/snapshot_00.png")   # CuArray{Float32,3}, (W,H,4)
 W, H = size(frame_0, 1), size(frame_0, 2)
 x0 = CUDA.zeros(Float32, W, H, hp.channel_n, 1)
-x0[:, :, 1:hp.visible_channels, :] .= reshape(frame_0[:, :, 1:hp.visible_channels], W, H, hp.visible_channels, 1)
+x0[:, :, 1:hp.visible_channels, :] .= clamp.(reshape(frame_0[:, :, 1:hp.visible_channels], W, H, hp.visible_channels, 1), 0f0, 1f0)
 
 # 3. run it
 obs_positions = Dict(t => i for (i, t) in enumerate(obs_steps))  # step -> slot in captured

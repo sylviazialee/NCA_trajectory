@@ -107,6 +107,8 @@ function step(
     mask = update_mask === nothing ?
         Float32.(CUDA.rand(Float32, size(x, 1), size(x, 2), 1, size(x, 4)) .<= fire_rate) :
         update_mask
+    x_new = x .+ dx .* mask
+    x_new = clamp.(x_new, 0f0, 1f0)
     return x .+ dx .* mask
 end
 
