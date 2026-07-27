@@ -108,9 +108,12 @@ end
 function load_jld(path::String; target_size::Int = 40)
     isfile(path) || error("no such file: $path")
     if endswith(path, ".jld2")
-        target = JLD2.load(path, "target")
+        target = JLD2.load(path, "x_vis")
     else
         error("want .jld2, got $path")
+    end
+    if ndims(target) == 2
+        target = reshape(target, size(target)..., 1)
     end
     cu(Float32.(target))
 end

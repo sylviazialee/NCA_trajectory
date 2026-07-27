@@ -40,4 +40,5 @@ export image_to_gray_target, load_target_gray
 export TrajectoryHParams, train_trajectory!, train_subseq!, trajectory_loss, loss_alg2, loss_fn, main_trajectory, main_subseq
 export plot_multi, save_loss_plots, save_rollout_video, save_hidden_video
 export norm_one, norm_vec
+export load_jld
 end
