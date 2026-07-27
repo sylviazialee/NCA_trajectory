@@ -5,19 +5,18 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = parse(Float32, ARGS[2])
 fr = 0.5
 channel_num = 2
 run_id = run_timestamp()
-data_dir = "$(image_set)_ch_$(channel_num)"
-delta = 50
+delta = parse(Int64, ARGS[2])
+data_dir = "$(image_set)_delta_$(delta)"
 
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
-frames = [load_target_gray("$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).png") for i in 0:39]   # Vector of CuArray{Float32,3}
+frames = [load_target_gray("$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).png") for i in 0:30]   # Vector of CuArray{Float32,3}
 
 # 2. map physical times -> CA step indices (your choice of time scale)
 obs_steps = delta .* (0:(length(frames)-1))  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
