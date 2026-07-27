@@ -52,8 +52,8 @@ end
 struct CAModel
     dense1_w::CuArray{Float32,4}
     dense1_b::CuArray{Float32,1}
-    dense2_w::CuArray{Float32,4}
-    dense2_b::CuArray{Float32,1}
+    #dense2_w::CuArray{Float32,4}
+    #dense2_b::CuArray{Float32,1}
     channel_n::Int
     fire_rate::Float32
     visible_channels::Int
@@ -64,16 +64,16 @@ Flux.@layer CAModel
 Flux.trainable(m::CAModel) = (;
     dense1_w = m.dense1_w,
     dense1_b = m.dense1_b,
-    dense2_w = m.dense2_w,
-    dense2_b = m.dense2_b,
+    #dense2_w = m.dense2_w,
+    #dense2_b = m.dense2_b,
 )
 
 function CAModel(hp::HParams)
     C, H, n_f = hp.channel_n, hp.hidden_n, length(hp.filters)
     dense1_w = cu(Float32.(randn(1, 1, n_f * C, H) .* sqrt(2f0 / (n_f * C))))
     dense1_b = CUDA.zeros(Float32, H)
-    dense2_w = CUDA.zeros(Float32, 1, 1, H, C)
-    dense2_b = CUDA.zeros(Float32, C)
+    #dense2_w = CUDA.zeros(Float32, 1, 1, H, C)
+    #dense2_b = CUDA.zeros(Float32, C)
     return CAModel(dense1_w, dense1_b, dense2_w, dense2_b, C, hp.fire_rate, hp.visible_channels)
 end
 
@@ -81,8 +81,8 @@ function CAModel(hp::TrajectoryHParams)
     C, H, n_f = hp.channel_n, hp.hidden_n, length(hp.filters)
     dense1_w = cu(Float32.(randn(1, 1, n_f * C, H) .* sqrt(2f0 / (n_f * C))))
     dense1_b = CUDA.zeros(Float32, H)
-    dense2_w = CUDA.zeros(Float32, 1, 1, H, C)
-    dense2_b = CUDA.zeros(Float32, C)
+    #dense2_w = CUDA.zeros(Float32, 1, 1, H, C)
+    #dense2_b = CUDA.zeros(Float32, C)
     return CAModel(dense1_w, dense1_b, dense2_w, dense2_b, C, hp.fire_rate, hp.visible_channels)
 end
 
@@ -100,7 +100,7 @@ function step(
 
     dx = NNlib.conv(y, model.dense1_w) .+ reshape(model.dense1_b, 1, 1, :, 1)
     dx = relu.(dx)
-    dx = NNlib.conv(dx, model.dense2_w) .+ reshape(model.dense2_b, 1, 1, :, 1)
+    #dx = NNlib.conv(dx, model.dense2_w) .+ reshape(model.dense2_b, 1, 1, :, 1)
     if step_size != 1f0
         dx = dx .* step_size
     end

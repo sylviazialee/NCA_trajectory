@@ -11,7 +11,7 @@ run_id = run_timestamp()
 delta = parse(Int64, ARGS[2])
 data_dir = "$(image_set)_delta_$(delta)"
 
-
+@info(removed dense2 w and b layer)
 @info("STARTING: $(image_set) with $(channel_num) channels")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
