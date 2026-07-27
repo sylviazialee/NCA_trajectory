@@ -8,7 +8,8 @@ image_set = ARGS[1]
 fr = parse(Float32, ARGS[2])
 run_id = run_timestamp()
 data_dir = "subseq_$(image_set)"
-train_steps = parse(Int64, ARGS[3])
+train_steps = 3000
+delta = parse(Int64, ARGS[3])
 
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
@@ -35,7 +36,7 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_19.png")]   # Vector of CuArray{Float32,3}
 
 # 2. map physical times -> CA step indices (your choice of time scale)
-obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
+obs_steps = delta .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 # define subseq indices from obs_steps
 subseqs = [(18:20), (10:20), (1:20)]
