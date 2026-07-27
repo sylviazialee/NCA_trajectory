@@ -105,6 +105,16 @@ function load_target_gray(path::String; target_size::Int = 40)
     cu(Float32.(target))
 end
 
+function load_jld(path::String; target_size::Int = 40)
+    isfile(path) || error("no such file: $path")
+    if endswith(path, ".jld2")
+        target = JLD2.load(path, "target")
+    else
+        error("want .jld2, got $path")
+    end
+    cu(Float32.(target))
+end
+
 """Which visible channel carries alpha for seeding (matches `step` life_ch when life mask on)."""
 function seed_life_channel(visible_channels::Int, channel_n::Int)
     visible_channels == 2 && return min(2, channel_n)
