@@ -6,9 +6,11 @@ using Dates
 
 image_set = ARGS[1]
 fr = parse(Float32, ARGS[2])
+fr = 0.5
 run_id = run_timestamp()
 data_dir = "subseq_$(image_set)"
 train_steps = parse(Int64, ARGS[3])
+train_steps = 3000
 
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
@@ -38,7 +40,9 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
 obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 # define subseq indices from obs_steps
-subseqs = [(18:20), (10:20), (1:20)]
+subseqs = [(1:20), (1:20), (1:20)]
+
+@info("$(subseqs)")
 numseq = length(subseqs)
 # extract subseq of frames and obs_steps
 subframes = [frames[subseqs[i]] for i in 1:numseq]
@@ -90,7 +94,7 @@ for i in 2:numseq
     
     # make seed BASED OFF OF CURRENT SUBFRAMES
     x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
-    x0_single[:, :, 1:4] .= current_frames[1]            # seed RGBA from data
+    x0_single[:, :, 1:3] .= current_frames[1]            # seed RGBA from data
     x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
     
     # update models, loss info
