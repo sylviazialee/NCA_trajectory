@@ -1,3 +1,0 @@
-TRAIN: frenchflag | TESTED: frenchflag
-/home/szl129/nca_rgb/spread_ch_5/20260724_193118/checkpoints/traj_final.jld2
-Trajectory loss of test frames: 0.28778282

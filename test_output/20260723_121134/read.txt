@@ -1,3 +1,0 @@
-TRAIN: spread | TESTED: spread
-/home/szl129/nca_rgb/spread_ch_4/20260723_113000/checkpoints/traj_final.jld2
-Trajectory loss of test frames: 0.0025625215

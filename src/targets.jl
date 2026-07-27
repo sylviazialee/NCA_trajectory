@@ -3,6 +3,7 @@ _to_rgba(px::ColorTypes.AbstractRGB)  = ColorTypes.RGBA(red(px), green(px), blue
 _to_rgba(px::ColorTypes.AGray)        = (g = Float32(gray(px)); ColorTypes.RGBA(g, g, g, Float32(alpha(px))))
 _to_rgba(px::ColorTypes.GrayA)        = (g = Float32(gray(px)); ColorTypes.RGBA(g, g, g, Float32(alpha(px))))
 _to_rgba(px::ColorTypes.AbstractGray) = (g = Float32(gray(px)); ColorTypes.RGBA(g, g, g, 1f0))
+_to_gray(px) = Float32(gray(convert(ColorTypes.Gray, px)))
 
 function image_to_nca_target(img, W::Int, H::Int)
     src_h, src_w = size(img)
@@ -27,6 +28,28 @@ function image_to_nca_target(img, W::Int, H::Int)
         target[x, y, 1] = rsum * invc
         target[x, y, 2] = gsum * invc
         target[x, y, 3] = bsum * invc
+    end
+    target
+end
+
+function image_to_gray_target(img, W::Int, H::Int)
+    src_h, src_w = size(img)
+    target = zeros(Float32, W, H, 1)
+
+    @inbounds for y in 1:H, x in 1:W
+        y0 = floor(Int, (y - 1) * src_h / H) + 1
+        y1 = max(y0, floor(Int, y * src_h / H))
+        x0 = floor(Int, (x - 1) * src_w / W) + 1
+        x1 = max(x0, floor(Int, x * src_w / W))
+
+        gray_sum = 0f0
+        count = 0
+        for sy in y0:y1, sx in x0:x1
+            gray_sum += _to_gray(img[sy, sx])
+            count += 1
+        end
+        invc = 1f0 / Float32(count)
+        target[x, y, 1] = gray_sum * invc
     end
     target
 end
@@ -64,6 +87,18 @@ function load_target_rgba(path::String; target_size::Int = 40)
         target = JLD2.load(path, "target")
     elseif endswith(lowercase(path), ".png")
         target = image_to_nca_target(load(path), target_size, target_size)
+    else
+        error("want .jld2 or .png, got $path")
+    end
+    cu(Float32.(target))
+end
+
+function load_target_gray(path::String; target_size::Int = 40)
+    isfile(path) || error("no such file: $path")
+    if endswith(path, ".jld2")
+        target = JLD2.load(path, "target")
+    elseif endswith(lowercase(path), ".png")
+        target = image_to_gray_target(load(path), target_size, target_size)
     else
         error("want .jld2 or .png, got $path")
     end

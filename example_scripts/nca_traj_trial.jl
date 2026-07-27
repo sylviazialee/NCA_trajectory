@@ -10,16 +10,17 @@ fr = 0.5
 channel_num = 2
 run_id = run_timestamp()
 data_dir = "$(image_set)_ch_$(channel_num)"
+delta = 50
 
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
-frames = [load_target_rgba("$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).png") for i in 0:49]   # Vector of CuArray{Float32,3}
+frames = [load_target_gray("$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).png") for i in 0:39]   # Vector of CuArray{Float32,3}
 
 # 2. map physical times -> CA step indices (your choice of time scale)
-obs_steps = 20 .* (0:(length(frames)-1))  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
+obs_steps = delta .* (0:(length(frames)-1))  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 
 hp = TrajectoryHParams(
@@ -28,13 +29,13 @@ hp = TrajectoryHParams(
     batch_size = 4,
     train_steps = 3000,
     fire_rate = fr,
-    visible_channels = 1
+    visible_channels = 1,
 )
 
 # 3. build x0: RGBA from frame[1], hidden channels = 0
 W, H = size(frames[1], 1), size(frames[1], 2)
 x0_single = CUDA.zeros(Float32, W, H, hp.channel_n)
-x0_single[:, :, 1:1] .= frames[1][:, :, 1:1]  # seed intensity channel from data
+x0_single[:, :, 1:1] .= frames[1]  # seed intensity channel from data
 x0 = repeat(reshape(x0_single, W, H, hp.channel_n, 1), 1, 1, 1, hp.batch_size)
 
 # 4. targets = frames at obs_steps (step 0 is your initial, still supervise it)

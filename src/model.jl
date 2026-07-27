@@ -94,6 +94,7 @@ function step(
     step_size::Float32 = 1f0,
     update_mask = nothing,
     pad_choice::String = "zero",
+    clamp_range::Tuple{Float32,Float32} = (-3f0, 3f0),
 )
     y = perceive(x, kernel, model.channel_n; pad_choice)
 
@@ -109,6 +110,6 @@ function step(
         update_mask
     x_new = x .+ dx .* mask
 
-    return x_new
+    return clamp.(x_new, clamp_range[1], clamp_range[2])
 end
 
