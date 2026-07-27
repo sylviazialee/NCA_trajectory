@@ -94,7 +94,6 @@ function step(
     step_size::Float32 = 1f0,
     update_mask = nothing,
     pad_choice::String = "zero",
-    clamp_range::Tuple{Float32,Float32} = (-3f0, 3f0),
 )
     y = perceive(x, kernel, model.channel_n; pad_choice)
 
@@ -108,8 +107,6 @@ function step(
     mask = update_mask === nothing ?
         Float32.(CUDA.rand(Float32, size(x, 1), size(x, 2), 1, size(x, 4)) .<= fire_rate) :
         update_mask
-    x_new = x .+ dx .* mask
-
-    return clamp.(x_new, clamp_range[1], clamp_range[2])
+    return x .+ dx .* mask
 end
 

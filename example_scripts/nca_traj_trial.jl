@@ -5,14 +5,14 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 @show image_set = ARGS[1]
-@show fr = 1.0
+@show fr = 0.5
 @show channel_num = 2
 @show run_id = run_timestamp()
-@show delta = 10
-@show data_dir = "$(image_set)_delta_$(delta)"
-@show arg2 = ARGS[2]
+@show delta = parse(Int64, ARGS[2])
+@show data_dir = isempty(arg2) ? image_set : "$(image_set)_delta$(delta)"
+
 @info("using jld2 files")
-@info("STARTING: $(image_set) with $(channel_num) channels")
+@info("STARTING: $(image_set) with $(delta)")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)

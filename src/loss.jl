@@ -1,15 +1,15 @@
-function loss_fn(x::CuArray{Float32,4}, target::CuArray{Float32,3}; vc::Int = 3)
+function loss_fn(x::CuArray{Float32,4}, target::CuArray{Float32,3}; vc::Int = 1)
     vis  = x[:, :, 1:vc, :]
     tgt  = reshape(target[:, :, 1:vc], size(target, 1), size(target, 2), vc, 1)
     return mean((vis .- tgt) .^ 2)
 end
 
-function norm_one(target::CuArray{Float32,3}; vc::Int = 3)
+function norm_one(target::CuArray{Float32,3}; vc::Int = 1)
     tgt  = reshape(target[:, :, 1:vc], size(target, 1), size(target, 2), vc, 1)
     return mean((tgt).^ 2)
 end
 
-function norm_vec(targets::Vector{<:CuArray{Float32, 3}}; vc::Int = 3)
+function norm_vec(targets::Vector{<:CuArray{Float32, 3}}; vc::Int = 1)
     len = length(targets)
     total_norm = 0
     for i in 1:len
@@ -22,7 +22,7 @@ function trajectory_loss(
     xs::Vector{<:CuArray{Float32,4}},
     targets::Vector{<:CuArray{Float32,3}},
     weights::Vector{Float32} = ones(Float32, length(xs));
-    vc::Int = 3,
+    vc::Int = 1,
 )
     @assert length(xs) == length(targets) == length(weights)
     total = 0f0
@@ -34,7 +34,7 @@ function trajectory_loss(
     return total
 end
 
-function per_sample_loss(x::CuArray{Float32,4}, target::CuArray{Float32,3}; vc::Int = 3)
+function per_sample_loss(x::CuArray{Float32,4}, target::CuArray{Float32,3}; vc::Int = 1)
     vis  = x[:, :, 1:vc, :]
     tgt  = reshape(target[:, :, 1:vc], size(target, 1), size(target, 2), vc, 1)
     return Array(vec(mean((vis .- tgt) .^ 2; dims=(1, 2, 3))))
@@ -43,7 +43,7 @@ end
 function loss_alg2(
     x::Vector{<:CuArray{Float32, 4}}, #length M vector of 4d target tensors (i, j, channel vector, R = number of samples), here R=1
     y::Vector{<:CuArray{Float32, 3}}; #length M of 3d target tensors (i, j, channel vector)
-    vc::Int = 3,
+    vc::Int = 1,
     )
     @assert length(x) == length(y)
     total_loss = 0
