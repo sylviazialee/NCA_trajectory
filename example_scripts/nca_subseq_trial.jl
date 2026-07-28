@@ -28,13 +28,13 @@ obs_steps = delta .* (0:length(frames))  # e.g. t=0 → step 0, t=1.0 → step 2
 
 # define subseq indices from obs_steps
 if num == 3
-    subseqs = [(7:10), (3:10), (1:10)]
+    subseqs = [(1:3), (1:7), (1:10)]
 elseif num == 5
-    subseqs = [(8:10), (6:10), (4:10), (2:10), (1:10)]
+    subseqs = [(1:3), (1:4), (1:6), (1:8), (1:10)]
 elseif num == 7
-    subseqs = [(7:10), (6:10), (5:10), (4:10), (3:10), (2:10), (1:10)]
+    subseqs = [(1:3), (1:4), (1:6), (1:7), (1:8), (1:9), (1:10)]
 else 
-    subseqs = [(1:20)]
+    subseqs = [(1:10)]
 end
 numseq = length(subseqs)
 # extract subseq of frames and obs_steps
