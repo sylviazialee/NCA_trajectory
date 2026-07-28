@@ -15,6 +15,6 @@ julia --version
 
 # Run the specific Julia file with the current environment
 echo "Running nca_traj_trial.jl..."
-julia --project=. example_scripts/nca_traj_trial.jl "$1" "$2"
+julia --project=. example_scripts/nca_traj_trial.jl "$1" "$2" || { echo "Julia FAILED with exit code $?"; exit 1; }
 
 echo "Script completed!"

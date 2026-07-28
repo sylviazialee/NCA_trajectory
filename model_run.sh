@@ -15,6 +15,6 @@ julia --version
 
 # Run the specific Julia file with the current environment
 echo "Running loadmodel.jl..."
-julia --project=. src/loadmodel.jl "$1" "$2" "$3"
+julia --project=. src/loadmodel.jl "$1" "$2" "$3" || { echo "Julia FAILED with exit code $?"; exit 1; }
 
 echo "Script completed!"
