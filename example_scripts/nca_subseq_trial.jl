@@ -5,44 +5,37 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = parse(Float32, ARGS[2])
-fr = 0.5
+num = parse(Int64, ARGS[2])
+fr = 1.0
 run_id = run_timestamp()
 data_dir = "subseq_$(image_set)"
-train_steps = parse(Int64, ARGS[3])
 train_steps = 3000
+delta = parse(Int64, ARGS[3])
+delta = 1
 
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
-frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
-          load_target_rgba("$(image_set)/snapshot_01.png"),
-          load_target_rgba("$(image_set)/snapshot_02.png"),
-          load_target_rgba("$(image_set)/snapshot_03.png"),
-          load_target_rgba("$(image_set)/snapshot_04.png"), 
-          load_target_rgba("$(image_set)/snapshot_05.png"),
-          load_target_rgba("$(image_set)/snapshot_06.png"),
-          load_target_rgba("$(image_set)/snapshot_07.png"),
-          load_target_rgba("$(image_set)/snapshot_08.png"),
-          load_target_rgba("$(image_set)/snapshot_09.png"), 
-          load_target_rgba("$(image_set)/snapshot_10.png"),
-          load_target_rgba("$(image_set)/snapshot_11.png"),
-          load_target_rgba("$(image_set)/snapshot_12.png"),
-          load_target_rgba("$(image_set)/snapshot_13.png"), 
-          load_target_rgba("$(image_set)/snapshot_14.png"),
-          load_target_rgba("$(image_set)/snapshot_15.png"),
-          load_target_rgba("$(image_set)/snapshot_16.png"),
-          load_target_rgba("$(image_set)/snapshot_17.png"), 
-          load_target_rgba("$(image_set)/snapshot_18.png"),
-          load_target_rgba("$(image_set)/snapshot_19.png")]   # Vector of CuArray{Float32,3}
-
+frame_paths = ["$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).jld2" for i in 0:9]
+println("first frame path: ", frame_paths[1])
+@show isfile(frame_paths[1])
+frames = [load_jld(p) for p in frame_paths]
+frames = [clamp.(f, 0f0, 1f0) for f in frames]  # Vector of CuArray{Float32,3}
+@show length(frames)
+@show size(frames[1])
 # 2. map physical times -> CA step indices (your choice of time scale)
-obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
+obs_steps = delta .* (0:length(frames))  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 # define subseq indices from obs_steps
-subseqs = [(1:20), (1:20), (1:20)]
-
-@info("$(subseqs)")
+if num == 3
+    subseqs = [(7:10), (3:10), (1:10)]
+elseif num == 5
+    subseqs = [(8:10), (6:10), (4:10), (2:10), (1:10)]
+#elseif num == 7
+    #subseqs = [(18:20), (15:20), (12:20), (10:20), (5:20), (3:20), (1:20)]
+else 
+    subseqs = [(1:20)]
+end
 numseq = length(subseqs)
 # extract subseq of frames and obs_steps
 subframes = [frames[subseqs[i]] for i in 1:numseq]
@@ -64,7 +57,7 @@ hp = TrajectoryHParams(
     batch_size = 4,
     train_steps = train_steps,
     fire_rate = fr,
-    visible_channels = 3
+    visible_channels = 1
 )
 hps[1] = hp
 current_hp = hp
@@ -73,7 +66,7 @@ current_frames = subframes[1]
 # make seed BASED OFF OF CURRENT SUBFRAMES, W and H do not need to be re-defined
 W, H = size(current_frames[1], 1), size(current_frames[1], 2)
 x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
-x0_single[:, :, 1:3] .= current_frames[1]            # seed RGBA from data
+x0_single[:, :, 1:current_hp.visible_channels] .= current_frames[1]            # seed RGBA from data
 x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
 
 models[1], loss_info[1], re_loss_info[1] = main_subseq(x0, subframes[1]; hp = hps[1], run_id = run_id, data_dir = data_dir)
@@ -88,13 +81,13 @@ for i in 2:numseq
         batch_size = 4,
         train_steps = train_steps,
         fire_rate = fr,
-        visible_channels = 3
-    ) 
+        visible_channels = 1
+    )
     hps[i] = current_hp # update hps vector of hp
     
     # make seed BASED OFF OF CURRENT SUBFRAMES
     x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
-    x0_single[:, :, 1:3] .= current_frames[1]            # seed RGBA from data
+    x0_single[:, :, 1:current_hp.visible_channels] .= current_frames[1]            # seed RGBA from data
     x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
     
     # update models, loss info
