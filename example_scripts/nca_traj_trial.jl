@@ -13,7 +13,7 @@ run_id = run_timestamp()
 data_dir = "$(image_set)_delta_$(delta)"
 
 
-@info("STARTING: $(image_set) with $(channel_num) channels")
+@info("STARTING: $(image_set) with $(delta) timesteps")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
