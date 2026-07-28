@@ -16,7 +16,7 @@ using Dates
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
-frame_paths = ["$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).jld2" for i in 0:5]
+frame_paths = ["$(image_set)/vis_snapshot_$(lpad(i, 2, '0')).jld2" for i in 0:9]
 println("first frame path: ", frame_paths[1])
 @show isfile(frame_paths[1])
 frames = [load_jld(p) for p in frame_paths]
