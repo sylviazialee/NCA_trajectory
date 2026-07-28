@@ -43,8 +43,12 @@ obs_steps = delta .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 →
 # define subseq indices from obs_steps
 if num == 3
     subseqs = [(18:20), (10:20), (1:20)]
+elseif num == 4
+    subseqs = [(15:20), (10:20), (6:20), (1:20)]
 elseif num == 5
-    subseqs = [(18:20), (15:20), (10:20), (5:20), (1:20)]
+    subseqs = [(18:20), (14:20), (10:20), (5:20), (1:20)]
+elseif num == 6
+    subseqs = [(18:20), (15:20), (12:20), (9:20), (3:20), (1:20)]
 elseif num == 7
     subseqs = [(18:20), (15:20), (12:20), (10:20), (5:20), (3:20), (1:20)]
 else 
@@ -83,29 +87,46 @@ x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
 x0_single[:, :, 1:3] .= current_frames[1]            # seed RGBA from data
 x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
 
-models[1], loss_info[1], re_loss_info[1] = main_subseq(x0, subframes[1]; hp = hps[1], run_id = run_id, data_dir = data_dir)
+completed = falses(numseq)
 
-for i in 2:numseq
-    # pre update
-    current_frames = subframes[i] # update frames
-    # current hp parameters
-    current_hp = TrajectoryHParams(
-        channel_n  = 16,
-        obs_steps  = substeps[i],
-        batch_size = 4,
-        train_steps = train_steps,
-        fire_rate = fr,
-        visible_channels = 3
-    ) 
-    hps[i] = current_hp # update hps vector of hp
-    
-    # make seed BASED OFF OF CURRENT SUBFRAMES
-    x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
-    x0_single[:, :, 1:current_hp.visible_channels] .= current_frames[1]            # seed RGBA from data
-    x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
-    
-    # update models, loss info
-    models[i], loss_info[i], re_loss_info[i] = main_subseq(x0, subframes[i]; past_model = models[i-1], hp = hps[i], run_id = run_id, data_dir = data_dir)
+try
+    models[1], loss_info[1], re_loss_info[1] = main_subseq(x0, subframes[1]; hp = hps[1], run_id = "$(run_id)/subseq1", data_dir = data_dir)
+    completed[1] = true
+    @show re_loss_info[1]
+catch e
+    @warn "subsequence 1 failed; no subsequence results will be available" exception = (e, catch_backtrace())
+end
+
+if completed[1]
+    for i in 2:numseq
+        # pre update
+        current_frames = subframes[i] # update frames
+        # current hp parameters
+        current_hp = TrajectoryHParams(
+            channel_n  = 16,
+            obs_steps  = substeps[i],
+            batch_size = 4,
+            train_steps = train_steps,
+            fire_rate = fr,
+            visible_channels = 3
+        )
+        hps[i] = current_hp # update hps vector of hp
+
+        # make seed BASED OFF OF CURRENT SUBFRAMES
+        x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
+        x0_single[:, :, 1:current_hp.visible_channels] .= current_frames[1]            # seed RGBA from data
+        x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
+
+        # update models, loss info
+        try
+            models[i], loss_info[i], re_loss_info[i] = main_subseq(x0, subframes[i]; past_model = models[i-1], hp = hps[i], run_id = "$(run_id)/subseq$(i)", data_dir = data_dir)
+            completed[i] = true
+            @show re_loss_info[i]
+        catch e
+            @warn "subsequence $i failed; stopping remaining subsequences" exception = (e, catch_backtrace())
+            break
+        end
+    end
 end
 
 
@@ -117,6 +138,10 @@ open(joinpath(output_dir, "read.txt"), "w") do io
     println(io, "TRAIN: " * image_set)
     println(io, "TRAINING FIRE RATE = $(hp.fire_rate)")
     for i in 1:numseq
+        if !completed[i]
+            println(io, "SUBSEQ $i: FAILED / NOT COMPLETED")
+            continue
+        end
         sub_loss_log, sub_final_loss, sub_after_loss = loss_info[i]
         re_sub_traj, re_sub_fin, re_sub_after = sqrt.(re_loss_info[i])
         println(io, "SUBSEQ $i TRAJ LOSS = $(sub_loss_log[end])")

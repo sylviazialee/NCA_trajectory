@@ -156,33 +156,41 @@ function train!(
 
     save_loss_plots(loss_log, output_dir; run_id)
 
-    save_rollout_video(
-        model,
-        seed,
-        kernel;
-        n_steps = video_rollout_steps,
-        frame_dir = joinpath(output_dir, "final_rollout_frames"),
-        out_path = joinpath(output_dir, "final_rollout_2x.mp4"),
-        fps = video_fps,
-        fire_rate = video_fire_rate,
-        scale = image_scale,
-    )
-
-    if !isempty(extra_seed_video_offsets)
-        save_multi_seed_videos(
+    try
+        save_rollout_video(
             model,
-            W,
-            H,
-            hp.channel_n,
+            seed,
             kernel;
-            seed_offsets = extra_seed_video_offsets,
             n_steps = video_rollout_steps,
-            output_dir,
-            run_id,
+            frame_dir = joinpath(output_dir, "final_rollout_frames"),
+            out_path = joinpath(output_dir, "final_rollout_2x.mp4"),
             fps = video_fps,
             fire_rate = video_fire_rate,
             scale = image_scale,
         )
+    catch e
+        @warn "save_rollout_video failed; continuing without final rollout video" exception = (e, catch_backtrace())
+    end
+
+    if !isempty(extra_seed_video_offsets)
+        try
+            save_multi_seed_videos(
+                model,
+                W,
+                H,
+                hp.channel_n,
+                kernel;
+                seed_offsets = extra_seed_video_offsets,
+                n_steps = video_rollout_steps,
+                output_dir,
+                run_id,
+                fps = video_fps,
+                fire_rate = video_fire_rate,
+                scale = image_scale,
+            )
+        catch e
+            @warn "save_multi_seed_videos failed; continuing without extra seed videos" exception = (e, catch_backtrace())
+        end
     end
 
     return model, loss_log
@@ -301,18 +309,22 @@ function train_trajectory!(
     save_loss_plots(loss_log, output_dir; run_id)
     # x0 is a batched (W,H,C,N) tensor of real seed frames, not a single-pixel
     # `make_seed` grid, so take one sample from the batch as the rollout start.
-    save_rollout_video(
-        model,
-        x0[:, :, :, 1],
-        kernel;
-        n_steps = video_rollout_steps,
-        frame_dir = joinpath(output_dir, "final_FULL_rollout_frames"),
-        out_path = joinpath(output_dir, "final_FULL_rollout_2x.mp4"),
-        fps = video_fps,
-        fire_rate = video_fire_rate,
-        scale = image_scale,
-    )
-    
+    try
+        save_rollout_video(
+            model,
+            x0[:, :, :, 1],
+            kernel;
+            n_steps = video_rollout_steps,
+            frame_dir = joinpath(output_dir, "final_FULL_rollout_frames"),
+            out_path = joinpath(output_dir, "final_FULL_rollout_2x.mp4"),
+            fps = video_fps,
+            fire_rate = video_fire_rate,
+            scale = image_scale,
+        )
+    catch e
+        @warn "save_rollout_video failed; continuing without final rollout video" exception = (e, catch_backtrace())
+    end
+
     return model, loss_log
 end
 
@@ -403,6 +415,7 @@ function train_subseq!(
         end
 
         loss_scalar = Float32(loss_val)
+        #re_loss = sqrt(loss_scalar/norm_vec(targets))
         push!(loss_log, loss_scalar)
 
         if !isfinite(loss_scalar)
@@ -411,7 +424,7 @@ function train_subseq!(
 
         @info @sprintf(
             "[traj] step %04d/%d | loss %.6e | log10 %.4f | ||g|| %.4e | lr %.2e",
-            step_i, hp.train_steps, loss_scalar, log10(loss_scalar), grad_norm, current_lr,
+            step_i, hp.train_steps, loss_scalar, log10(loss_scalar), grad_norm, current_lr
         )
         next!(progress; showvalues = [(:loss, loss_scalar), (:grad_norm, grad_norm)])
 
@@ -429,17 +442,21 @@ function train_subseq!(
     save_loss_plots(loss_log, output_dir; run_id)
     # x0 is a batched (W,H,C,N) tensor of real seed frames, not a single-pixel
     # `make_seed` grid, so take one sample from the batch as the rollout start.
-    save_rollout_video(
-        model,
-        x0[:, :, :, 1],
-        kernel;
-        n_steps = video_rollout_steps,
-        frame_dir = joinpath(output_dir, "final_FULL_rollout_frames"),
-        out_path = joinpath(output_dir, "final_FULL_rollout_2x.mp4"),
-        fps = video_fps,
-        fire_rate = video_fire_rate,
-        scale = image_scale,
-    )
-    
+    try
+        save_rollout_video(
+            model,
+            x0[:, :, :, 1],
+            kernel;
+            n_steps = video_rollout_steps,
+            frame_dir = joinpath(output_dir, "final_FULL_rollout_frames"),
+            out_path = joinpath(output_dir, "final_FULL_rollout_2x.mp4"),
+            fps = video_fps,
+            fire_rate = video_fire_rate,
+            scale = image_scale,
+        )
+    catch e
+        @warn "save_rollout_video failed; continuing without final rollout video" exception = (e, catch_backtrace())
+    end
+
     return model, loss_log
 end

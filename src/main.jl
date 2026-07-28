@@ -206,9 +206,9 @@ function main_subseq(
     loss_after = mean(after_loss_log)
     loss_traj = loss_log[end]
 
-    re_loss_after = loss_after/norm_one(last_target; vc = vc)
-    re_loss_fin = loss_fin/norm_one(last_target; vc = vc)
-    re_loss_traj = loss_traj/norm_vec(targets; vc = vc)
+    @show re_loss_after = loss_after/norm_one(last_target; vc = vc)
+    @show re_loss_fin = loss_fin/norm_one(last_target; vc = vc)
+    @show re_loss_traj = loss_traj/norm_vec(targets; vc = vc)
     
     @info "final loss: $loss_fin"
     @info "after loss: $loss_after"
