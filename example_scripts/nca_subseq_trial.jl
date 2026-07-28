@@ -101,7 +101,7 @@ for i in 2:numseq
     
     # make seed BASED OFF OF CURRENT SUBFRAMES
     x0_single = CUDA.zeros(Float32, W, H, current_hp.channel_n)
-    x0_single[:, :, 1:3] .= current_frames[1]            # seed RGBA from data
+    x0_single[:, :, 1:current_hp.visible_channels] .= current_frames[1]            # seed RGBA from data
     x0 = repeat(reshape(x0_single, W, H, current_hp.channel_n, 1), 1, 1, 1, current_hp.batch_size)
     
     # update models, loss info
