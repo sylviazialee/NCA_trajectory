@@ -12,7 +12,7 @@ run_id = run_timestamp()
 data_dir = "$(image_set)_combo_$(combo_string)"
 
 
-@info("STARTING: $(image_set) with $(channel_num) channels")
+@info("STARTING: $(image_set) with $(combo_string)")
 
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
