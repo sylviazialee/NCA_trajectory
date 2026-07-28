@@ -23,7 +23,8 @@ function build_perception_kernel(
         :sobel_x   => c .* sx .- s .* sy,
         :sobel_y   => s .* sx .+ c .* sy,
         :avg       => fill(1f0 / 9f0, 3, 3),
-        :laplacian => Float32[0 1 0; 1 -4 1; 0 1 0],
+        :laplacian5 => Float32[0 1 0; 1 -4 1; 0 1 0],
+        :laplacian9 => Float32[1 2 1; 2 -12 2; 1 2 1]/4f0,
     )
 
     for f in filters

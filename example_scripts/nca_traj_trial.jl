@@ -40,7 +40,7 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
 # 2. map physical times -> CA step indices (your choice of time scale)
 obs_steps = 20 .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
-filter_index = [:id, :sobel_x, :sobel_y, :laplacian]
+filter_index = [:id, :sobel_x, :sobel_y, :laplacian5, :laplacian9]
 
 @assert length(filter_index)===length(combo_string)
 
