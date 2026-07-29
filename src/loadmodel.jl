@@ -8,7 +8,7 @@ using Dates
 train_set = ARGS[1]
 image_set = ARGS[2]
 path = ARGS[3]
-test_frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
+test_frames = [#=load_target_rgba("$(image_set)/snapshot_00.png"), 
           load_target_rgba("$(image_set)/snapshot_01.png"),
           load_target_rgba("$(image_set)/snapshot_02.png"),
           load_target_rgba("$(image_set)/snapshot_03.png"),
@@ -22,7 +22,7 @@ test_frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_11.png"),
           load_target_rgba("$(image_set)/snapshot_12.png"),
           load_target_rgba("$(image_set)/snapshot_13.png"), 
-          load_target_rgba("$(image_set)/snapshot_14.png"),
+          load_target_rgba("$(image_set)/snapshot_14.png"),=#
           load_target_rgba("$(image_set)/snapshot_15.png"),
           load_target_rgba("$(image_set)/snapshot_16.png"),
           load_target_rgba("$(image_set)/snapshot_17.png"), 

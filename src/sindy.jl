@@ -1,3 +1,7 @@
+
+include(joinpath(@__DIR__, "sindy_lib.jl"))
+include(joinpath(@__DIR__, "sindy_plots.jl"))
+
 include(joinpath(@__DIR__, "..", "src", "NeuralCellularAutomata.jl"))
 using .NeuralCellularAutomata
 using DataDrivenDiffEq
@@ -5,6 +9,8 @@ using DataDrivenSparse
 using Symbolics 
 using CUDA, FileIO, ImageIO
 using Dates
+using Printf
+using FFMPEG_jll
 
 # 1. get model function
 image_set = ARGS[1]
@@ -15,9 +21,31 @@ data_dir = "sindy_$(image_set)"
 run_id = run_timestamp()
 output_dir = joinpath(data_dir, run_id)
 mkpath(output_dir)
+
+frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
+          load_target_rgba("$(image_set)/snapshot_01.png"),
+          load_target_rgba("$(image_set)/snapshot_02.png"),
+          load_target_rgba("$(image_set)/snapshot_03.png"),
+          load_target_rgba("$(image_set)/snapshot_04.png"), 
+          load_target_rgba("$(image_set)/snapshot_05.png"),
+          load_target_rgba("$(image_set)/snapshot_06.png"),
+          load_target_rgba("$(image_set)/snapshot_07.png"),
+          load_target_rgba("$(image_set)/snapshot_08.png"),
+          load_target_rgba("$(image_set)/snapshot_09.png"), 
+          load_target_rgba("$(image_set)/snapshot_10.png"),
+          load_target_rgba("$(image_set)/snapshot_11.png"),
+          load_target_rgba("$(image_set)/snapshot_12.png"),
+          load_target_rgba("$(image_set)/snapshot_13.png"), 
+          load_target_rgba("$(image_set)/snapshot_14.png"),
+          load_target_rgba("$(image_set)/snapshot_15.png"),
+          load_target_rgba("$(image_set)/snapshot_16.png"),
+          load_target_rgba("$(image_set)/snapshot_17.png"), 
+          load_target_rgba("$(image_set)/snapshot_18.png"),
+          load_target_rgba("$(image_set)/snapshot_19.png")]
+
 # this is step function, step func has 3 * 16 states x_1 thru x_48
 #x_new = step(model, x, kernel; fire_rate = 1.0) # each id, sx, sy are c-dimensional, the number of total states n is 3 * 16 = 48
-
+obs_steps = 20 .* (0:(length(frames)-1))
 #initialize
 i, j = 21, 21 # use one cell
 W, H = 40, 40
@@ -26,26 +54,32 @@ M = 380 #some number of steps idk
 f = length(hp.filters)
 # rollout x for m steps
 
+# Mirror the NCA's own structure: dx = MLP(perceive(x)), x_new = x + dx.
+# So we regress the STATE INCREMENT (C-dim) on the PERCEPTION FEATURES (f*C-dim).
+# Feats -> regressors, DX -> targets.
 function rollout(model, kernel, x0, M, i, j, C, f)
     x = reshape(x0, size(x0)..., 1)
-    X = zeros(Float64, f * C, M)
+    Feats = zeros(Float64, f * C, M)
+    DX    = zeros(Float64, C, M)
     for m in 1:M
-        x = NeuralCellularAutomata.step(model, x, kernel; fire_rate = 1f0)
         y = NeuralCellularAutomata.perceive(x, kernel, C)
-        X[:, m] = Array(y[i, j, :, 1])
-        if !all(isfinite, X[:, m])
+        Feats[:, m] = Array(y[i, j, :, 1])
+        x_next = NeuralCellularAutomata.step(model, x, kernel; fire_rate = 1f0)
+        DX[:, m] = Array(x_next[i, j, :, 1]) .- Array(x[i, j, :, 1])
+        if !all(isfinite, Feats[:, m]) || !all(isfinite, DX[:, m])
             error("diverged at step $m")
         end
+        x = x_next
     end
-    return X
+    return Feats, DX
 end
 
-X = rollout(model, kernel, x0, M, i, j, hp.channel_n, f)
+Feats, DX = rollout(model, kernel, x0, M, i, j, hp.channel_n, f)
 
 t = collect(1:M)
 
-# 2. datadrivenproblem, get derivatives
-dd_prob = DiscreteDataDrivenProblem(X, t)
+# 2. datadrivenproblem: direct input->output map (features -> state increment)
+dd_prob = DirectDataDrivenProblem(Feats, DX)
 
 # 3. build library
 
@@ -83,20 +117,11 @@ open(joinpath(output_dir, "read.txt"), "w") do io
     println(io, get_parameter_map(result_basis))
 end
 
-sparse_func = get_coefficients(first(get_results(res)))
+# get_coefficients returns (n_targets x n_terms); step_sparse indexes Ξ[term, channel]
+sparse_func = permutedims(Matrix{Float64}(DataDrivenSparse.get_coefficients(first(get_results(res)))))
+@info "Ξ size (terms x channels) = $(size(sparse_func))  nonzeros = $(count(!iszero, sparse_func))"
 
-function library_row(feats::AbstractVector{<:Real}, exps::Vector{Vector{Int}})
-    P = 1 + length(exps)
-    θ = ones(Float64, P)
-    for (k, exp) in enumerate(exps)
-        v = 1.0
-        @inbounds for i in exp
-            v *= Float64(feats[i])
-        end
-        θ[k + 1] = v
-    end
-    return θ
-end
+# library_row is provided by sindy_lib.jl
 
 function step_sparse(
     x::CuArray{Float32,4},
@@ -126,7 +151,64 @@ function step_sparse(
     return x .+ CuArray(dx)
 end
 
-step_sparse(x, kernel, channel_n, sparse_func, exps)
+"""
+Roll the discovered sparse-polynomial map forward from `seed` and encode the
+visible channels to an mp4. Mirrors `save_rollout_video` but substitutes
+`step_sparse` for the neural `step`.
+"""
+function save_sparse_rollout_video(
+    seed::CuArray{Float32,3},
+    kernel::CuArray{Float32,4},
+    channel_n::Int,
+    Ξ::Matrix{Float64},
+    exps::Vector{Vector{Int}};
+    n_steps::Int,
+    frame_dir::String,
+    out_path::String,
+    fps::Int = 30,
+    scale::Int = 8,
+    vc::Int,
+)
+    rm(frame_dir; force = true, recursive = true)
+    mkpath(frame_dir)
+
+    x = reshape(seed, size(seed)..., 1)
+    written = 0
+
+    for i in 0:n_steps
+        x_cpu = Array(x)[:, :, :, 1]
+        if !all(isfinite, x_cpu)
+            @warn "sparse rollout non-finite at frame $i; encoding the $(written) frames written so far"
+            break
+        end
+        rgb = NeuralCellularAutomata.to_rgb(x_cpu; vc)
+        NeuralCellularAutomata.write_rgb_ppm(
+            joinpath(frame_dir, @sprintf("frame_%05d.ppm", i)), rgb; scale,
+        )
+        written += 1
+        i < n_steps && (x = step_sparse(x, kernel, channel_n, Ξ, exps))
+    end
+
+    written == 0 && (@warn "no frames written; skipping video"; return nothing)
+
+    ffmpeg = FFMPEG_jll.ffmpeg()
+    run(`$ffmpeg -y -framerate $fps -i $(joinpath(frame_dir, "frame_%05d.ppm")) -pix_fmt yuv420p $out_path`)
+    @info "Saved sparse rollout video: $out_path  ($written frames)"
+    return out_path
+end
+
+W, H = size(frames[1], 1), size(frames[1], 2)
+true_seed = CUDA.zeros(Float32, W, H, hp.channel_n)
+true_seed[:, :, 1:hp.visible_channels] .= frames[1][:, :, 1:hp.visible_channels]
+
+save_sparse_rollout_video(
+    true_seed, kernel, hp.channel_n, sparse_func, exps;
+    n_steps = M,
+    frame_dir = joinpath(output_dir, "sparse_rollout_frames"),
+    out_path = joinpath(output_dir, "sparse_rollout.mp4"),
+    vc = hp.visible_channels,
+)
+
 function eval_sparse_rollout!(
     out_dir::String,
     run_dir::String,
