@@ -6,9 +6,9 @@ using Dates
 
 image_set = ARGS[1]
 fr = parse(Float32, ARGS[2])
-channel_num = 16
+channel_num = 3
 run_id = run_timestamp()
-data_dir = "$(image_set)_fr_$(fr)"
+data_dir = "$(image_set)_ch_$(channel_num)"
 
 
 @info("STARTING: $(image_set) with $(channel_num) channels")

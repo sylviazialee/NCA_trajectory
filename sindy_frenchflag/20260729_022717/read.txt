@@ -1,0 +1,15 @@
+Discovered Model:
+Model ##Basis#348 with 9 equations
+States : 9
+Parameters : 46
+Independent variable: t
+Equations
+Difference(t; dt=1.0, update=false)(u[1]) = p₁ + p₂*u[1] + p₃*u[4] + p₄*u[6] + p₅*u[8]
+Difference(t; dt=1.0, update=false)(u[2]) = p₁₀*u[8] + p₆*u[2] + p₇*u[4] + p₈*u[6] + p₉*u[7]
+Difference(t; dt=1.0, update=false)(u[3]) = p₁₁*u[3] + p₁₂*u[5] + p₁₃*u[6] + p₁₄*u[8] + p₁₅*u[9]
+Difference(t; dt=1.0, update=false)(u[4]) = p₁₆ + p₁₇*u[1] + p₁₈*u[2] + p₁₉*u[3] + p₂₀*u[4] + p₂₁*u[5] + p₂₂*u[6] + p₂₃*u[7] + p₂₄*u[8] + p₂₅*u[9]
+...
+Difference(t; dt=1.0, update=false)(u[9]) = p₄₄*u[6] + p₄₅*u[8] + p₄₆*u[9]
+
+
+Estimated Parameter Values:
