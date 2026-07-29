@@ -41,17 +41,23 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
 obs_steps = delta .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 # define subseq indices from obs_steps
-if num == 3
-    subseqs = [(18:20), (10:20), (1:20)]
+if num == 1
+    subseqs = [(1:20)]
+elseif num == 2
+    subseqs = [(10:20), (1:20)]
+elseif num == 3
+    subseqs = [(1:3), (1:10), (1:20)]
 elseif num == 4
-    subseqs = [(15:20), (10:20), (6:20), (1:20)]
+    subseqs = [(1:3), (1:10), (1:15), (1:20)]
 elseif num == 5
-    subseqs = [(18:20), (14:20), (10:20), (5:20), (1:20)]
+    subseqs = [(1:3), (1:6), (1:10), (1:15), (1:20)]
 elseif num == 6
-    subseqs = [(18:20), (15:20), (12:20), (9:20), (3:20), (1:20)]
+    subseqs = [(1:3), (1:5), (1:8), (1:12), (1:16), (1:20)]
 elseif num == 7
-    subseqs = [(18:20), (15:20), (12:20), (10:20), (5:20), (3:20), (1:20)]
-else 
+    subseqs = [(1:3), (1:6), (1:9), (1:12), (1:15), (1:18), (1:20)]
+elseif num == 0
+    subseqs = [(1:16)]
+else
     subseqs = [(1:20)]
 end
 numseq = length(subseqs)

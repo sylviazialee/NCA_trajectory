@@ -39,4 +39,5 @@ export image_to_nca_target, image_to_nca_target_mono2, load_target_rgba, run_tim
 export TrajectoryHParams, train_trajectory!, train_subseq!, trajectory_loss, loss_alg2, loss_fn, main_trajectory, main_subseq
 export plot_multi, save_loss_plots, save_rollout_video, save_hidden_video
 export norm_one, norm_vec
+export step, build_perception_kernel, make_seed, perceive
 end
