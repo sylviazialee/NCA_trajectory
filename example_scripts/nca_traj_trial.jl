@@ -5,11 +5,11 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = 0.5
-channel_num = parse(Int64, ARGS[2])
+fr = parse(Float32, ARGS[2])
+channel_num = 16
 run_id = run_timestamp()
-data_dir = "$(image_set)_ch_$(channel_num)"
-filters = [:id, :laplacian]
+data_dir = "01_(image_set)_fr_$(channel_num)"
+filters = [:id, :sobel_x, :sobel_y]
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
 
