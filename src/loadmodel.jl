@@ -8,7 +8,7 @@ using Dates
 train_set = ARGS[1]
 image_set = ARGS[2]
 path = ARGS[3]
-test_frames = [#=load_target_rgba("$(image_set)/snapshot_00.png"), 
+test_frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
           load_target_rgba("$(image_set)/snapshot_01.png"),
           load_target_rgba("$(image_set)/snapshot_02.png"),
           load_target_rgba("$(image_set)/snapshot_03.png"),
@@ -22,7 +22,7 @@ test_frames = [#=load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_11.png"),
           load_target_rgba("$(image_set)/snapshot_12.png"),
           load_target_rgba("$(image_set)/snapshot_13.png"), 
-          load_target_rgba("$(image_set)/snapshot_14.png"),=#
+          load_target_rgba("$(image_set)/snapshot_14.png"),
           load_target_rgba("$(image_set)/snapshot_15.png"),
           load_target_rgba("$(image_set)/snapshot_16.png"),
           load_target_rgba("$(image_set)/snapshot_17.png"), 
@@ -43,7 +43,7 @@ kernel = NeuralCellularAutomata.build_perception_kernel(hp.channel_n; filters = 
 obs_steps = 20 .* (0:length(test_frames)-1)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 # 2. build x0 from your test image
-frame_0 = load_target_rgba("$(image_set)/snapshot_15.png")   # CuArray{Float32,3}, (W,H,4)
+frame_0 = test_frames[1]   # CuArray{Float32,3}, (W,H,4)
 W, H = size(frame_0, 1), size(frame_0, 2)
 x0 = CUDA.zeros(Float32, W, H, hp.channel_n, 1)
 x0[:, :, 1:hp.visible_channels, :] .= reshape(frame_0[:, :, 1:hp.visible_channels], W, H, hp.visible_channels, 1)

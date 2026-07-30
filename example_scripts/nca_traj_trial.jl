@@ -5,11 +5,11 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = parse(Float32, ARGS[2])
-channel_num = 3
+fr = 0.5
+channel_num = parse(Int64, ARGS[2])
 run_id = run_timestamp()
 data_dir = "$(image_set)_ch_$(channel_num)"
-
+filters = [:id, :laplacian]
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
 
@@ -46,7 +46,8 @@ hp = TrajectoryHParams(
     batch_size = 4,
     train_steps = 3000,
     fire_rate = fr,
-    visible_channels = 3
+    visible_channels = 3,
+    filters = filters,
 )
 
 # 3. build x0: RGBA from frame[1], hidden channels = 0

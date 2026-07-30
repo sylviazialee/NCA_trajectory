@@ -13,7 +13,7 @@ train_steps = 3000
 delta = parse(Int64, ARGS[3])
 delta = 20
 
-
+filters = [:id, :sobel_x, :sobel_y]
 # 1. load your RGBA frames at each observation time as Float32 (W,H,4)
 #    (your own loading logic here)
 frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
@@ -31,22 +31,23 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_12.png"),
           load_target_rgba("$(image_set)/snapshot_13.png"), 
           load_target_rgba("$(image_set)/snapshot_14.png"),
-          load_target_rgba("$(image_set)/snapshot_15.png"),
-          load_target_rgba("$(image_set)/snapshot_16.png"),
-          load_target_rgba("$(image_set)/snapshot_17.png"), 
-          load_target_rgba("$(image_set)/snapshot_18.png"),
-          load_target_rgba("$(image_set)/snapshot_19.png")]   # Vector of CuArray{Float32,3}
+          #load_target_rgba("$(image_set)/snapshot_15.png"),
+          #load_target_rgba("$(image_set)/snapshot_16.png"),
+          #load_target_rgba("$(image_set)/snapshot_17.png"), 
+          #load_target_rgba("$(image_set)/snapshot_18.png"),
+          #load_target_rgba("$(image_set)/snapshot_19.png")
+          ]   # Vector of CuArray{Float32,3}
 
 # 2. map physical times -> CA step indices (your choice of time scale)
 obs_steps = delta .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60
 
 # define subseq indices from obs_steps
 if num == 1
-    subseqs = [(1:20)]
+    subseqs = [(1:15)]
 elseif num == 2
-    subseqs = [(10:20), (1:20)]
+    subseqs = [(5:15), (1:15)]
 elseif num == 3
-    subseqs = [(1:3), (1:10), (1:20)]
+    subseqs = [(1:5), (1:10), (1:15)]
 elseif num == 4
     subseqs = [(1:3), (1:10), (1:15), (1:20)]
 elseif num == 5
@@ -81,7 +82,8 @@ hp = TrajectoryHParams(
     batch_size = 4,
     train_steps = train_steps,
     fire_rate = fr,
-    visible_channels = 3
+    visible_channels = 3,
+    filters = filters,
 )
 hps[1] = hp
 current_hp = hp
@@ -114,7 +116,8 @@ if completed[1]
             batch_size = 4,
             train_steps = train_steps,
             fire_rate = fr,
-            visible_channels = 3
+            visible_channels = 3,
+            filters = filters,
         )
         hps[i] = current_hp # update hps vector of hp
 
