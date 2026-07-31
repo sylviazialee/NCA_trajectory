@@ -1,8 +1,9 @@
 # See readme.txt for usage and outputs.
-
-include(joinpath(@__DIR__, "sindy_lib.jl"))
-include(joinpath(@__DIR__, "sindy_plots.jl"))
 include(joinpath(@__DIR__, "..", "src", "NeuralCellularAutomata.jl"))
+
+# These `using`s must come BEFORE the helper includes: sindy_nca.jl annotates
+# signatures with CAModel / CuArray, and type annotations are resolved at
+# definition time, so those names have to be in scope when the file is included.
 using .NeuralCellularAutomata
 using CUDA
 using NNlib
@@ -16,6 +17,10 @@ using ProgressMeter
 using FFMPEG_jll
 using JLD2
 
+include(joinpath(@__DIR__, "sindy_lib.jl"))
+include(joinpath(@__DIR__, "sindy_plots.jl"))
+include(joinpath(@__DIR__, "sindy_nca.jl"))
+
 #------------------------------------------------
 # Config
 #------------------------------------------------
@@ -25,10 +30,11 @@ const EVAL_FIRE_RATE = 1.0f0  # no stochastic mask — every cell updates
 const REPO = normpath(joinpath(@__DIR__, ".."))
 
 # point RUN_DIR at your trained run
-const RUN_DIR = joinpath(REPO, "spread_ch_3_Delta_T_20", "20260727_234829")
+const RUN_DIR = "/home/szl129/nca_rgb/spread_ch_3/20260729_183014/checkpoints/traj_final.jld2"
 
 # training frames live under REPO/IMAGE_SET/snapshot_XX.png
 const IMAGE_SET = "spread"
+const CUTOFF = 4.0
 
 # optional u_traj fallback; leave unused when IMAGE_SET is set
 const TRAJ_SOURCE = joinpath(REPO, "fhn_jld2")
@@ -66,9 +72,9 @@ function resolve_ckpt(arg::AbstractString)
 end
 
 ckpt_path  = resolve_ckpt(RUN_DIR)
-max_degree = length(ARGS) >= 1 ? parse(Int, ARGS[1]) : 3
+max_degree = length(ARGS) >= 1 ? parse(Int, ARGS[1]) : 2
 n_samples  = length(ARGS) >= 2 ? parse(Int, ARGS[2]) : 20_000
-threshold  = length(ARGS) >= 3 ? parse(Float64, ARGS[3]) : 1e-2
+threshold  = length(ARGS) >= 3 ? parse(Float64, ARGS[3]) : CUTOFF
 fit_steps_arg = if length(ARGS) >= 5
     # old CLI had x_scale/grid here — ignore those, we fit on the traj now
     @warn "Ignoring obsolete x_scale=$(ARGS[4]) and grid=$(ARGS[5]); fitting on the NCA trajectory"
@@ -84,9 +90,6 @@ end
 (1 <= max_degree <= 4) || error("max_degree must be in 1..4 (got $max_degree)")
 n_samples >= 100 || error("n_samples too small")
 fit_steps_arg >= 0 || error("fit_steps must be >= 0")
-
-# NCA helpers (sampling, sparse step, rollout eval) — see sindy_nca.jl
-include(joinpath(@__DIR__, "sindy_nca.jl"))
 
 #------------------------------------------------
 # Load model + frames
@@ -312,7 +315,8 @@ eval_info = eval_sparse_rollout!(
 latest_dir = joinpath(run_dir, "outputs", "sparse_symbolic")
 mkpath(latest_dir)
 for f in (summary_path, csv_path, plot_path, model_jld, eval_info.read_path,
-          eval_info.snap_path, eval_info.re_plot_path, eval_info.re_log_path, eval_info.video_path)
+          eval_info.snap_path, eval_info.re_plot_path, eval_info.re_log_path,
+          eval_info.video_path, eval_info.full_rollout_video)
     isfile(f) && cp(f, joinpath(latest_dir, basename(f)); force = true)
 end
 

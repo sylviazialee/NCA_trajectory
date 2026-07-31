@@ -1,0 +1,59 @@
+ckpt = /home/szl129/nca_rgb/spread_ch_3/20260729_183014/checkpoints/traj_final.jld2
+filters = [:id, :laplacian]
+channel_n = 3  visible=3
+fire_rate_eval = 1.0  train_fr=0.5
+max_degree = 2  n_samples=20000  threshold=2.0
+threshold_basis = dimensionless coefficient after normalizing Θ columns and dx channel std
+ridge_lambda = 0.0001
+active_sample_fraction = 0.5
+active_pool_fraction = 0.2
+library_column_rms = [1.0, 0.9095084184765523, 0.7960533838385998, 0.7968459442249335, 0.9032319306104298, 0.7920783640301129, 0.79291576716798, 0.796069131354084, 0.7969241888341652, 0.7977841706360512, 0.06212829301435556, 0.06983600237084885, 0.07065775151619327, 0.05197486167878438, 0.06194341080095589, 0.06234389405674482, 0.04952996564898463, 0.05695818729363373, 0.057344837482980845, 0.04957889374242512, 0.057090336513982404, 0.05747837588100144]
+sampling = original NCA fire_rate=1 trajectory
+fit_steps = 380  fit_initial_state=/orcd/home/002/szl129/nca_rgb/spread/snapshot_00.png
+library_type = identity reaction monomials degree ≤2 + linear Laplacians + id*Laplacian
+n_feat = 6  library_P = 22
+feat_names = ["id_c0", "laplacian_c0", "id_c1", "laplacian_c1", "id_c2", "laplacian_c2"]
+frame_source = /orcd/home/002/szl129/nca_rgb/spread
+image_set = spread
+
+
+--- dx_c0  (R²=0.83918  RMSE=0.006332  nnz=6 / 22) ---
+dx_c0 ≈ -0.439 id_c1 +0.258 id_c0 -0.256 id_c0^2 +0.168 id_c1^2 +0.138 id_c2^2 +0.129 id_c1*id_c2
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=    0.257929  normalized=     14.8567  id_c0
+  raw=    -0.43897  normalized=    -22.1306  id_c1
+  raw=   -0.255711  normalized=    -14.6273  id_c0^2
+  raw=    0.167908  normalized=     8.46524  id_c1^2
+  raw=    0.129493  normalized=     6.53554  id_c1*id_c2
+  raw=    0.137604  normalized=      6.9524  id_c2^2
+
+--- dx_c1  (R²=0.25066  RMSE=0.004445  nnz=11 / 22) ---
+dx_c1 ≈ -0.857 id_c1*laplacian_c1 +0.605 laplacian_c1*id_c2 +0.241 id_c2*laplacian_c2 +0.201 laplacian_c1 -0.192 laplacian_c2 +0.0805 id_c2 -0.03 id_c1^2 +0.0275 id_c0 -0.0273 id_c0^2 -0.0258 id_c1*id_c2 -0.0249 id_c2^2
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=   0.0275012  normalized=     4.87094  id_c0
+  raw=   0.0804645  normalized=     12.4863  id_c2
+  raw=  -0.0273444  normalized=    -4.80974  id_c0^2
+  raw=  -0.0300003  normalized=    -4.65082  id_c1^2
+  raw=  -0.0258261  normalized=    -4.00802  id_c1*id_c2
+  raw=  -0.0249072  normalized=    -3.86959  id_c2^2
+  raw=    0.200975  normalized=     2.73322  laplacian_c1
+  raw=   -0.192073  normalized=    -2.64289  laplacian_c2
+  raw=   -0.856517  normalized=    -9.50048  id_c1*laplacian_c1
+  raw=    0.604682  normalized=     6.72269  laplacian_c1*id_c2
+  raw=    0.240933  normalized=     2.69684  id_c2*laplacian_c2
+
+--- dx_c2  (R²=0.32711  RMSE=0.002348  nnz=12 / 22) ---
+dx_c2 ≈ -0.17 id_c1*laplacian_c2 +0.161 id_c1*laplacian_c1 +0.108 id_c0*laplacian_c2 -0.0977 id_c0*laplacian_c1 -0.0627 id_c1 -0.0516 id_c2 +0.043 id_c1*id_c2 +0.0428 id_c1^2 +0.0406 id_c2^2 +0.0394 id_c0^2 -0.0387 id_c0 -0.0127 id_c0*id_c2
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=  -0.0386925  normalized=    -12.2961  id_c0
+  raw=  -0.0627246  normalized=    -17.4467  id_c1
+  raw=  -0.0515628  normalized=    -14.3564  id_c2
+  raw=   0.0394216  normalized=     12.4413  id_c0^2
+  raw=  -0.0126515  normalized=    -3.50512  id_c0*id_c2
+  raw=    0.042751  normalized=     11.8914  id_c1^2
+  raw=   0.0429511  normalized=     11.9598  id_c1*id_c2
+  raw=   0.0405961  normalized=     11.3163  id_c2^2
+  raw=  -0.0976595  normalized=     -2.1137  id_c0*laplacian_c1
+  raw=    0.107784  normalized=     2.34792  id_c0*laplacian_c2
+  raw=    0.160769  normalized=     3.19957  id_c1*laplacian_c1
+  raw=   -0.169688  normalized=    -3.40001  id_c1*laplacian_c2

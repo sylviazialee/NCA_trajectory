@@ -1,0 +1,26 @@
+2026-07-31T09:06:25.764
+SPARSE POLY ROLLOUT (not neural NCA)
+ckpt / fit from = /home/szl129/nca_rgb/spread_ch_3/20260729_183014/checkpoints/traj_final.jld2
+FRAME_SOURCE = /orcd/home/002/szl129/nca_rgb/spread
+INITIAL CONDITION = first frame visible channels; hidden channels zero
+TRAIN/TEST SPLIT = 16/20 train, 4 test
+TRAIN OBS = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300]
+TEST OBS = [320, 340, 360, 380]
+DELTA_T / OBS = [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380]
+CHANNEL_N = 3  VC = 3
+MAX_DEGREE = 2  THRESHOLD = 0.1
+LIBRARY TERMS = ["1", "id_c0", "id_c1", "id_c2", "id_c0^2", "id_c0*id_c1", "id_c0*id_c2", "id_c1^2", "id_c1*id_c2", "id_c2^2", "laplacian_c0", "laplacian_c1", "laplacian_c2", "id_c0*laplacian_c0", "id_c0*laplacian_c1", "id_c0*laplacian_c2", "laplacian_c0*id_c1", "id_c1*laplacian_c1", "id_c1*laplacian_c2", "laplacian_c0*id_c2", "laplacian_c1*id_c2", "id_c2*laplacian_c2"]
+EVAL FIRE RATE = 1.0  (deterministic; sparse has no stochastic mask)
+BLEW_UP = true
+FREE ROLLOUT FINITE STEPS = 81 of 380
+FREE ROLLOUT FRAMES = /home/szl129/nca_rgb/spread_ch_3/20260729_183014/outputs/sparse_symbolic_20260731_090542/full_rollout_frames
+FREE ROLLOUT VIDEO = /home/szl129/nca_rgb/spread_ch_3/20260729_183014/outputs/sparse_symbolic_20260731_090542/full_rollout_free_fr1.0.mp4
+FINAL LOSS (at last frame) = Inf
+AFTER LOSS (persistence past last frame vs last tgt) = NaN
+CKPT MSE (full rollout) = Float32[0.0, 0.007800277, 0.09622762, 0.12302174, 6.7912345f29, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf]
+CKPT RE  (full rollout) = Float32[0.0, 0.11162292, 0.39101654, 0.4403702, 1.0277725f15, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf, Inf]
+RE TRAIN = Inf
+RE TEST = Inf
+RE FULL = Inf
+RE FINAL = Inf
+RE AFTER = NaN

@@ -12,7 +12,7 @@ run_id = run_timestamp()
 data_dir = "8020_$(train_set)_subs$(num)"
 train_steps = 3000
 delta = 20
-
+channel_n = 3
 
 step_080 = 16
 
@@ -72,7 +72,7 @@ re_loss_info = Vector(undef, numseq)
 
 # run step one first 
 hp = TrajectoryHParams(
-    channel_n  = 16,
+    channel_n  = channel_n,
     obs_steps  = substeps[1],
     batch_size = 4,
     train_steps = train_steps,
@@ -106,7 +106,7 @@ if completed[1]
         current_frames = subframes[i] # update frames
         # current hp parameters
         current_hp = TrajectoryHParams(
-            channel_n  = 16,
+            channel_n  = channel_n,
             obs_steps  = substeps[i],
             batch_size = 4,
             train_steps = train_steps,

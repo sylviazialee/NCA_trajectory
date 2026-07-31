@@ -1,0 +1,126 @@
+ckpt = /home/szl129/nca_rgb/spread_ch_3/20260729_183014/checkpoints/traj_final.jld2
+filters = [:id, :laplacian]
+channel_n = 3  visible=3
+fire_rate_eval = 1.0  train_fr=0.5
+max_degree = 3  n_samples=20000  threshold=0.01
+threshold_basis = dimensionless coefficient after normalizing Θ columns and dx channel std
+ridge_lambda = 0.0001
+active_sample_fraction = 0.5
+active_pool_fraction = 0.2
+library_column_rms = [1.0, 0.9095084184765523, 0.7960533838385998, 0.7968459442249335, 0.9032319306104298, 0.7920783640301129, 0.79291576716798, 0.796069131354084, 0.7969241888341652, 0.7977841706360512, 0.8990451024053667, 0.7881875808837192, 0.7890238317152011, 0.7921577862641608, 0.7930098320356743, 0.7938666760709139, 0.7961745319888157, 0.7970288536267663, 0.7978878963610628, 0.7987517052363123, 0.06212829301435556, 0.06983600237084885, 0.07065775151619327, 0.05197486167878438, 0.06194341080095589, 0.06234389405674482, 0.04952996564898463, 0.05695818729363373, 0.057344837482980845, 0.04957889374242512, 0.057090336513982404, 0.05747837588100144]
+sampling = original NCA fire_rate=1 trajectory
+fit_steps = 380  fit_initial_state=/orcd/home/002/szl129/nca_rgb/spread/snapshot_00.png
+library_type = identity reaction monomials degree ≤3 + linear Laplacians + id*Laplacian
+n_feat = 6  library_P = 32
+feat_names = ["id_c0", "laplacian_c0", "id_c1", "laplacian_c1", "id_c2", "laplacian_c2"]
+frame_source = /orcd/home/002/szl129/nca_rgb/spread
+image_set = spread
+
+
+--- dx_c0  (R²=0.91744  RMSE=0.004537  nnz=32 / 32) ---
+dx_c0 ≈ +1.43 id_c0*laplacian_c2 +1.06 laplacian_c1*id_c2 -1.05 id_c0*laplacian_c1 +0.905 laplacian_c0*id_c1 -0.854 id_c1*laplacian_c2 -0.747 laplacian_c2 -0.726 laplacian_c0*id_c2 -0.7 id_c1*laplacian_c1 -0.567 id_c0*laplacian_c0 +0.456 id_c2*laplacian_c2 +0.398 laplacian_c0 +0.391 laplacian_c1 +0.237 id_c0 -0.235 id_c1 -0.147 id_c0^2 -0.1 id_c2 -0.0911 id_c0^3 +0.0402 id_c1^2 +0.0397 id_c2^2 +0.0379 id_c0*id_c1^2 +0.0377 id_c0^2*id_c2 +0.0366 id_c1*id_c2 +0.0366 id_c0*id_c2^2 +0.0324 id_c0*id_c1*id_c2 +0.028 id_c1^2*id_c2 +0.0277 id_c1^3 +0.0273 id_c1*id_c2^2 +0.027 id_c2^3 -0.0182 id_c0*id_c2 -0.018 id_c0*id_c1 -0.000976 id_c0^2*id_c1 +0.000619
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw= 0.000619261  normalized=   0.0392184  1
+  raw=    0.237274  normalized=      13.667  id_c0
+  raw=   -0.234779  normalized=    -11.8363  id_c1
+  raw=   -0.100081  normalized=    -5.05062  id_c2
+  raw=   -0.147214  normalized=    -8.42103  id_c0^2
+  raw=  -0.0179502  normalized=   -0.900439  id_c0*id_c1
+  raw=  -0.0182196  normalized=   -0.914921  id_c0*id_c2
+  raw=   0.0402376  normalized=     2.02862  id_c1^2
+  raw=   0.0366423  normalized=     1.84934  id_c1*id_c2
+  raw=    0.039719  normalized=     2.00678  id_c2^2
+  raw=  -0.0910732  normalized=    -5.18548  id_c0^3
+  raw=-0.000976059  normalized=  -0.0487217  id_c0^2*id_c1
+  raw=    0.037699  normalized=     1.88381  id_c0^2*id_c2
+  raw=   0.0379094  normalized=     1.90185  id_c0*id_c1^2
+  raw=    0.032423  normalized=     1.62835  id_c0*id_c1*id_c2
+  raw=   0.0366402  normalized=     1.84214  id_c0*id_c2^2
+  raw=   0.0276503  normalized=      1.3942  id_c1^3
+  raw=    0.027984  normalized=     1.41254  id_c1^2*id_c2
+  raw=   0.0273474  normalized=      1.3819  id_c1*id_c2^2
+  raw=   0.0270287  normalized=     1.36727  id_c2^3
+  raw=    0.397894  normalized=     1.56557  laplacian_c0
+  raw=    0.390546  normalized=      1.7273  laplacian_c1
+  raw=   -0.747328  normalized=    -3.34417  laplacian_c2
+  raw=   -0.566781  normalized=    -1.86563  id_c0*laplacian_c0
+  raw=    -1.05067  normalized=    -4.12173  id_c0*laplacian_c1
+  raw=     1.43395  normalized=     5.66165  id_c0*laplacian_c2
+  raw=    0.905446  normalized=     2.84019  laplacian_c0*id_c1
+  raw=   -0.700084  normalized=    -2.52536  id_c1*laplacian_c1
+  raw=   -0.854391  normalized=     -3.1029  id_c1*laplacian_c2
+  raw=   -0.725802  normalized=    -2.27893  laplacian_c0*id_c2
+  raw=     1.06295  normalized=     3.84319  laplacian_c1*id_c2
+  raw=    0.456229  normalized=     1.66075  id_c2*laplacian_c2
+
+--- dx_c1  (R²=0.44815  RMSE=0.003815  nnz=32 / 32) ---
+dx_c1 ≈ -0.676 id_c1*laplacian_c1 +0.414 laplacian_c1*id_c2 +0.386 id_c2*laplacian_c2 +0.305 laplacian_c1 -0.295 id_c0*laplacian_c2 -0.174 laplacian_c0 +0.144 id_c0*laplacian_c0 -0.127 id_c1*laplacian_c2 -0.109 laplacian_c2 +0.104 id_c2 +0.101 id_c0*laplacian_c1 -0.0793 id_c0^2 +0.0459 id_c0 +0.043 laplacian_c0*id_c2 +0.0335 id_c0^3 -0.0146 id_c1*id_c2 -0.0139 id_c0^2*id_c1 -0.0129 laplacian_c0*id_c1 -0.0118 id_c2^2 -0.0117 id_c1^3 -0.0113 id_c1^2 -0.0107 id_c1^2*id_c2 -0.0102 id_c1*id_c2^2 -0.00959 id_c2^3 -0.00836 id_c0*id_c1*id_c2 +0.00789 id_c0*id_c2 +0.0072 id_c0^2*id_c2 -0.00611 id_c0*id_c2^2 -0.00568 id_c0*id_c1^2 -0.00328 id_c1 -0.00229 id_c0*id_c1 -8.14e-05
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=-8.14446e-05  normalized=  -0.0158605  1
+  raw=   0.0458655  normalized=     8.12357  id_c0
+  raw= -0.00328137  normalized=   -0.508687  id_c1
+  raw=    0.104367  normalized=     16.1954  id_c2
+  raw=  -0.0793326  normalized=    -13.9542  id_c0^2
+  raw= -0.00229414  normalized=   -0.353868  id_c0*id_c1
+  raw=  0.00789343  normalized=     1.21884  id_c0*id_c2
+  raw=  -0.0112872  normalized=     -1.7498  id_c1^2
+  raw=  -0.0145975  normalized=    -2.26542  id_c1*id_c2
+  raw=  -0.0117962  normalized=    -1.83266  id_c2^2
+  raw=   0.0335278  normalized=     5.87003  id_c0^3
+  raw=  -0.0139134  normalized=    -2.13558  id_c0^2*id_c1
+  raw=  0.00720034  normalized=     1.10636  id_c0^2*id_c2
+  raw= -0.00567809  normalized=   -0.875926  id_c0*id_c1^2
+  raw= -0.00835699  normalized=    -1.29057  id_c0*id_c1*id_c2
+  raw= -0.00610758  normalized=   -0.944214  id_c0*id_c2^2
+  raw=  -0.0117046  normalized=    -1.81476  id_c1^3
+  raw=  -0.0107365  normalized=    -1.66645  id_c1^2*id_c2
+  raw=  -0.0102472  normalized=     -1.5922  id_c1*id_c2^2
+  raw= -0.00959265  normalized=    -1.49212  id_c2^3
+  raw=   -0.174069  normalized=    -2.10603  laplacian_c0
+  raw=    0.304689  normalized=     4.14371  laplacian_c1
+  raw=   -0.108883  normalized=    -1.49821  laplacian_c2
+  raw=    0.144485  normalized=     1.46241  id_c0*laplacian_c0
+  raw=    0.100761  normalized=     1.21547  id_c0*laplacian_c1
+  raw=   -0.294953  normalized=    -3.58097  id_c0*laplacian_c2
+  raw=  -0.0129401  normalized=   -0.124813  laplacian_c0*id_c1
+  raw=   -0.676114  normalized=    -7.49945  id_c1*laplacian_c1
+  raw=   -0.126981  normalized=    -1.41803  id_c1*laplacian_c2
+  raw=   0.0429701  normalized=    0.414874  laplacian_c0*id_c2
+  raw=    0.414383  normalized=       4.607  laplacian_c1*id_c2
+  raw=    0.385726  normalized=     4.31754  id_c2*laplacian_c2
+
+--- dx_c2  (R²=0.47139  RMSE=0.002081  nnz=32 / 32) ---
+dx_c2 ≈ +0.295 id_c0*laplacian_c2 -0.276 id_c0*laplacian_c1 -0.174 id_c1*laplacian_c2 +0.17 laplacian_c0*id_c2 +0.162 id_c1*laplacian_c1 -0.101 id_c2*laplacian_c2 +0.0969 laplacian_c1*id_c2 -0.0948 laplacian_c0*id_c1 -0.0821 id_c0*laplacian_c0 +0.0707 id_c0^2 -0.0517 id_c2 -0.0434 id_c0 -0.0341 laplacian_c2 -0.0326 id_c1 +0.0305 laplacian_c1 -0.0269 id_c0^3 -0.0217 id_c0*id_c2 -0.0176 id_c0^2*id_c2 +0.0151 id_c0*id_c1*id_c2 +0.0151 id_c0*id_c1^2 +0.0149 id_c1*id_c2 +0.0138 id_c0*id_c2^2 +0.0137 id_c1^2 +0.0136 id_c2^2 +0.0112 id_c1^3 +0.0107 id_c1^2*id_c2 +0.0103 id_c1*id_c2^2 +0.0097 id_c2^3 +0.00884 laplacian_c0 -0.00263 id_c0^2*id_c1 -0.00182 id_c0*id_c1 -0.000337
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=-0.000337032  normalized=   -0.117762  1
+  raw=  -0.0434346  normalized=    -13.8031  id_c0
+  raw=  -0.0325996  normalized=    -9.06751  id_c1
+  raw=  -0.0517203  normalized=    -14.4002  id_c2
+  raw=   0.0706829  normalized=     22.3073  id_c0^2
+  raw= -0.00182102  normalized=   -0.503984  id_c0*id_c1
+  raw=  -0.0216688  normalized=    -6.00338  id_c0*id_c2
+  raw=   0.0136794  normalized=     3.80496  id_c1^2
+  raw=   0.0148542  normalized=      4.1362  id_c1*id_c2
+  raw=   0.0136192  normalized=      3.7964  id_c2^2
+  raw=  -0.0269327  normalized=     -8.4605  id_c0^3
+  raw= -0.00262966  normalized=   -0.724209  id_c0^2*id_c1
+  raw=  -0.0176324  normalized=     -4.8611  id_c0^2*id_c2
+  raw=   0.0150754  normalized=     4.17267  id_c0*id_c1^2
+  raw=   0.0151307  normalized=     4.19248  id_c0*id_c1*id_c2
+  raw=   0.0138011  normalized=     3.82821  id_c0*id_c2^2
+  raw=   0.0112402  normalized=     3.12691  id_c1^3
+  raw=   0.0106817  normalized=     2.97472  id_c1^2*id_c2
+  raw=   0.0102524  normalized=     2.85825  id_c1*id_c2^2
+  raw=  0.00970063  normalized=     2.70736  id_c2^3
+  raw=  0.00883572  normalized=    0.191807  laplacian_c0
+  raw=   0.0304921  normalized=    0.744049  laplacian_c1
+  raw=  -0.0341472  normalized=   -0.843042  laplacian_c2
+  raw=    -0.08215  normalized=    -1.49188  id_c0*laplacian_c0
+  raw=   -0.276137  normalized=     -5.9766  id_c0*laplacian_c1
+  raw=    0.294503  normalized=     6.41532  id_c0*laplacian_c2
+  raw=  -0.0947514  normalized=    -1.63979  laplacian_c0*id_c1
+  raw=    0.162389  normalized=     3.23181  id_c1*laplacian_c1
+  raw=   -0.174282  normalized=    -3.49205  id_c1*laplacian_c2
+  raw=    0.169735  normalized=     2.94038  laplacian_c0*id_c2
+  raw=   0.0968506  normalized=     1.93196  laplacian_c1*id_c2
+  raw=   -0.100548  normalized=    -2.01936  id_c2*laplacian_c2

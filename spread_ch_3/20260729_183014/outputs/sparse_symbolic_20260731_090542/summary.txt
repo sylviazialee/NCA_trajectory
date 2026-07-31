@@ -1,0 +1,90 @@
+ckpt = /home/szl129/nca_rgb/spread_ch_3/20260729_183014/checkpoints/traj_final.jld2
+filters = [:id, :laplacian]
+channel_n = 3  visible=3
+fire_rate_eval = 1.0  train_fr=0.5
+max_degree = 2  n_samples=20000  threshold=0.1
+threshold_basis = dimensionless coefficient after normalizing Θ columns and dx channel std
+ridge_lambda = 0.0001
+active_sample_fraction = 0.5
+active_pool_fraction = 0.2
+library_column_rms = [1.0, 0.9095084184765523, 0.7960533838385998, 0.7968459442249335, 0.9032319306104298, 0.7920783640301129, 0.79291576716798, 0.796069131354084, 0.7969241888341652, 0.7977841706360512, 0.06212829301435556, 0.06983600237084885, 0.07065775151619327, 0.05197486167878438, 0.06194341080095589, 0.06234389405674482, 0.04952996564898463, 0.05695818729363373, 0.057344837482980845, 0.04957889374242512, 0.057090336513982404, 0.05747837588100144]
+sampling = original NCA fire_rate=1 trajectory
+fit_steps = 380  fit_initial_state=/orcd/home/002/szl129/nca_rgb/spread/snapshot_00.png
+library_type = identity reaction monomials degree ≤2 + linear Laplacians + id*Laplacian
+n_feat = 6  library_P = 22
+feat_names = ["id_c0", "laplacian_c0", "id_c1", "laplacian_c1", "id_c2", "laplacian_c2"]
+frame_source = /orcd/home/002/szl129/nca_rgb/spread
+image_set = spread
+
+
+--- dx_c0  (R²=0.92287  RMSE=0.004385  nnz=20 / 22) ---
+dx_c0 ≈ +1.36 id_c0*laplacian_c2 -1.03 id_c0*laplacian_c1 +0.996 laplacian_c1*id_c2 -0.86 id_c1*laplacian_c2 -0.648 laplacian_c2 -0.631 id_c1*laplacian_c1 -0.544 id_c0*laplacian_c0 +0.459 id_c2*laplacian_c2 +0.456 laplacian_c0*id_c1 +0.358 laplacian_c0 +0.341 laplacian_c1 -0.308 id_c0^2 +0.307 id_c0 -0.258 laplacian_c0*id_c2 -0.196 id_c1 +0.0862 id_c1^2 +0.0859 id_c2^2 +0.0838 id_c1*id_c2 -0.0732 id_c2 +0.0126 id_c0*id_c2
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=    0.307435  normalized=     17.7083  id_c0
+  raw=   -0.196406  normalized=    -9.90179  id_c1
+  raw=  -0.0731938  normalized=    -3.69374  id_c2
+  raw=   -0.307855  normalized=    -17.6102  id_c0^2
+  raw=   0.0125631  normalized=     0.63087  id_c0*id_c2
+  raw=   0.0861727  normalized=     4.34448  id_c1^2
+  raw=   0.0837967  normalized=     4.22923  id_c1*id_c2
+  raw=   0.0858953  normalized=     4.33982  id_c2^2
+  raw=     0.35822  normalized=     1.40947  laplacian_c0
+  raw=    0.341014  normalized=     1.50823  laplacian_c1
+  raw=    -0.64786  normalized=    -2.89907  laplacian_c2
+  raw=   -0.544216  normalized=    -1.79136  id_c0*laplacian_c0
+  raw=     -1.0286  normalized=    -4.03512  id_c0*laplacian_c1
+  raw=     1.35912  normalized=     5.36622  id_c0*laplacian_c2
+  raw=    0.456049  normalized=     1.43053  laplacian_c0*id_c1
+  raw=   -0.631289  normalized=     -2.2772  id_c1*laplacian_c1
+  raw=    -0.86022  normalized=    -3.12407  id_c1*laplacian_c2
+  raw=   -0.258167  normalized=   -0.810614  laplacian_c0*id_c2
+  raw=    0.996287  normalized=     3.60217  laplacian_c1*id_c2
+  raw=    0.459497  normalized=     1.67265  id_c2*laplacian_c2
+
+--- dx_c1  (R²=0.41091  RMSE=0.003941  nnz=21 / 22) ---
+dx_c1 ≈ -0.75 id_c1*laplacian_c1 +0.462 laplacian_c1*id_c2 +0.458 id_c2*laplacian_c2 +0.326 laplacian_c1 -0.284 id_c0*laplacian_c2 +0.184 laplacian_c0*id_c1 -0.174 id_c1*laplacian_c2 -0.154 laplacian_c2 -0.153 laplacian_c0 -0.147 laplacian_c0*id_c2 +0.117 id_c0*laplacian_c0 +0.114 id_c0*laplacian_c1 +0.103 id_c2 -0.0368 id_c1*id_c2 -0.035 id_c0^2 +0.0347 id_c0 -0.0342 id_c1^2 -0.0334 id_c2^2 -0.00335 id_c0*id_c1 +0.00268 id_c1 +0.00244 id_c0*id_c2
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=   0.0347482  normalized=      6.1545  id_c0
+  raw=  0.00268268  normalized=    0.415877  id_c1
+  raw=    0.102789  normalized=     15.9505  id_c2
+  raw=  -0.0349924  normalized=    -6.15499  id_c0^2
+  raw= -0.00334782  normalized=   -0.516397  id_c0*id_c1
+  raw=   0.0024376  normalized=    0.376395  id_c0*id_c2
+  raw=   -0.034217  normalized=    -5.30452  id_c1^2
+  raw=  -0.0368348  normalized=    -5.71648  id_c1*id_c2
+  raw=  -0.0333982  normalized=    -5.18875  id_c2^2
+  raw=   -0.152644  normalized=    -1.84681  laplacian_c0
+  raw=    0.326216  normalized=     4.43647  laplacian_c1
+  raw=   -0.154259  normalized=    -2.12258  laplacian_c2
+  raw=    0.116561  normalized=     1.17977  id_c0*laplacian_c0
+  raw=    0.113899  normalized=     1.37395  id_c0*laplacian_c1
+  raw=   -0.284296  normalized=    -3.45158  id_c0*laplacian_c2
+  raw=    0.184369  normalized=     1.77832  laplacian_c0*id_c1
+  raw=   -0.750388  normalized=     -8.3233  id_c1*laplacian_c1
+  raw=   -0.173997  normalized=    -1.94307  id_c1*laplacian_c2
+  raw=   -0.146574  normalized=    -1.41517  laplacian_c0*id_c2
+  raw=    0.462314  normalized=     5.13988  laplacian_c1*id_c2
+  raw=    0.458199  normalized=     5.12876  id_c2*laplacian_c2
+
+--- dx_c2  (R²=0.37486  RMSE=0.002263  nnz=19 / 22) ---
+dx_c2 ≈ +0.304 laplacian_c0*id_c2 -0.288 id_c0*laplacian_c1 +0.284 id_c0*laplacian_c2 -0.233 laplacian_c0*id_c1 +0.224 id_c1*laplacian_c1 -0.161 id_c2*laplacian_c2 -0.138 id_c1*laplacian_c2 +0.0603 laplacian_c1*id_c2 -0.0571 id_c0*laplacian_c0 -0.0511 id_c2 -0.0382 id_c1 +0.036 id_c1*id_c2 +0.0354 id_c1^2 +0.0345 id_c0^2 -0.0344 id_c0 +0.0342 id_c2^2 +0.0184 laplacian_c1 -0.0164 id_c0*id_c2 -0.0142 laplacian_c0
+coefficients (nonzero only; raw, normalized-for-threshold):
+  raw=  -0.0344193  normalized=    -10.9381  id_c0
+  raw=   -0.038183  normalized=    -10.6205  id_c1
+  raw=   -0.051106  normalized=    -14.2292  id_c2
+  raw=   0.0344987  normalized=     10.8877  id_c0^2
+  raw=    -0.01636  normalized=    -4.53256  id_c0*id_c2
+  raw=   0.0354425  normalized=     9.85846  id_c1^2
+  raw=   0.0359939  normalized=     10.0226  id_c1*id_c2
+  raw=   0.0341856  normalized=     9.52933  id_c2^2
+  raw=  -0.0141927  normalized=   -0.308097  laplacian_c0
+  raw=   0.0183992  normalized=    0.448966  laplacian_c1
+  raw=  -0.0570817  normalized=    -1.03663  id_c0*laplacian_c0
+  raw=   -0.288233  normalized=    -6.23839  id_c0*laplacian_c1
+  raw=    0.284146  normalized=     6.18969  id_c0*laplacian_c2
+  raw=   -0.232917  normalized=    -4.03092  laplacian_c0*id_c1
+  raw=    0.224312  normalized=      4.4642  id_c1*laplacian_c1
+  raw=   -0.137666  normalized=    -2.75838  id_c1*laplacian_c2
+  raw=    0.304343  normalized=     5.27222  laplacian_c0*id_c2
+  raw=    0.060283  normalized=     1.20252  laplacian_c1*id_c2
+  raw=   -0.161261  normalized=    -3.23868  id_c2*laplacian_c2

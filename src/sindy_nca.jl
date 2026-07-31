@@ -314,20 +314,12 @@ function save_teacher_forced_sparse_vs_nca_video(
 
         sparse_arr = Array(sparse_next)[:, :, :, 1]
         nca_arr = Array(nca_next)[:, :, :, 1]
-        panel_clim = if vc == 1
-            max(
-                NeuralCellularAutomata._resolve_diverging_clim(@view(sparse_arr[:, :, 1]), nothing),
-                NeuralCellularAutomata._resolve_diverging_clim(@view(nca_arr[:, :, 1]), nothing),
-            )
-        else
-            nothing
-        end
+        # NOTE: this repo's to_rgb takes only `vc` -- no diverging-clim support,
+        # so no shared colour scale / colorbar here.
         canvas = NeuralCellularAutomata.side_by_side_rgb(
-            NeuralCellularAutomata.to_rgb(sparse_arr; vc, clim = panel_clim),
-            NeuralCellularAutomata.to_rgb(nca_arr; vc, clim = panel_clim),
+            NeuralCellularAutomata.to_rgb(sparse_arr; vc),
+            NeuralCellularAutomata.to_rgb(nca_arr; vc),
         )
-        panel_clim !== nothing &&
-            (canvas = NeuralCellularAutomata.append_diverging_colorbar(canvas, panel_clim))
         frame_path = joinpath(frame_dir, @sprintf("frame_%05d.ppm", i))
         NeuralCellularAutomata.write_rgb_ppm(frame_path, canvas; scale)
         next!(progress; showvalues = [(:frame, i), (:total_frames, n_steps + 1)])
@@ -436,12 +428,29 @@ function eval_sparse_rollout!(
     obs_positions = Dict(t => i for (i, t) in enumerate(obs_steps_all))
     captured = Vector{typeof(x0)}(undef, n_frames)
     blew_up = false
+
+    # Dump every CA step of the FREE rollout so a divergence can be inspected
+    # frame-by-frame (the teacher-forced video resets to the NCA state each step
+    # and therefore never shows the blow-up).
+    full_frame_dir = joinpath(out_dir, "full_rollout_frames")
+    rm(full_frame_dir; force = true, recursive = true)
+    mkpath(full_frame_dir)
+    full_written = 0
+
     let state = copy(x0)
         haskey(obs_positions, 0) && (captured[obs_positions[0]] = copy(state))
+        # t = 0 frame (the IC)
+        NeuralCellularAutomata.write_rgb_ppm(
+            joinpath(full_frame_dir, @sprintf("frame_%05d.ppm", 0)),
+            NeuralCellularAutomata.to_rgb(Array(state)[:, :, :, 1]; vc);
+            scale = VIDEO_SCALE,
+        )
+        full_written += 1
+
         for t in 1:K_full
             state = step_sparse(state, kernel, channel_n, Ξ, exps)
             if !all(isfinite, Array(state))
-                @warn "sparse state non-finite at CA step $t"
+                @warn "sparse state non-finite at CA step $t" frames_written = full_written
                 blew_up = true
                 # keep going with whatever we have so metrics still write
                 for tt in t:K_full
@@ -451,6 +460,13 @@ function eval_sparse_rollout!(
                 end
                 break
             end
+            # only finite states get written; write_rgb_ppm can't render NaN/Inf
+            NeuralCellularAutomata.write_rgb_ppm(
+                joinpath(full_frame_dir, @sprintf("frame_%05d.ppm", t)),
+                NeuralCellularAutomata.to_rgb(Array(state)[:, :, :, 1]; vc);
+                scale = VIDEO_SCALE,
+            )
+            full_written += 1
             haskey(obs_positions, t) && (captured[obs_positions[t]] = copy(state))
         end
         for i in 1:n_frames
@@ -458,6 +474,16 @@ function eval_sparse_rollout!(
                 captured[i] = copy(state)
             end
         end
+    end
+
+    full_rollout_video = joinpath(out_dir, "full_rollout_free_fr$(EVAL_FIRE_RATE).mp4")
+    if full_written > 1
+        ffmpeg_bin = FFMPEG_jll.ffmpeg()
+        run(`$ffmpeg_bin -y -framerate $VIDEO_FPS -i $(joinpath(full_frame_dir, "frame_%05d.ppm")) -pix_fmt yuv420p $full_rollout_video`)
+        @info "Saved free-rollout video: $full_rollout_video  ($full_written frames of $(K_full + 1))"
+    else
+        @warn "free rollout produced too few finite frames to encode" full_written
+        full_rollout_video = ""
     end
 
     ckpt_mse = Float32[loss_fn(captured[i], frames[i]; vc = vc) for i in 1:n_frames]
@@ -501,6 +527,9 @@ function eval_sparse_rollout!(
         println(io, "LIBRARY TERMS = $(labels)")
         println(io, "EVAL FIRE RATE = $(EVAL_FIRE_RATE)  (deterministic; sparse has no stochastic mask)")
         println(io, "BLEW_UP = $(blew_up)")
+        println(io, "FREE ROLLOUT FINITE STEPS = $(full_written - 1) of $(K_full)")
+        println(io, "FREE ROLLOUT FRAMES = $(full_frame_dir)")
+        println(io, "FREE ROLLOUT VIDEO = $(isempty(full_rollout_video) ? "(not encoded)" : full_rollout_video)")
         println(io, "FINAL LOSS (at last frame) = $final_loss")
         println(io, "AFTER LOSS (persistence past last frame vs last tgt) = $after_loss")
         println(io, "CKPT MSE (full rollout) = $(ckpt_mse)")
@@ -569,6 +598,48 @@ function eval_sparse_rollout!(
 
     return (;
         read_path, snap_path, re_plot_path, re_log_path, video_path,
+        full_rollout_video, full_frame_dir, full_written,
         re_train, re_test, re_full, re_final, re_after, blew_up,
     )
+end
+
+function save_sparse_rollout_video(
+    seed::CuArray{Float32,3},
+    kernel::CuArray{Float32,4},
+    channel_n::Int,
+    Ξ::Matrix{Float64},
+    exps::Vector{Vector{Int}};
+    n_steps::Int,
+    frame_dir::String,
+    out_path::String,
+    fps::Int = 30,
+    scale::Int = 8,
+    vc::Int,
+)
+    rm(frame_dir; force = true, recursive = true)
+    mkpath(frame_dir)
+
+    x = reshape(seed, size(seed)..., 1)
+    written = 0
+
+    for i in 0:n_steps
+        x_cpu = Array(x)[:, :, :, 1]
+        if !all(isfinite, x_cpu)
+            @warn "sparse rollout non-finite at frame $i; encoding the $(written) frames written so far"
+            break
+        end
+        rgb = NeuralCellularAutomata.to_rgb(x_cpu; vc)
+        NeuralCellularAutomata.write_rgb_ppm(
+            joinpath(frame_dir, @sprintf("frame_%05d.ppm", i)), rgb; scale,
+        )
+        written += 1
+        i < n_steps && (x = step_sparse(x, kernel, channel_n, Ξ, exps))
+    end
+
+    written == 0 && (@warn "no frames written; skipping video"; return nothing)
+
+    ffmpeg = FFMPEG_jll.ffmpeg()
+    run(`$ffmpeg -y -framerate $fps -i $(joinpath(frame_dir, "frame_%05d.ppm")) -pix_fmt yuv420p $out_path`)
+    @info "Saved sparse rollout video: $out_path  ($written frames)"
+    return out_path
 end

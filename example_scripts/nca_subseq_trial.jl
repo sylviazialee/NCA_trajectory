@@ -31,12 +31,14 @@ frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_12.png"),
           load_target_rgba("$(image_set)/snapshot_13.png"), 
           load_target_rgba("$(image_set)/snapshot_14.png"),
-          #load_target_rgba("$(image_set)/snapshot_15.png"),
-          #load_target_rgba("$(image_set)/snapshot_16.png"),
-          #load_target_rgba("$(image_set)/snapshot_17.png"), 
-          #load_target_rgba("$(image_set)/snapshot_18.png"),
-          #load_target_rgba("$(image_set)/snapshot_19.png")
+          load_target_rgba("$(image_set)/snapshot_15.png"),
+          load_target_rgba("$(image_set)/snapshot_16.png"),
+          load_target_rgba("$(image_set)/snapshot_17.png"), 
+          load_target_rgba("$(image_set)/snapshot_18.png"),
+          load_target_rgba("$(image_set)/snapshot_19.png")
           ]   # Vector of CuArray{Float32,3}
+
+
 
 # 2. map physical times -> CA step indices (your choice of time scale)
 obs_steps = delta .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 → step 60

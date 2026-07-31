@@ -8,7 +8,7 @@ using Dates
 train_set = ARGS[1]
 image_set = ARGS[2]
 path = ARGS[3]
-test_frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
+#=test_frames = [load_target_rgba("$(image_set)/snapshot_00.png"), 
           load_target_rgba("$(image_set)/snapshot_01.png"),
           load_target_rgba("$(image_set)/snapshot_02.png"),
           load_target_rgba("$(image_set)/snapshot_03.png"),
@@ -28,7 +28,28 @@ test_frames = [load_target_rgba("$(image_set)/snapshot_00.png"),
           load_target_rgba("$(image_set)/snapshot_17.png"), 
           load_target_rgba("$(image_set)/snapshot_18.png"),
           load_target_rgba("$(image_set)/snapshot_19.png")]   # Vector of CuArray{Float32,3}
+=#
 
+test_frames =[load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_00.png"),
+            load_target_rgba("$(image_set)/snapshot_19.png")]
 
 # 1. rebuild the perception kernel from hp (not saved in the checkpoint)
 #spread_path = "/home/szl129/nca/firerate_spread/20260717_120244/checkpoints/traj_final.jld2"
