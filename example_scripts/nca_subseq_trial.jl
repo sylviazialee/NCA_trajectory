@@ -10,7 +10,6 @@ fr = 0.5
 run_id = run_timestamp()
 data_dir = "subseq_$(image_set)"
 train_steps = 3000
-delta = parse(Int64, ARGS[3])
 delta = 20
 
 filters = [:id, :sobel_x, :sobel_y]
@@ -49,7 +48,7 @@ if num == 1
 elseif num == 2
     subseqs = [(5:15), (1:15)]
 elseif num == 3
-    subseqs = [(1:5), (1:10), (1:15)]
+    subseqs = [(1:5), (1:10), (1:20)]
 elseif num == 4
     subseqs = [(1:3), (1:10), (1:15), (1:20)]
 elseif num == 5
