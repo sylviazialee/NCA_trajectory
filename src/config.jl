@@ -51,6 +51,7 @@ Base.@kwdef struct TrajectoryHParams
     filters::Vector{Symbol} = [:id, :sobel_x, :sobel_y]
     # 1 = intensity only, 2 = gray+alpha (life on ch2), 4 = RGBA (life on ch4)
     visible_channels::Int = 3
+    sigma::Float32 = 0.0f0
 end
 
 function scheduled_learning_rate(

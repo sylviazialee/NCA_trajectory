@@ -44,9 +44,9 @@ obs_steps = delta .* (0:19)  # e.g. t=0 → step 0, t=1.0 → step 25, t=2.4 →
 
 # define subseq indices from obs_steps
 if num == 1
-    subseqs = [(1:15)]
+    subseqs = [(1:20)]
 elseif num == 2
-    subseqs = [(5:15), (1:15)]
+    subseqs = [(1:10), (1:20)]
 elseif num == 3
     subseqs = [(1:5), (1:10), (1:20)]
 elseif num == 4
@@ -85,6 +85,7 @@ hp = TrajectoryHParams(
     fire_rate = fr,
     visible_channels = 3,
     filters = filters,
+    sigma = 0.0f0,
 )
 hps[1] = hp
 current_hp = hp

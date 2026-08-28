@@ -67,6 +67,7 @@ function main_trajectory(
     video_fps::Int = 30,
     video_fire_rate::Float32 = 1f0,
     image_scale::Int = 8,
+    sigma::Float32 = 0.0f0,
 )
     report_backend!()
 
@@ -85,6 +86,7 @@ function main_trajectory(
         video_fps,
         video_fire_rate,
         image_scale,
+        sigma,
     )
     
     #rerun model for length K
@@ -153,6 +155,7 @@ function main_subseq(
     video_fps::Int = 30,
     video_fire_rate::Float32 = 1f0,
     image_scale::Int = 8,
+    sigma::Float32 = 0.0f0,
 )
     report_backend!()
 
@@ -172,6 +175,7 @@ function main_subseq(
         video_fps,
         video_fire_rate,
         image_scale,
+        sigma,
     )
     
     #rerun model for length K

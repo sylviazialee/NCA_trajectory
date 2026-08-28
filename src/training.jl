@@ -11,6 +11,7 @@ function train!(
     image_scale::Int = 8,
     video_fire_rate::Float32 = 1f0,
     extra_seed_video_offsets::Vector{Tuple{Int,Int}} = Tuple{Int,Int}[],
+    sigma ::Float32 = 0.0f0,
 )
     mkpath(checkpoint_dir)
     mkpath(output_dir)
@@ -211,6 +212,7 @@ function train_trajectory!(
     video_fps::Int         = 30,
     video_fire_rate::Float32 = 1.0f0,
     image_scale::Int       = 8,
+    sigma::Float32 = 0.0f0,
 )
     mkpath(checkpoint_dir); mkpath(output_dir)
     snapshot_dir = joinpath(output_dir, "training_snapshots")
@@ -258,6 +260,7 @@ function train_trajectory!(
             for t in 1:K
                 # deterministic update: fire_rate=1, mask generated once outside the closure
                 # obsolete x = step(m, x, kernel; fire_rate = 1f0, update_mask = deterministic_mask)
+                x = add_noise!(x; sigma = sigma)
                 x = step(m, x, kernel; fire_rate = hp.fire_rate, update_mask = @view(update_masks[:, :, :, :, t]))
                 if haskey(obs_positions, t)
                     captured[obs_positions[t]] = x
@@ -343,6 +346,7 @@ function train_subseq!(
     video_fps::Int         = 30,
     video_fire_rate::Float32 = 1.0f0,
     image_scale::Int       = 8,
+    sigma::Float32 = 0.0f0,
 )
     mkpath(checkpoint_dir); mkpath(output_dir)
     snapshot_dir = joinpath(output_dir, "training_snapshots")
@@ -388,8 +392,7 @@ function train_subseq!(
             end
 
             for t in 1:K
-                # deterministic update: fire_rate=1, mask generated once outside the closure
-                # obsolete x = step(m, x, kernel; fire_rate = 1f0, update_mask = deterministic_mask)
+                x = add_noise!(x; sigma = sigma)
                 x = step(m, x, kernel; fire_rate = hp.fire_rate, update_mask = @view(update_masks[:, :, :, :, t]))
                 if haskey(obs_positions, t)
                     captured[obs_positions[t]] = x
@@ -459,4 +462,17 @@ function train_subseq!(
     end
 
     return model, loss_log
+end
+
+
+function add_noise!(x::CuArray{Float32,4}; sigma::Float32 = 0.0f0) # for training state x in model
+
+#d = Normal(0.0, sigma) # generate bell curve centered at x = 0.0 and with std = 0.3 (NOT )
+W, H, C, B = size(x)
+
+rand_noise = Zygote.ignore() do
+    CUDA.randn(Float32, W, H, C, B) .* sigma # generate H x W x C x B indep rands on all channel values, etc
+end
+x = x .+ rand_noise # add to training data at checkpoint i
+return x
 end

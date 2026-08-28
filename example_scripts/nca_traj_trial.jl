@@ -5,10 +5,11 @@ using CUDA, FileIO, ImageIO
 using Dates
 
 image_set = ARGS[1]
-fr = parse(Float32, ARGS[2])
+sigma = parse(Float32, ARGS[2])
 channel_num = 16
 run_id = run_timestamp()
-data_dir = "01_(image_set)_fr_$(channel_num)"
+fr = 0.5
+data_dir = "$(image_set)_noise_$(sigma)"
 filters = [:id, :sobel_x, :sobel_y]
 
 @info("STARTING: $(image_set) with $(channel_num) channels")
@@ -48,6 +49,7 @@ hp = TrajectoryHParams(
     fire_rate = fr,
     visible_channels = 3,
     filters = filters,
+    sigma = sigma,
 )
 
 # 3. build x0: RGBA from frame[1], hidden channels = 0
@@ -59,7 +61,7 @@ x0 = repeat(reshape(x0_single, W, H, hp.channel_n, 1), 1, 1, 1, hp.batch_size)
 # 4. targets = frames at obs_steps (step 0 is your initial, still supervise it)
 targets = frames   # Vector of CuArray{Float32,3}
 
-model, loss_info, re_loss_info = main_trajectory(x0, targets; hp=hp, run_id = run_id, data_dir = data_dir)
+model, loss_info, re_loss_info = main_trajectory(x0, targets; hp=hp, run_id = run_id, data_dir = data_dir, sigma = sigma)
 
 loss_log, final_loss, after_loss = loss_info
 re_traj, re_fin, re_after = sqrt.(re_loss_info)
